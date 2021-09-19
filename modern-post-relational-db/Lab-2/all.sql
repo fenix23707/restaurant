@@ -14,8 +14,11 @@ CREATE TABLE "user"(
     
 	password    varchar(100)    NOT NULL,
 	
-	role smallint NOT NULL,
-	CONSTRAINT role_range CHECK(role BETWEEN 0 and 2)
+	role smallint NOT NULL DEFAULT 0,
+	CONSTRAINT role_range CHECK(role BETWEEN 0 and 2),
+	
+	status smallint NOT NULL DEFAULT 0,
+	CONSTRAINT status_range CHECK(status BETWEEN 0 and 1)
 );
 
 CREATE TABLE user_info 
@@ -29,9 +32,9 @@ CREATE TABLE user_info
 	
 	phone		varchar(100)	NOT NULL	UNIQUE,
 	
-	avatar		varchar(255)				UNIQUE,
+	avatar		varchar(255),
 	
-	email		varchar(255)	NOT NULL	UNIQUE,
+	email		varchar(255)				UNIQUE,
 	
 	user_id 	serial	REFERENCES "user"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -173,9 +176,9 @@ INSERT INTO book_table (datetime_begin, datetime_end, capacity, status, table_id
 INSERT INTO book_table (datetime_begin, datetime_end, capacity, status, table_id, user_id) VALUES ('2021-09-08T14:00:00Z', '2021-09-08T16:00:00Z', 2, 0, 1, 9);
 INSERT INTO book_table (datetime_begin, datetime_end, capacity, status, table_id, user_id) VALUES ('2021-09-08T16:00:00Z', '2021-09-08T18:00:00Z', 2, 0, 1, 10);
 
-INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (1, 'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.', '2020-11-26T19:06:44Z', 1, 6);
-INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (2, 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', '2021-03-23T08:25:39Z', 2, 7);
-INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (3, null, '2020-10-12T15:13:07Z', 3, 8);
-INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (4, 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', '2021-04-16T21:55:38Z', 4, 9);
-INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (5, 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', '2021-05-06T11:17:47Z', 5, 10);
+INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (1, 'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.', '2020-11-26T19:06:44Z', 6, 1);
+INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (2, 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', '2021-03-23T08:25:39Z', 7, 2);
+INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (3, null, '2020-10-12T15:13:07Z', 8, 3);
+INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (4, 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', '2021-04-16T21:55:38Z', 9, 4);
+INSERT INTO reviews (rate, review, date, user_id, restaurant_id) VALUES (5, 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', '2021-05-06T11:17:47Z', 10, 5);
 

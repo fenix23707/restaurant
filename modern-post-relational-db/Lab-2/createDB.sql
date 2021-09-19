@@ -9,8 +9,11 @@ CREATE TABLE "user"(
     
 	password    varchar(100)    NOT NULL,
 	
-	role smallint NOT NULL,
-	CONSTRAINT role_range CHECK(role BETWEEN 0 and 2)
+	role smallint NOT NULL DEFAULT 0,
+	CONSTRAINT role_range CHECK(role BETWEEN 0 and 2),
+	
+	status smallint NOT NULL DEFAULT 0,
+	CONSTRAINT status_range CHECK(status BETWEEN 0 and 1)
 );
 
 CREATE TABLE user_info 
@@ -24,9 +27,9 @@ CREATE TABLE user_info
 	
 	phone		varchar(100)	NOT NULL	UNIQUE,
 	
-	avatar		varchar(255)				UNIQUE,
+	avatar		varchar(255),
 	
-	email		varchar(255)	NOT NULL	UNIQUE,
+	email		varchar(255)				UNIQUE,
 	
 	user_id 	serial	REFERENCES "user"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
