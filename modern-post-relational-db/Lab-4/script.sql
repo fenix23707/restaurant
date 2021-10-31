@@ -162,3 +162,12 @@ SELECT * FROM orders where id = 1;
 SELECT * FROM basket where order_id = 1;
 SELECT * FROM products where id = 5;
 call write_off_products(1);
+
+
+-- Написать запрос, используя оконную функцию, который для заданного пользователя (login) будет выводить прогресс по сумме его выполненных заказов
+-- (каждая строка должна содержать 3 столбца: login пользователя, сумму заказа и сумму заказов начиная с первого до текущего (прогрессирующая сумма)).
+
+SELECT login, sum(price) OVER (PARTITION BY login), sum(price) OVER (PARTITION BY login ORDER BY create_at)
+FROM users u
+LEFT JOIN orders o ON o.user_id = u.id
+ORDER BY login;
