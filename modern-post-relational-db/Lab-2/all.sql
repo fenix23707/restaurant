@@ -93,7 +93,8 @@ ALTER TABLE reviews ADD CONSTRAINT fk_reviews_restaurants FOREIGN KEY(restaurant
 
 ALTER TABLE users ADD CONSTRAINT role_range CHECK(role BETWEEN 0 and 2);
 ALTER TABLE users ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
-ALTER TABLE book_tables ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
+ALTER TABLE book_tables ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 2);
+-- ALTER TABLE book_tables DROP CONSTRAINT status_range;
 
 INSERT INTO users (login, password, role) VALUES
 	('logiiiin1', 'passssword', 0),
@@ -142,9 +143,9 @@ INSERT INTO tables (capacity, width, height, x, y, scheme_id) VALUES
 (2, 1, 2 , 10, 10, 2);
 
 INSERT INTO book_tables (datetime_begin, datetime_end, capacity, status, table_id, user_id) VALUES 
-('2021-09-08T08:00:00Z', '2021-09-08T10:00:00Z', 2, 0, 1, 6),
-('2021-09-08T10:00:00Z', '2021-09-08T12:00:00Z', 2, 0, 1, 7),
-('2021-09-08T12:00:00Z', '2021-09-08T14:00:00Z', 2, 0, 1, 8),
+('2021-09-08T08:00:00Z', '2021-09-08T10:00:00Z', 2, 1, 1, 6),
+('2021-09-08T10:00:00Z', '2021-09-08T12:00:00Z', 2, 1, 1, 7),
+('2021-09-08T12:00:00Z', '2021-09-08T14:00:00Z', 2, 2, 1, 8),
 ('2021-09-08T14:00:00Z', '2021-09-08T16:00:00Z', 2, 0, 1, 9),
 ('2021-09-08T16:00:00Z', '2021-09-08T18:00:00Z', 2, 0, 1, 10);
 
