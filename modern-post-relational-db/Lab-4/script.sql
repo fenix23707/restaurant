@@ -29,7 +29,52 @@ RETURNS money AS $$
                     );
 $$LANGUAGE SQL;  
 
+-- CREATE OR REPLACE FUNCTION take_money(login VARCHAR(255), amount money)  
+-- RETURNS money AS $$ 
+--     UPDATE accounts
+--     SET value = value - take_money.amount
+--     WHERE user_id = (
+--                         SELECT id
+--                         FROM users
+--                         WHERE users.login = take_money.login
+--                     ) AND
+--         value >= take_money.amount;
+    
+--     SELECT value 
+--     FROM accounts
+--     WHERE user_id =  (
+--                         SELECT id
+--                         FROM users
+--                         WHERE users.login = take_money.login
+--                     );
+-- $$LANGUAGE SQL;  
 
+
+CREATE OR REPLACE FUNCTION take_money(login VARCHAR(255), amount money)  
+RETURNS money AS $$
+<<main>>
+DECLARE
+    user_id BIGINT;
+    res money;
+BEGIN
+    SELECT id INTO main.user_id 
+    FROM users
+    WHERE users.login = take_money.login;
+
+    UPDATE accounts
+    SET value = value - amount
+    WHERE accounts.user_id = main.user_id AND
+        value >= amount;
+    
+    SELECT value INTO res
+    FROM accounts
+    WHERE accounts.user_id =  main.user_id;
+
+    RETURN res;
+END;
+$$LANGUAGE plpgsql;  
+
+select take_money('Tanivik', 40::money);
 -- Написать хранимую процедуру, которая будет рассчитывать сумму заказа пользователя и скидку на заказ, исходя из стоимости доставки (если таковая имеется)
 --  и стоимости товаров в корзине.
 
@@ -55,7 +100,7 @@ BEGIN
 END;
 $$LANGUAGE plpgsql;
 
- call calculate(1, 1, 1::money, 1::money);
+ call calculate(5, 2, 1::money, 1::money);
 
 
 -- Написать триггер, который будет пересчитывать сумму заказа пользователя и скидку на заказ, при изменении корзины товаров в заказе. 
@@ -81,18 +126,19 @@ BEGIN
 END;
 $change_basket$ LANGUAGE plpgsql;
 
+DROP TRIGGER change_basket ON basket;
 CREATE TRIGGER change_basket
         AFTER INSERT OR UPDATE OR DELETE ON basket
         FOR EACH ROW
             EXECUTE FUNCTION change_basket();
             
-
 -- test
-UPDATE basket SET price = 660 WHERE id = 1;
+UPDATE basket SET price = 360 WHERE id = 1;
 DELETE FROM basket where id = 1;
 INSERT INTO basket(id, order_id, customer_id, product_id, price, discount, quantity, create_at) VALUES (1, 1, 1, 5, 650, 49, 1, '2/24/2021 2:42:57 PM');
 SELECT * FROM orders where id = 1;
 SELECT * FROM basket where id = 1;
+SELECT * FROM delivery_orders where order_id = 1;
 SELECT * FROM delivery;
 
 
@@ -155,7 +201,7 @@ EXECUTE FUNCTION change_payments();
 
 
 -- test
-UPDATE payments_orders SET  value = 697 WHERE order_id = 1;
+UPDATE payments_orders SET  value = 378 WHERE order_id = 1;
 SELECT * FROM payments_orders where order_id = 1;
 SELECT * FROM orders where id = 1;
 

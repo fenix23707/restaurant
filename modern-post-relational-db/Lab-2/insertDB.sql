@@ -15,11 +15,11 @@ INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('G
 INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Selig Edwicke', '2000-08-06T13:29:05Z', '+66 (383) 980-8122', 'HabitassePlatea.xls', 'sedwicke2@vk.com', 3);
 INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Uriel Ghelerdini', '2001-05-12T22:15:27Z', '+225 (274) 467-5272', 'VelitVivamusVel.mp3', 'ughelerdini3@oaic.gov.au', 4);
 INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Nye Ebbotts', '2001-01-29T07:55:34Z', '+86 (134) 773-9896', 'Tempus.xls', 'nebbotts4@deviantart.com', 5);
-INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Jenica Cortez', '1982-12-05T07:57:35Z', '375(610)817-0750', null, 'jcortez0@domainmarket.com', 1);
-INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Clemente Sincock', '1990-01-29T14:36:46Z', '30(636)926-1930', 'UtAtDolor.doc', 'csincock1@msn.com', 2);
-INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Camey Brennen', '1988-12-22T01:21:52Z', '86(184)108-2672', 'MagnisDis.avi', 'cbrennen2@mlb.com', 3);
-INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Glenda Alyonov', '1987-08-24T00:43:35Z', '352(352)881-0124', null, 'galyonov3@google.com.br', 4);
-INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Odille Girardet', '1994-03-16T07:17:28Z', '7(267)471-0809', null, 'ogirardet4@businessweek.com', 5);
+INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Jenica Cortez', '1982-12-05T07:57:35Z', '375(610)817-0750', null, 'jcortez0@domainmarket.com', 6);
+INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Clemente Sincock', '1990-01-29T14:36:46Z', '30(636)926-1930', 'UtAtDolor.doc', 'csincock1@msn.com', 7);
+INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Camey Brennen', '1988-12-22T01:21:52Z', '86(184)108-2672', 'MagnisDis.avi', 'cbrennen2@mlb.com', 8);
+INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Glenda Alyonov', '1987-08-24T00:43:35Z', '352(352)881-0124', null, 'galyonov3@google.com.br', 9);
+INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES ('Odille Girardet', '1994-03-16T07:17:28Z', '7(267)471-0809', null, 'ogirardet4@businessweek.com', 10);
 
 INSERT INTO restaurant (name, avatar, adres, user_id) VALUES ('Kare', 'Convallis.jpeg', '120 Autumn Leaf Center', 1);
 INSERT INTO restaurant (name, avatar, adres, user_id) VALUES ('Gabcube', 'Aliquam.txt', '6 Boyd Terrace', 2);

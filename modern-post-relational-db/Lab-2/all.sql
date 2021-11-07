@@ -9,7 +9,7 @@ DROP TABLE users;
 CREATE TABLE users(
     PRIMARY KEY(id),
 	id          serial,     
-	login       varchar(255)    NOT NULL	UNIQUE,    
+	login       varchar(255)    NOT NULL 	UNIQUE,    
 	password    varchar(100)    NOT NULL,	
 	role 		smallint 		NOT NULL 	DEFAULT 0,	
 	status 		smallint 		NOT NULL 	DEFAULT 0
@@ -18,20 +18,20 @@ CREATE TABLE users(
 CREATE TABLE user_info 
 (
 	PRIMARY KEY(id),	
-	id			serial,	
-	name		varchar(255)	NOT NULL,
-	birthday	date			NOT NULL,	
-	phone		varchar(100)	NOT NULL	UNIQUE,	
-	avatar		varchar(255),	
-	email		varchar(255)				UNIQUE,	
+	id		 	serial,	
+	name	 	varchar(255)	 NOT NULL,
+	birthday 	DATE			 NOT NULL,	
+	phone	 	varchar(100)	 NOT NULL	 UNIQUE,	
+	avatar	 	varchar(255),	
+	email	 	varchar(255)				 UNIQUE,	
 	user_id 	int
 );
 
 CREATE TABLE restaurants
 (
 	PRIMARY KEY(id),
-	id		serial,	
-	name 	varchar(255)	NOT NULL	UNIQUE,
+	id		 serial,	
+	name 	varchar(255)	NOT NULL 	UNIQUE,
 	adres 	varchar(255)	NOT NULL,
 	avatar 	varchar(255),
 	user_id int 
@@ -41,8 +41,8 @@ CREATE TABLE schemes
 (
 	PRIMARY KEY(id),	
 	id 				serial,	
-	width 			smallint		NOT NULL	CHECK(width BETWEEN 1 and 10000),
-	height 			smallint		NOT NULL	CHECK(height BETWEEN 1 and 10000),
+	width 			smallint 		NOT NULL 	CHECK(width BETWEEN 1 and 10000),
+	height 			smallint 		NOT NULL 	CHECK(height BETWEEN 1 and 10000),
 	restaurant_id 	int
 );
 
@@ -50,35 +50,35 @@ CREATE TABLE tables
 (
 	PRIMARY KEY(id),	
 	id 			serial,	
-	capacity 	smallint	NOT NULL 	CHECK(capacity BETWEEN 1 and 5000),
-	width 		smallint	NOT NULL 	CHECK(width BETWEEN 1 and 10000),
-	height 		smallint	NOT NULL 	CHECK(height BETWEEN 1 and 10000),
-	x 			smallint	NOT NULL 	CHECK(x BETWEEN 0 and 10000),
-	y 			smallint	NOT NULL	CHECK(y BETWEEN 0 and 10000),
-	scheme_id	int
+	capacity 	smallint 	NOT NULL  	CHECK(capacity BETWEEN 1 and 5000),
+	width 		smallint 	NOT NULL  	CHECK(width BETWEEN 1 and 10000),
+	height 		smallint 	NOT NULL  	CHECK(height BETWEEN 1 and 10000),
+	x 			smallint 	NOT NULL  	CHECK(x BETWEEN 0 and 10000),
+	y 			smallint 	NOT NULL 	CHECK(y BETWEEN 0 and 10000),
+	scheme_id 	int
 );
 
 CREATE TABLE book_tables
 (
 	PRIMARY KEY(id),
 	id 				serial,	
-	datetime_begin	timestamp	NOT NULL,
-	datetime_end 	timestamp 	NOT NULL	CHECK(datetime_end > datetime_begin),
-	capacity 		smallint	NOT NULL	CHECK(capacity BETWEEN 1 and 5000),
-	status 			smallint 	NOT NULL,
-	table_id 		int,
-	user_id 		int	
+	datetime_begin 	timestamp 	NOT NULL,
+	datetime_end  	timestamp  	NOT NULL 	CHECK(datetime_end > datetime_begin),
+	capacity  		smallint 	NOT NULL 	CHECK(capacity BETWEEN 1 and 5000),
+	status 			smallint  	NOT NULL,
+	table_id  		int,
+	user_id  		int	
 );
 
 CREATE TABLE reviews 
 (
 	PRIMARY KEY(id),
 	id 				serial,	
-	rate 			smallint 	NOT NULL	CHECK(rate BETWEEN 0 and 10),
+	rate 			smallint  	NOT NULL 	CHECK(rate BETWEEN 0 and 10),
 	review 			text,
-	date 			timestamp	NOT NULL,
+	date 			timestamp 	NOT NULL,
 	user_id 		int,
-	restaurant_id	int 	
+	restaurant_id 	int 	
 );
 
 
@@ -114,11 +114,11 @@ INSERT INTO user_info (name, birthday, phone, avatar, email, user_id) VALUES
  ('Selig Edwicke', '2000-08-06T13:29:05Z', '+66 (383) 980-8122', 'HabitassePlatea.xls', 'sedwicke2@vk.com', 3),
  ('Uriel Ghelerdini', '2001-05-12T22:15:27Z', '+225 (274) 467-5272', 'VelitVivamusVel.mp3', 'ughelerdini3@oaic.gov.au', 4),
  ('Nye Ebbotts', '2001-01-29T07:55:34Z', '+86 (134) 773-9896', 'Tempus.xls', 'nebbotts4@deviantart.com', 5),
- ('Jenica Cortez', '1982-12-05T07:57:35Z', '375(610)817-0750', null, 'jcortez0@domainmarket.com', 1),
- ('Clemente Sincock', '1990-01-29T14:36:46Z', '30(636)926-1930', 'UtAtDolor.doc', 'csincock1@msn.com', 2),
- ('Camey Brennen', '1988-12-22T01:21:52Z', '86(184)108-2672', 'MagnisDis.avi', 'cbrennen2@mlb.com', 3),
- ('Glenda Alyonov', '1987-08-24T00:43:35Z', '352(352)881-0124', null, 'galyonov3@google.com.br', 4),
- ('Odille Girardet', '1994-03-16T07:17:28Z', '7(267)471-0809', null, 'ogirardet4@businessweek.com', 5);
+ ('Jenica Cortez', '1982-12-05T07:57:35Z', '375(610)817-0750', null, 'jcortez0@domainmarket.com', 6),
+ ('Clemente Sincock', '1990-01-29T14:36:46Z', '30(636)926-1930', 'UtAtDolor.doc', 'csincock1@msn.com', 7),
+ ('Camey Brennen', '1988-12-22T01:21:52Z', '86(184)108-2672', 'MagnisDis.avi', 'cbrennen2@mlb.com', 8),
+ ('Glenda Alyonov', '1987-08-24T00:43:35Z', '352(352)881-0124', null, 'galyonov3@google.com.br', 9),
+ ('Odille Girardet', '1994-03-16T07:17:28Z', '7(267)471-0809', null, 'ogirardet4@businessweek.com', 10);
 
 INSERT INTO restaurants (name, avatar, adres, user_id) VALUES 
 ('Kare', 'Convallis.jpeg', '120 Autumn Leaf Center', 1),
