@@ -1,0 +1,80 @@
+[
+  '{{repeat(5, 6)}}',
+  {
+    login: '{{lorem(1, "words")}}',
+    password: '{{lorem(1, "words")}}',
+    role: '{{integer(0, 2)}}',
+    status: '{{integer(0, 1)}}',
+    user_info: {
+       name: '{{firstName()}} {{surname()}}',
+      birthday: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
+      phone: '+375 {{phone()}}',
+      avatar: 'http://placehold.it/32x32',
+      email: '{{email()}}'
+    },
+    restaurnts: [
+    
+      '{{repeat(3,7)}}',
+      '{{objectId()}}'
+      
+    ]
+  }
+]
+
+ 
+
+
+
+
+
+
+[
+  '{{repeat(5, 7)}}',
+  {
+    
+    name:  '{{company()}}',
+    avatar: 'http://placehold.it/32x32',
+    adres: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    scheme: {
+      width:'{{integer(50, 400)}}',
+      height:'{{integer(50, 400)}}',
+      tables: [
+        '{{repeat(2, 4)}}', 
+        {
+          _id: '{{objectId()}}',
+          copacity: '{{integer(1, 10)}}',
+          width:'{{integer(2, 50)}}',
+     	 height:'{{integer(2, 50)}}',
+          x:'{{integer(0, 400)}}',
+          y:'{{integer(0, 400)}}'
+          
+        }
+      ]
+    },
+    reviews: [
+    	'{{repeat(2, 5)}}',
+      {
+        rate: '{{integer(0, 10)}}',
+        review: '{{lorem(10, "words")}}',
+        date: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+        user_id: '{{objectId()}}'
+      }
+    ]
+  }
+  ]
+   
+
+
+[
+  '{{repeat(5, 7)}}',
+  {
+    data_begin: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
+    date_end: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
+    copacity: '{{integer(1, 10)}}',
+    status: '{{integer(0, 2)}}',
+    table_id: '{{objectId()}}',
+    user_id: '{{objectId()}}'
+  }
+  ]
+   
+   

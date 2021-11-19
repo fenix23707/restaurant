@@ -1,0 +1,275 @@
+use("restaurants");
+
+// Выборка всех данных
+db.users.find().comment("Выборка всех данных");
+
+const aggregate = [];
+db.users.aggregate();
+
+// фильтрация по конкретному полю
+db.users.find({ login: "laboris" }).comment("фильтрация по конкретному полю");
+
+const aggregation = [
+  { $match: { login: { $eq: "laboris" }, $comment: "фильтрация по конкретному полю" } },
+];
+
+db.users.aggregate(aggregation);
+
+//  фильтрация по массиву
+db.users
+  .find({ restaurnts: { $in: ["61928e9eee19bdedae272b96", "61928e9e4fc2a5a6012da75b"] } })
+  .comment("фильтрация по массиву");
+
+const aggregation = [
+  {
+    $match: {
+      restaurnts: { $in: ["61928e9eee19bdedae272b96", "61928e9e4fc2a5a6012da75b"] },
+      $comment: "фильтрация по массиву",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// встроенному объекту
+db.users.find({ "user_info.name": "Mara Donaldson" }).comment("фильтрация по встроеному объекту");
+
+const aggregation = [
+  { $match: { "user_info.name": { $eq: "Mara Donaldson" }, $comment: "фильтрация по массиву" } },
+];
+db.users.aggregate(aggregation);
+
+// Выборка в интервале
+db.users.find({ role: { $gte: 0 }, role: { $lte: 1 } }).comment("Выборка в интервале");
+
+const aggregation = [
+  { $match: { role: { $gte: 0 }, role: { $lte: 1 }, $comment: "Выборка в интервале" } },
+];
+db.users.aggregate(aggregation);
+
+// выборка из заданного списка значений
+db.users
+  .find({ restaurnts: { $in: ["61928e9eee19bdedae272b96", "61928e9e4fc2a5a6012da75b"] } })
+  .comment("выборка из заданного списка значений");
+
+const aggregation = [
+  {
+    $match: {
+      restaurnts: { $in: ["61928e9eee19bdedae272b96", "61928e9e4fc2a5a6012da75b"] },
+      $comment: "выборка из заданного списка значений",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка с использованием регулярных выражений
+db.users.find({ login: { $regex: /^e/ } }).comment("Выборка с использованием регулярных выражений");
+
+const aggregation = [
+  {
+    $match: {
+      login: { $regex: /^e/ },
+      $comment: "Выборка с использованием регулярных выражений",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка данных за конкретный период времени
+db.users
+  .find({ "user_info.birthday": { $gte: ISODate("2020-01-01") } })
+  .comment("Выборка данных за конкретный период времени");
+
+const aggregation = [
+  {
+    $match: {
+      "user_info.birthday": { $gte: ISODate("2020-01-01") },
+      $comment: "Выборка данных за конкретный период времени",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+//Выборка данных на сегодняшний день
+db.users
+  .find({ "user_info.birthday": { $eq: new Date() } })
+  .comment("Выборка данных на сегодняшний день");
+
+const aggregation = [
+  {
+    $match: {
+      "user_info.birthday": { $eq: new Date() },
+      $comment: "Выборка данных на сегодняшний день",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка данных за последний месяц.
+db.users
+  .find({
+    $and: [
+      { "user_info.birthday": { $gte: new Date(new Date().setMonth(new Date().getMonth() - 1)) } },
+      { "user_info.birthday": { $lte: new Date() } },
+    ],
+  })
+  .comment("Выборка данных за последний месяц");
+
+const aggregation = [
+  {
+    $match: {
+      $and: [
+        {
+          "user_info.birthday": { $gte: new Date(new Date().setMonth(new Date().getMonth() - 1)) },
+        },
+        { "user_info.birthday": { $lte: new Date() } },
+      ],
+      $comment: "Выборка данных за последний месяц",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка данных из нескольких коллекций.
+const aggregation = [
+  {
+    $lookup: {
+      from: "book_tables",
+      localField: "_id",
+      foreignField: "user_id",
+      as: "book_tables_details",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка из нескольких коллекций с фильтрацией
+const aggregation = [
+  {
+    $lookup: {
+      from: "book_tables",
+      localField: "_id",
+      foreignField: "user_id",
+      pipeline: [
+        {
+          $match: {
+            copacity: { $gte: 8 },
+          },
+        },
+      ],
+      as: "book_tables_details",
+    },
+  },
+];
+db.users.aggregate(aggregation);
+
+// Выборка ограниченного набора полей.
+db.users.find({}, { login: 1, password: 1, _id: 0 });
+
+const aggregate = [{ $project: { login: 1, password: 1, _id: 0 } }];
+db.users.aggregate(aggregate);
+
+// Сортировка по 1 полю.
+db.users.find({}, { login: 1, password: 1, _id: 0 }).sort({ login: 1 });
+
+const aggregate = [
+  { $project: { login: 1, password: 1, _id: 0 } },
+
+  {
+    $sort: {
+      login: 1,
+    },
+  },
+];
+db.users.aggregate(aggregate);
+
+// Сортировка по нескольким полям.
+db.users.find({}, { login: 1, password: 1, _id: 0 }).sort({ login: 1, password: -1 });
+
+const aggregate = [
+  { $project: { login: 1, password: 1, _id: 0 } },
+
+  {
+    $sort: {
+      login: 1,
+      password: -1,
+    },
+  },
+];
+db.users.aggregate(aggregate);
+
+// Вывод данных с n-ого по m-ый номер.
+// [1,3]
+db.users
+  .find({}, { login: 1, password: 1, _id: 0 })
+  .sort({ login: 1, password: -1 })
+  .skip(1)
+  .limit(3);
+
+const aggregate = [
+  { $project: { login: 1, password: 1, _id: 0 } },
+
+  {
+    $sort: {
+      login: 1,
+      password: -1,
+    },
+  },
+  {
+    $skip: 1,
+  },
+  {
+    $limit: 3,
+  },
+];
+db.users.aggregate(aggregate);
+
+// Написать запрос, который объединяет 1-9 пункты.
+const aggregation = [
+  {
+    $match: {
+      "user_info.birthday": { $eq: new Date("2021-11-01T00:00:00Z") },
+      login: { $regex: /^e/ },
+    },
+  },
+
+  {
+    $lookup: {
+      from: "book_tables",
+      localField: "_id",
+      foreignField: "user_id",
+      pipeline: [
+        {
+          $match: {
+            copacity: { $gte: 8 },
+          },
+        },
+        {
+          $sort: {
+            copacity: -1,
+          },
+        },
+        {
+          $project: {
+            _id: 0,
+            date_end: 0,
+          },
+        },
+      ],
+      as: "book_tables_details",
+    },
+  },
+
+  {
+    $project: {
+      restaurnts: 0,
+    },
+  },
+
+  {
+    $skip: 0,
+  },
+  {
+    $limit: 3,
+  },
+];
+db.users.aggregate(aggregation);

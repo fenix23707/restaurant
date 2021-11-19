@@ -1,0 +1,477 @@
+// Select the database to use.
+use("restaurants");
+db.restaurants.drop();
+db.users.drop();
+db.book_tables.drop();
+// Insert a few documents into the sales collection.
+db.users.insertMany([
+  {
+    login: "elit",
+    password: "fugiat",
+    role: 2,
+    status: 1,
+    user_info: {
+      name: "Tanisha French",
+      birthday: "2021-11-01",
+      phone: "+375 (985) 531-2958",
+      avatar: "http://placehold.it/32x32",
+      email: "tanishafrench@megall.com",
+    },
+    restaurnts: [
+      "6197ed1b60716da3bbc3894c",
+      "6197ed1be3be69d3f86f5e43",
+      "6197ed1b89b64a1141ac5a2a",
+    ],
+  },
+  {
+    login: "officia",
+    password: "est",
+    role: 2,
+    status: 1,
+    user_info: {
+      name: "Lila Donaldson",
+      birthday: "2019-12-01",
+      phone: "+375 (980) 407-2596",
+      avatar: "http://placehold.it/32x32",
+      email: "liladonaldson@megall.com",
+    },
+    restaurnts: [
+      "6197ed1b178bbb72dcd84456",
+      "6197ed1b1a326959ff391f36",
+      "6197ed1bd883c9b601066588",
+      "6197ed1b2a49bc88139f7697",
+      "6197ed1b9794120503bc4e78",
+      "6197ed1b462498ee520fe062",
+      "6197ed1bd0391158be89cc08",
+    ],
+  },
+  {
+    login: "enim",
+    password: "aliquip",
+    role: 0,
+    status: 0,
+    user_info: {
+      name: "Valenzuela Lowery",
+      birthday: "2014-10-23",
+      phone: "+375 (851) 537-3578",
+      avatar: "http://placehold.it/32x32",
+      email: "valenzuelalowery@megall.com",
+    },
+    restaurnts: [
+      "6197ed1b522fd51c8d84480f",
+      "6197ed1bc5eace9a6baa4cab",
+      "6197ed1bebe1bac54728bf92",
+      "6197ed1b2a44a055993d26bc",
+      "6197ed1ba54a37d7d416abe0",
+    ],
+  },
+  {
+    login: "pariatur",
+    password: "fugiat",
+    role: 2,
+    status: 0,
+    user_info: {
+      name: "Olson Fleming",
+      birthday: "2014-08-30",
+      phone: "+375 (858) 551-3827",
+      avatar: "http://placehold.it/32x32",
+      email: "olsonfleming@megall.com",
+    },
+    restaurnts: [
+      "6197ed1b7dfae6d61489fdac",
+      "6197ed1b6b8e5a1900e6bde2",
+      "6197ed1b7c55aeda56b53b56",
+      "6197ed1b0cbc8cacbb94cd61",
+      "6197ed1b3dcedbbac98a42e0",
+      "6197ed1bafb890935549337f",
+      "6197ed1b735d7c9d05487e85",
+    ],
+  },
+  {
+    login: "proident",
+    password: "cupidatat",
+    role: 0,
+    status: 1,
+    user_info: {
+      name: "Jami Barrett",
+      birthday: "2014-02-05",
+      phone: "+375 (909) 419-2101",
+      avatar: "http://placehold.it/32x32",
+      email: "jamibarrett@megall.com",
+    },
+    restaurnts: [
+      "6197ed1bbe8ee5d713f85bb0",
+      "6197ed1b2919e2d3d84400b1",
+      "6197ed1b01e090e09e7c5772",
+      "6197ed1b3f127f8b9dce8b4c",
+    ],
+  },
+]);
+
+db.users.find().forEach(function (element) {
+  element.user_info.birthday = ISODate(element.user_info.birthday);
+  db.users.save(element);
+});
+
+db.restaurants.insertMany([
+  {
+    name: "Waretel",
+    avatar: "http://placehold.it/32x32",
+    adres: "679 Nixon Court, Glenbrook, Utah, 1655",
+    scheme: {
+      width: 133,
+      height: 271,
+      tables: [
+        {
+          _id: "61923f88d8fd1346c7f03ce6",
+          copacity: 7,
+          width: 18,
+          height: 35,
+          x: 278,
+          y: 320,
+        },
+        {
+          _id: "61923f88c397952c2205bc73",
+          copacity: 10,
+          width: 35,
+          height: 32,
+          x: 298,
+          y: 114,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 4,
+        review: "ex voluptate sunt reprehenderit adipisicing elit eu non aliqua et",
+        date: "2020-10-10T06:38:57 -03:00",
+        user_id: "61923f884ea703de718bb21c",
+      },
+      {
+        rate: 10,
+        review: "incididunt consequat dolore quis excepteur fugiat veniam laborum consequat esse",
+        date: "2021-11-07T06:43:35 -03:00",
+        user_id: "61923f8838ba7503e702d88b",
+      },
+    ],
+  },
+  {
+    name: "Hairport",
+    avatar: "http://placehold.it/32x32",
+    adres: "486 Clymer Street, Rivers, Kentucky, 4269",
+    scheme: {
+      width: 381,
+      height: 380,
+      tables: [
+        {
+          _id: "61923f88e34cadc2391009f5",
+          copacity: 3,
+          width: 2,
+          height: 14,
+          x: 150,
+          y: 41,
+        },
+        {
+          _id: "61923f88f4f0c7a1c576f799",
+          copacity: 1,
+          width: 47,
+          height: 2,
+          x: 51,
+          y: 220,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 10,
+        review: "amet consequat qui tempor incididunt esse irure nostrud aute ipsum",
+        date: "2021-06-13T02:34:36 -03:00",
+        user_id: "61923f8801425b6802172efd",
+      },
+      {
+        rate: 6,
+        review: "culpa eu in eiusmod magna nisi do qui labore aute",
+        date: "2015-11-27T12:25:10 -03:00",
+        user_id: "61923f88229798c4bdbaa96e",
+      },
+      {
+        rate: 4,
+        review: "ex in esse aliqua esse aliqua sit exercitation amet pariatur",
+        date: "2014-04-06T10:26:19 -03:00",
+        user_id: "61923f88ecd010c3e42cc678",
+      },
+    ],
+  },
+  {
+    name: "Everest",
+    avatar: "http://placehold.it/32x32",
+    adres: "335 Highland Avenue, Reno, Rhode Island, 8013",
+    scheme: {
+      width: 249,
+      height: 244,
+      tables: [
+        {
+          _id: "61923f88b55c9af5acd44dad",
+          copacity: 5,
+          width: 16,
+          height: 43,
+          x: 231,
+          y: 169,
+        },
+        {
+          _id: "61923f881de241e6dfd20e73",
+          copacity: 4,
+          width: 12,
+          height: 13,
+          x: 289,
+          y: 178,
+        },
+        {
+          _id: "61923f88ba3b364eb88694f4",
+          copacity: 5,
+          width: 41,
+          height: 7,
+          x: 225,
+          y: 311,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 6,
+        review: "elit aute culpa laboris esse aute dolore aute officia irure",
+        date: "2014-10-07T07:00:13 -03:00",
+        user_id: "61923f88013ea808decbd46b",
+      },
+      {
+        rate: 7,
+        review: "elit qui deserunt aliqua cillum sit veniam laboris laborum ullamco",
+        date: "2017-01-17T08:19:08 -03:00",
+        user_id: "61923f88c55a456f6f7c39d0",
+      },
+    ],
+  },
+  {
+    name: "Centrexin",
+    avatar: "http://placehold.it/32x32",
+    adres: "538 Charles Place, Lisco, Montana, 7901",
+    scheme: {
+      width: 308,
+      height: 214,
+      tables: [
+        {
+          _id: "61923f880ebf88d5267fcc9a",
+          copacity: 3,
+          width: 14,
+          height: 50,
+          x: 163,
+          y: 284,
+        },
+        {
+          _id: "61923f88b16525ae976edb3f",
+          copacity: 9,
+          width: 3,
+          height: 30,
+          x: 323,
+          y: 86,
+        },
+        {
+          _id: "61923f887f51e38064aa349f",
+          copacity: 5,
+          width: 33,
+          height: 11,
+          x: 277,
+          y: 334,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 2,
+        review: "duis anim aliquip eu nulla nulla incididunt veniam ullamco anim",
+        date: "2017-09-02T01:24:17 -03:00",
+        user_id: "61923f885e9512ca44f3b4e2",
+      },
+      {
+        rate: 9,
+        review: "nulla eu elit nisi et esse laboris incididunt sint veniam",
+        date: "2014-02-23T09:35:23 -03:00",
+        user_id: "61923f883595c70f6dc46e1b",
+      },
+    ],
+  },
+  {
+    name: "Arctiq",
+    avatar: "http://placehold.it/32x32",
+    adres: "626 Woodbine Street, Waumandee, Mississippi, 7951",
+    scheme: {
+      width: 395,
+      height: 301,
+      tables: [
+        {
+          _id: "61923f884b19692d32454e2a",
+          copacity: 5,
+          width: 14,
+          height: 30,
+          x: 150,
+          y: 128,
+        },
+        {
+          _id: "61923f88cd91d94d09300154",
+          copacity: 3,
+          width: 5,
+          height: 16,
+          x: 219,
+          y: 190,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 5,
+        review: "do culpa commodo non aute officia consequat ipsum ad amet",
+        date: "2020-01-20T04:52:33 -03:00",
+        user_id: "61923f882c29ab25afdf9291",
+      },
+      {
+        rate: 2,
+        review:
+          "incididunt dolore dolore quis exercitation mollit anim occaecat veniam consectetur",
+        date: "2016-07-26T11:04:25 -03:00",
+        user_id: "61923f88810b96b4adb14b64",
+      },
+      {
+        rate: 1,
+        review: "velit quis et proident occaecat elit velit ex ad sunt",
+        date: "2017-01-20T06:55:39 -03:00",
+        user_id: "61923f88b605583c6e431d87",
+      },
+    ],
+  },
+  {
+    name: "Zuvy",
+    avatar: "http://placehold.it/32x32",
+    adres: "716 Willow Place, Thynedale, Hawaii, 9288",
+    scheme: {
+      width: 65,
+      height: 174,
+      tables: [
+        {
+          _id: "61923f8852b8d9a4e73278f6",
+          copacity: 10,
+          width: 2,
+          height: 41,
+          x: 349,
+          y: 88,
+        },
+        {
+          _id: "61923f88d69498ae871b16b5",
+          copacity: 8,
+          width: 11,
+          height: 2,
+          x: 70,
+          y: 256,
+        },
+      ],
+    },
+    reviews: [
+      {
+        rate: 0,
+        review: "ipsum fugiat Lorem consequat velit id enim ea id do",
+        date: "2016-09-05T02:02:01 -03:00",
+        user_id: "61923f88d32d0e8f75214ab5",
+      },
+      {
+        rate: 5,
+        review: "consectetur minim eu do ea mollit aute mollit nulla mollit",
+        date: "2021-08-11T10:10:58 -03:00",
+        user_id: "61923f881aff7cbcb1656cf4",
+      },
+      {
+        rate: 7,
+        review: "consectetur ex ullamco voluptate nulla dolor quis aliquip enim est",
+        date: "2019-02-23T07:19:25 -03:00",
+        user_id: "61923f88dec3fa273e527ced",
+      },
+      {
+        rate: 5,
+        review: "esse voluptate sint veniam laborum non veniam commodo consequat id",
+        date: "2015-03-03T06:12:43 -03:00",
+        user_id: "61923f882439c6ab10004f62",
+      },
+    ],
+  },
+]);
+
+db.book_tables.insertMany([
+  {
+    data_begin: "2020-10-31",
+    date_end: "2021-08-14",
+    copacity: 9,
+    status: 2,
+    table_id: "6197fd71f35105526aabc1af",
+    user_id: "6197fd71b414f73c1c37d5f8",
+  },
+  {
+    data_begin: "2017-08-09",
+    date_end: "2017-03-26",
+    copacity: 6,
+    status: 0,
+    table_id: "6197fd71ecae01e825b66309",
+    user_id: "6197fd71057a12f27497bf75",
+  },
+  {
+    data_begin: "2017-04-29",
+    date_end: "2017-12-06",
+    copacity: 8,
+    status: 2,
+    table_id: "6197fd718c73dda2e604db81",
+    user_id: "6197fd71c1f3421d5c236033",
+  },
+  {
+    data_begin: "2017-06-30",
+    date_end: "2017-10-16",
+    copacity: 7,
+    status: 2,
+    table_id: "6197fd71f06959c4c39218b7",
+    user_id: "6197fd7169d514b3b4d85f43",
+  },
+  {
+    data_begin: "2021-09-16",
+    date_end: "2021-07-17",
+    copacity: 2,
+    status: 0,
+    table_id: "6197fd71eb47b7fed38c99bd",
+    user_id: "6197fd71b4a29aba38d2f166",
+  },
+  {
+    data_begin: "2021-06-21",
+    date_end: "2015-10-28",
+    copacity: 9,
+    status: 1,
+    table_id: "6197fd71277a411c36cd1fa0",
+    user_id: "6197fd7191fcf6fdf4a0f06a",
+  },
+  {
+    data_begin: "2019-08-17",
+    date_end: "2014-08-06",
+    copacity: 2,
+    status: 2,
+    table_id: "6197fd7145b32696b326c628",
+    user_id: "6197fd71da8aacf808a8627e",
+  },
+]);
+
+db.book_tables.find().forEach(function (element) {
+  element.data_begin = ISODate(element.data_begin);
+  db.book_tables.save(element);
+});
+
+db.book_tables.updateMany(
+  {},
+  {
+    $set: {
+      user_id: new ObjectId("6197fdc855f6f2184f98ffd8"),
+    },
+  }
+);
