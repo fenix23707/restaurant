@@ -4,7 +4,7 @@ use("restaurants");
 db.users.find().comment("Выборка всех данных");
 
 const aggregate = [];
-db.users.aggregate();
+db.users.aggregate(aggregate, { comment: "Выборка всех данных" });
 
 // фильтрация по конкретному полю
 db.users.find({ login: "laboris" }).comment("фильтрация по конкретному полю");
@@ -130,6 +130,16 @@ const aggregation = [
 db.users.aggregate(aggregation);
 
 // Выборка данных из нескольких коллекций.
+db.users
+  .find()
+  .comment("Выборка всех данных")
+  .forEach(function (newUser) {
+    newUser.book_tables_details = db.book_tables.find({ user_id: newUser._id }).toArray();
+    db.tempUsers.insert(newUser);
+  });
+db.tempUsers.find().pretty();
+db.tempUsers.drop();
+
 const aggregation = [
   {
     $lookup: {
@@ -140,9 +150,21 @@ const aggregation = [
     },
   },
 ];
-db.users.aggregate(aggregation);
+db.users.aggregate(aggregation, { comment: "Выборка всех данных" });
 
 // Выборка из нескольких коллекций с фильтрацией
+db.users
+  .find()
+  .comment("Выборка из нескольких коллекций с фильтрацией")
+  .forEach(function (newUser) {
+    newUser.book_tables_details = db.book_tables
+      .find({ user_id: newUser._id, copacity: { $gte: 8 } })
+      .toArray();
+    db.tempUsers.insert(newUser);
+  });
+db.tempUsers.find().pretty();
+db.tempUsers.drop();
+
 const aggregation = [
   {
     $lookup: {
@@ -160,7 +182,7 @@ const aggregation = [
     },
   },
 ];
-db.users.aggregate(aggregation);
+db.users.aggregate(aggregation, { comment: "Выборка из нескольких коллекций с фильтрацией" });
 
 // Выборка ограниченного набора полей.
 db.users.find({}, { login: 1, password: 1, _id: 0 });
@@ -224,6 +246,22 @@ const aggregate = [
 db.users.aggregate(aggregate);
 
 // Написать запрос, который объединяет 1-9 пункты.
+db.users
+  .find({
+    "user_info.birthday": { $eq: new Date("2021-11-01T00:00:00Z") },
+    login: { $regex: /^e/ },
+  })
+  .comment("Выборка из нескольких коллекций с фильтрацией")
+  .forEach(function (newUser) {
+    newUser.book_tables_details = db.book_tables
+      .find({ user_id: newUser._id, copacity: { $gte: 8 } }, { _id: 0, date_end: 0 })
+      .sort({ copacity: -1 })
+      .toArray();
+    db.tempUsers.insert(newUser);
+  });
+db.tempUsers.find({}, { restaurnts: 0 }).skip(0).limit(3).pretty();
+db.tempUsers.drop();
+
 const aggregation = [
   {
     $match: {
