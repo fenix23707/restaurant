@@ -34,7 +34,7 @@ db.users.aggregate(aggregation);
 db.users.find({ "user_info.name": "Mara Donaldson" }).comment("фильтрация по встроеному объекту");
 
 const aggregation = [
-  { $match: { "user_info.name": { $eq: "Mara Donaldson" }, $comment: "фильтрация по массиву" } },
+  { $match: { "user_info.name": { $eq: "Mara Donaldson" }, $comment: "фильтрация по встроенному объекту" } },
 ];
 db.users.aggregate(aggregation);
 

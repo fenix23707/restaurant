@@ -1,0 +1,25 @@
+use("test");
+db.getProfilingStatus();
+db.setProfilingLevel(2);
+
+db.system.profile.find({}, { op: 1, command: 1, millis: 1, ts: 1 }).sort({ ts: -1 }).limit(1);
+
+db.users.getIndexes();
+db.book_tables.getIndexes();
+
+// single
+db.users.createIndex({ login: 1 });
+db.users.createIndex({ password: -1 });
+db.book_tables.createIndex({ user_id: 1 });
+
+db.users.dropIndex("login_1");
+db.users.dropIndex("password_-1");
+db.book_tables.dropIndex("user_id_1");
+
+// composite
+db.users.createIndex({ login: 1, password: -1 });
+db.users.dropIndex("login_1_password_-1");
+
+// hashed
+db.users.createIndex({ login: "hashed" });
+db.users.dropIndex("login_hashed");
