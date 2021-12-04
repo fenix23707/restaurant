@@ -1,0 +1,21 @@
+mongod --replSet "rs0" --dbpath /data/replica/r1 --port 27001
+mongod --replSet "rs0" --dbpath /data/replica/r2 --port 27002
+mongod --replSet "rs0" --dbpath /data/replica/r3 --port 27003
+
+mongo --port 27001
+
+rs.status()
+rs.initiate({
+	_id: "rs0",
+	members: [
+		{_id:0, host:"localhost:27001"},
+		{_id:1, host:"localhost:27002"}]
+})
+mongo --host "rs0/localhost:27001, localhost:27002, localhost:27003"
+db.adminCommand({
+  "setDefaultRWConcern" : 1,
+  "defaultWriteConcern" : {
+    "w" : 2
+  }
+})
+rs.addArb("localhost:27003")

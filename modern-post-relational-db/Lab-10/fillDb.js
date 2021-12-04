@@ -113,12 +113,12 @@ function generateRestaurant() {
 
 function generateBook_table(userId) {
   return {
-      date_begin: generateDate(new Date(2010,1,1), new Date()),
-      date_end: generateDate(new Date(2010,1,1), new Date()),
-      copacity: Math.floor(Math.random() * 4) + 4,
-      status: Math.floor(Math.random() * 3),
-      table_id: new ObjectId(),
-      user_id: userId 
+    date_begin: generateDate(new Date(2010, 1, 1), new Date()),
+    date_end: generateDate(new Date(2010, 1, 1), new Date()),
+    copacity: Math.floor(Math.random() * 4) + 4,
+    status: Math.floor(Math.random() * 3),
+    table_id: new ObjectId(),
+    user_id: userId,
   };
 }
 
@@ -143,3 +143,14 @@ function fillDb() {
 }
 
 fillDb();
+
+function fill_book_tables() {
+  const size = 100000;
+  var bookTablesDocs = Array(size);
+  for (let i = 0; i < size; i++) {
+    var userId = new ObjectId();
+    bookTablesDocs[i] = generateBook_table(userId);
+  }
+
+  db.book_tables.insertMany(bookTablesDocs);
+}

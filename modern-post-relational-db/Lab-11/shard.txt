@@ -1,0 +1,38 @@
+mongod --configsvr --replSet cfgrs --dbpath /data/shard/config --port 27020
+rs.initiate(
+  {
+    _id: "cfgrs",
+    configsvr: true,
+    members: [
+      { _id : 0, host : "127.0.0.1:27020" }]
+  }
+)
+
+mongod --shardsvr --replSet shard1rs --port 27001 --dbpath /data/shard/instance1
+mongo --port 27001
+rs.initiate(
+  {
+    _id: "shard1rs",
+    members: [
+      { _id : 0, host : "127.0.0.1:27001" }]
+  }
+)
+mongod --shardsvr --replSet shard2rs --port 27002 --dbpath /data/shard/instance2
+mongo --port 27002
+rs.initiate(
+  {
+    _id: "shard2rs",
+    members: [
+      { _id : 0, host : "127.0.0.1:27002" }]
+  }
+)
+
+mongos --configdb cfgrs/127.0.0.1:27020 --bind_ip 127.0.0.1 --port 27030
+mongo --port 27030
+sh.addShard("shard1rs/127.0.0.1:27001")
+sh.addShard("shard2rs/127.0.0.1:27002")
+
+sh.enableSharding("restaurants")
+sh.shardCollection("restaurants.users", {login: "hashed"})
+db.users.getShardDistribution()
+
