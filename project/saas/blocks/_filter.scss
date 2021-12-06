@@ -1,0 +1,11 @@
+.filter {
+  text-align: center;
+  position: fixed;
+  right: 0;
+  width: 33.333%;
+  height: 100px;
+  background: rgba(27, 24, 196, 0.3);
+  &__inner {
+    padding-top: 10px;
+  }
+}

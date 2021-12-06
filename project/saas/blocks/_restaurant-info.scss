@@ -1,0 +1,46 @@
+.restaurant-info {
+  height: 200px;
+  background: rgba(27, 24, 196, 0.4);
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+}
+.main-info {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  .restaurant-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+  }
+}
+.restaurant-avatar {
+}
+.main-info-text {
+  &__inner {
+    margin-left: 5vw;
+  }
+}
+
+.sub-info {
+  &__inner {
+    padding-top: 12px;
+    p {
+      padding: 6px 0;
+    }
+  }
+}
+.booking {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space;
+  &__inner {
+    p {
+      margin-bottom: 16px;
+    }
+  }
+}
