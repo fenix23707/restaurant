@@ -1,0 +1,16 @@
+.about {
+  background-image: url("../img/start/aboutBG.png");
+  background-size: cover;
+  // background-repeat: no-repeat;
+
+  &__inner {
+    text-align: center;
+    .title {
+      padding-bottom: 100px;
+    }
+    p {
+      padding-bottom: 210px;
+    }
+  }
+  padding-top: 260px;
+}

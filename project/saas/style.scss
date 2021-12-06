@@ -1,0 +1,19 @@
+@charset 'utf-8';
+
+// font-family: 'Lato', sans-serif;
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Pattaya', sans-serif;
+// font-family: 'Ubuntu', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&family=Pattaya&family=Ubuntu:wght@400;500;700&display=swap");
+
+@import "base/reset";
+@import "base/global";
+@import "base/variables";
+@import "base/typography";
+@import "base/button";
+
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/icons";
+@import "blocks/about";
+@import "blocks/achievements";
