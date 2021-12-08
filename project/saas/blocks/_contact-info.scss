@@ -1,0 +1,24 @@
+.contact-info {
+  width: 30%;
+  text-align: center;
+
+  &__inner {
+    padding: 12px;
+    padding-top: 24px;
+  }
+  &__row {
+    p {
+      padding-right: 8px;
+    }
+    display: flex;
+    padding: 4px 0;
+  }
+  &__text {
+    padding-top: 104px;
+  }
+  .button {
+    position: absolute;
+    bottom: 140px;
+    right: 20px;
+  }
+}

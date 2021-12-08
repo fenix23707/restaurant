@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Restop</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__inner">
+            <a class="logo" href="index.html">
+              <img src="img\Logo.png" alt="logo" />
+            </a>
+            <nav class="menu">
+              <ul class="menu__list">
+                <li class="menu__list-link">
+                  <a class="menu__list-link" href="index.html">Обзор</a>
+                </li>
+                <li class="menu__list-link">
+                  <a class="menu__list-link" href="restaurants.html">Рестораны</a>
+                </li>
+                <li class="menu__list-link">
+                  <a class="menu__list-link" href="">Мои рестораны</a>
+                </li>
+              </ul>
+            </nav>
+            <a class="button header__btn" href="personal.html">Личный кабинет</a>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <form class="edit-form">
+          <div class="container">
+            <h1 class="title">Регистрация</h1>
+          </div>
+          <div class="edit-form__personal-info">
+            <div class="container">
+              <div class="edit-form__inner">
+                <h2 class="sub-title">Личная информация</h2>
+                <div class="edit-form__item">
+                  <label for="" login>Логин</label>
+                  <input class="edit-form__input" type="text" name="" id="login" />
+                </div>
+                <div class="edit-form__item">
+                  <label for="password" login>Пароль</label>
+                  <input class="edit-form__input" type="password" name="" id="password" />
+                </div>
+                <div class="edit-form__item">
+                  <label for="birhday" login>Дата рождения</label>
+                  <input class="edit-form__input" type="date" name="" id="birhday" />
+                </div>
+                <div class="edit-form__item">
+                  <label for="avatar" login>Аватар</label>
+                  <input  class="edit-form__input type="file" name="" id="avatar" />
+                </div>
+                <div class="edit-form__item">
+                  <label for="role" login>Роль</label>
+                  <select  class="edit-form__input id="role">
+                    <option value="user" selected>Пользователь</option>
+                    <option value="manager">Менеджер</option>
+                    <option value="admin">Админ</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="edit-form__contact-info">
+            <div class="container">
+              <div class="edit-form__inner">
+                <h2 class="sub-title">Контактная информация</h2>
+                <div class="edit-form__item">
+                  <label for="email" login>Email</label>
+                  <input class="edit-form__input" type="email" name="" id="email" />
+                </div>
+                <div class="edit-form__item">
+                  <label for="phone" login>Телефон</label>
+                  <input class="edit-form__input" type="tel" name="" id="email" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <input class="button" type="submit" name="" id="" value="Сохранить"/>
+          </div>
+        </form>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__inner">
+            <a class="links" href="#">
+              <img class="social-icon" src="img\icons\social\VK-icon.png" alt="vk" />
+            </a>
+            <div class="footer__main-content">
+              <img class="c-icon" src="img\icons\C-icon.png" alt="c" />
+              <p>Restop планирование отдыха легко и удобно</p>
+            </div>
+            <a class="links" href="#">
+              <img class="social-icon" src="img\icons\social\GitHub-icon.png" alt="github" />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

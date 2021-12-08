@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&family=Pattaya&family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;500;700&family=Pattaya&family=Ubuntu:wght@400;500;700&display=swap");
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -69,20 +69,6 @@ body {
   color: white;
 }
 
-p {
-  color: white;
-  font-size: 18px;
-  line-height: 22px;
-  font-family: "Montserrat", sans-serif;
-}
-
-h5 {
-  color: white;
-  font-size: 20px;
-  font-family: "Ubuntu", sans-serif;
-  line-height: 26px;
-}
-
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,10 +87,27 @@ h5 {
 }
 
 .container {
-  max-width: 70rem;
+  width: 80vw;
   margin: 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input {
+  border-radius: 50px;
+}
+
+.personal-wrapper {
+  background: -webkit-gradient(linear, left top, right top, color-stop(65.7%, #524178), color-stop(40%, #3a3961));
+  background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
+  height: 524px;
+}
+
+.personal-wrapper__inner {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .title {
@@ -114,11 +117,25 @@ h5 {
   line-height: 40px;
 }
 
+p {
+  color: white;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "Montserrat", sans-serif;
+}
+
 .sub-titile {
   font-size: 28px;
   line-height: 32px;
   width: 600;
   font-family: "Ubuntu", sans-serif;
+}
+
+h5 {
+  color: white;
+  font-size: 20px;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 26px;
 }
 
 .button {
@@ -128,7 +145,7 @@ h5 {
   font-size: 14px;
   color: black;
   border: none;
-  padding: 1vw 2vw;
+  padding: 0.6vw 2vw;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -440,7 +457,7 @@ h5 {
   padding: 6px 0;
 }
 
-.booking {
+.booking-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -456,7 +473,386 @@ h5 {
           justify-content: space;
 }
 
-.booking__inner p {
+.booking-block__inner p {
   margin-bottom: 16px;
+}
+
+.reviews {
+  text-align: center;
+}
+
+.reviews__inner {
+  padding-top: 24px;
+}
+
+.create-review {
+  height: 124px;
+}
+
+.create-review__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 24px;
+}
+
+.create-review__textarea {
+  margin: 0 32px;
+  resize: none;
+  height: 80px;
+  width: 55vw;
+  border-radius: 20px;
+}
+
+.create-review .button {
+  width: 14vw;
+}
+
+.reviews-list__item {
+  padding: 0 18px;
+  height: 100px;
+  background: rgba(18, 156, 233, 0.72);
+  margin-top: 12px;
+}
+
+.reviews-list__item-info {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.reviews-list__item-main-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.reviews-list__item-score {
+  font-size: 30px;
+  padding-left: 5vw;
+}
+
+.reviews-list__item-text {
+  padding-top: 14px;
+  text-align: left;
+}
+
+.booking {
+  background: rgba(192, 151, 151, 0.4);
+  text-align: center;
+}
+
+.booking__inner {
+  padding-top: 20px;
+  margin-top: 80px;
+}
+
+.scheme-display {
+  margin-top: 20px;
+  height: 400px;
+  width: 100%;
+  background-color: #c4c4c4;
+}
+
+.booking-form {
+  padding: 16px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.booking-form__input {
+  border-radius: 50px;
+  margin-left: 15px;
+}
+
+.booking-form__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px 0;
+}
+
+.display-block {
+  display: block;
+}
+
+.book-history .title {
+  text-align: center;
+}
+
+.book-history__innner {
+  padding-top: 16px;
+}
+
+.book-history__item {
+  height: 80px;
+  border-radius: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 24px;
+  margin-top: 16px;
+}
+
+.book-history__item .button {
+  height: 3vw;
+}
+
+.book-history__main-info {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-rows: (1fr)[1];
+  -ms-grid-columns: (1fr)[2];
+      grid-template: repeat(1, 1fr)/repeat(2, 1fr);
+}
+
+.book-history__date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.book-history__capacity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.booking-active {
+  background: #aca848;
+}
+
+.booking-cancelled {
+  background: #cf3333;
+}
+
+.booking-completed {
+  background: #33cf5f;
+}
+
+.personal-info {
+  text-align: center;
+  width: 70%;
+}
+
+.personal-info__inner {
+  padding-top: 24px;
+}
+
+.personal-info__content {
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.personal-info__content-text {
+  padding-top: 30px;
+  width: 24vw;
+  text-align: left;
+}
+
+.personal-info__content-text * {
+  padding: 4px 0;
+}
+
+.personal-info__birthday {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.personal-info__birthday p {
+  padding-right: 16px;
+}
+
+.personal-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+.contact-info {
+  width: 30%;
+  text-align: center;
+}
+
+.contact-info__inner {
+  padding: 12px;
+  padding-top: 24px;
+}
+
+.contact-info__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 4px 0;
+}
+
+.contact-info__row p {
+  padding-right: 8px;
+}
+
+.contact-info__text {
+  padding-top: 104px;
+}
+
+.contact-info .button {
+  position: absolute;
+  bottom: 140px;
+  right: 20px;
+}
+
+.edit-form {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.edit-form h1 {
+  padding-top: 20px;
+  padding-bottom: 12px;
+}
+
+.edit-form h2 {
+  padding: 16px 0;
+}
+
+.edit-form__inner {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.edit-form__personal-info {
+  background: rgba(196, 196, 196, 0.2);
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.edit-form__contact-info {
+  background: rgba(196, 196, 196, 0.1);
+  padding-top: 8px;
+}
+
+.edit-form__item {
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 6px 10%;
+}
+
+.edit-form__input {
+  border-radius: 50px;
+}
+
+.edit-form .button {
+  margin-top: 20px;
+  width: 30%;
+}
+
+.login {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 60px 0;
+}
+
+.login-form {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+}
+
+.login-form__item {
+  padding-top: 32px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.login-form .button {
+  margin-top: 24px;
+  width: 56%;
+}
+
+.login-form a {
+  padding-top: 7px;
+  display: block;
+  text-align: center;
+}
+
+.login-header {
+  background: rgba(83, 219, 36, 0.6);
+  height: 280px;
+}
+
+.login-header__inner {
+  height: 280px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.login-header__text {
+  width: 36%;
+}
+
+.login-header .title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 100px;
+}
+
+.login-header .sub-title {
+  font-size: 34px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 50px;
+}
+
+.login-header p {
+  margin-top: 8px;
+  line-height: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-avatar {
+  height: 240px;
 }
 /*# sourceMappingURL=style.css.map */

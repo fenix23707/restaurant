@@ -1,0 +1,35 @@
+.login-header {
+  background: rgba(83, 219, 36, 0.6);
+
+  height: 280px;
+  &__inner {
+    height: 280px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__text {
+    width: 36%;
+  }
+  .title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 100px;
+  }
+  .sub-title {
+    font-size: 34px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 50px;
+  }
+
+  p {
+    margin-top: 8px;
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+.login-avatar {
+  height: 240px;
+}

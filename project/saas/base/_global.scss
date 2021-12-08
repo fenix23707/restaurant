@@ -9,20 +9,6 @@ body {
   color: white;
 }
 
-p {
-  color: white;
-  font-size: 18px;
-  line-height: 22px;
-  font-family: "Montserrat", sans-serif;
-}
-
-h5 {
-  color: white;
-  font-size: 20px;
-  font-family: "Ubuntu", sans-serif;
-  line-height: 26px;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -34,8 +20,21 @@ h5 {
 }
 
 .container {
-  max-width: 70rem;
+  width: 80vw;
   margin: 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input {
+  border-radius: 50px;
+}
+
+.personal-wrapper {
+  background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
+  height: 524px;
+  &__inner {
+    margin-top: 80px;
+    display: flex;
+  }
 }

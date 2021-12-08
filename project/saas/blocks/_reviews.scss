@@ -1,0 +1,52 @@
+.reviews {
+  text-align: center;
+  &__inner {
+    padding-top: 24px;
+  }
+}
+.create-review {
+  height: 124px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24px;
+  }
+  &__select {
+  }
+  &__textarea {
+    margin: 0 32px;
+    resize: none;
+    height: 80px;
+    width: 55vw;
+    border-radius: 20px;
+  }
+  .button {
+    width: 14vw;
+  }
+}
+.reviews-list {
+  &__item {
+    padding: 0 18px;
+    height: 100px;
+    background: rgba(18, 156, 233, 0.72);
+    margin-top: 12px;
+  }
+  &__item-info {
+    justify-content: space-between;
+    padding-top: 12px;
+    display: flex;
+  }
+  &__item-main-data {
+    display: flex;
+  }
+  &__item-score {
+    font-size: 30px;
+    padding-left: 5vw;
+  }
+  &__item-text {
+    padding-top: 14px;
+    text-align: left;
+  }
+}

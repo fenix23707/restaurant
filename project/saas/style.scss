@@ -2,10 +2,10 @@
 
 // font-family: 'Lato', sans-serif;
 // font-family: 'Montserrat', sans-serif;
+// font-family: 'Open Sans', sans-serif;
 // font-family: 'Pattaya', sans-serif;
 // font-family: 'Ubuntu', sans-serif;
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&family=Pattaya&family=Ubuntu:wght@400;500;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;500;700&family=Pattaya&family=Ubuntu:wght@400;500;700&display=swap");
 @import "base/reset";
 @import "base/global";
 @import "base/variables";
@@ -21,3 +21,11 @@
 @import "blocks/search-liine";
 @import "blocks/restaurants";
 @import "blocks/restaurant-info";
+@import "blocks/reviews";
+@import "blocks/booking";
+@import "blocks/book-history";
+@import "blocks/personal-info";
+@import "blocks/contact-info";
+@import "blocks/edit-form";
+@import "blocks/login";
+@import "blocks/login-header";

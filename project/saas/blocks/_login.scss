@@ -1,0 +1,23 @@
+.login {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 60px 0;
+}
+.login-form {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  &__item {
+    padding-top: 32px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .button {
+    margin-top: 24px;
+    width: 56%;
+  }
+  a {
+    padding-top: 7px;
+    display: block;
+    text-align: center;
+  }
+}

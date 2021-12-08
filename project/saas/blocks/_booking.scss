@@ -1,0 +1,34 @@
+.booking {
+  background: rgba(192, 151, 151, 0.4);
+
+  text-align: center;
+  &__inner {
+    padding-top: 20px;
+    margin-top: 80px;
+  }
+}
+.scheme-display {
+  margin-top: 20px;
+  height: 400px;
+  width: 100%;
+  background-color: #c4c4c4;
+}
+.booking-form {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    border-radius: 50px;
+    margin-left: 15px;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+}
+
+.display-block {
+  display: block;
+}
