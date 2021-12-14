@@ -87,7 +87,7 @@ body {
 }
 
 .container {
-  width: 80vw;
+  width: 88vw;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -95,6 +95,12 @@ body {
 
 .input {
   border-radius: 50px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .personal-wrapper {
@@ -192,12 +198,12 @@ h5 {
 }
 
 .menu__list-link {
-  font-size: 24px;
+  font-size: 1.4vw;
   font-weight: 800;
   line-height: 40px;
   color: white;
   text-decoration: none;
-  padding: 0 20px;
+  padding: 0 1vw;
 }
 
 .footer {
@@ -251,6 +257,38 @@ h5 {
   height: 32px;
 }
 
+.list__item {
+  background: #2385ce;
+  height: 120px;
+  border-radius: 36px;
+  margin: 24px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.list__item-text {
+  margin-left: 2vw;
+}
+
+.list__item-text p {
+  padding-top: 10px;
+}
+
+.list__item-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .filter {
   text-align: center;
   position: fixed;
@@ -262,6 +300,26 @@ h5 {
 
 .filter__inner {
   padding-top: 10px;
+}
+
+.scheme {
+  width: 80%;
+  height: 300px;
+  background: #c4c4c4;
+}
+
+.add-scheme-form {
+  padding: auto;
+  text-align: center;
+}
+
+.add-scheme-form__inner {
+  padding: 24px 0;
+  width: 20%;
+}
+
+.add-scheme-form__inner .input {
+  margin: 16px 0;
 }
 
 .about {
@@ -854,5 +912,97 @@ h5 {
 
 .login-avatar {
   height: 240px;
+}
+
+.my-restaurants {
+  text-align: center;
+}
+
+.my-restaurants__inner {
+  margin-top: 80px;
+  padding-top: 22px;
+}
+
+.my-restaurants-list__item {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 60px;
+}
+
+.my-restaurants-list__item-info {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.my-restaurants-list__item-text {
+  padding-left: 24px;
+}
+
+.my-restaurants-list__item-text p {
+  margin-top: 8px;
+}
+
+.add-restaurant-form {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.add-restaurant-form__inner {
+  padding-top: 20px;
+}
+
+.add-restaurant-form__inner .button {
+  margin: auto;
+  width: 60%;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.add-restaurant-form__main-info {
+  background: rgba(196, 196, 196, 0.2);
+}
+
+.add-restaurant-form__item {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 16px auto;
+}
+
+.add-restaurant-form__size-items {
+  margin: auto;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.add-restaurant-form__scheme-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.users .title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.users .button {
+  width: 24%;
 }
 /*# sourceMappingURL=style.css.map */

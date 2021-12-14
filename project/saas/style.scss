@@ -15,7 +15,9 @@
 @import "blocks/header";
 @import "blocks/footer";
 @import "blocks/icons";
+@import "blocks/list";
 @import "blocks/filter";
+@import "blocks/scheme";
 @import "blocks/about";
 @import "blocks/achievements";
 @import "blocks/search-liine";
@@ -29,3 +31,8 @@
 @import "blocks/edit-form";
 @import "blocks/login";
 @import "blocks/login-header";
+@import "blocks/my-restaurants";
+@import "blocks/add-restaurant-form";
+@import "blocks/users-list";
+
+@import "base/media";

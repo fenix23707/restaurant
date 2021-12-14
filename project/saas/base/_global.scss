@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-  width: 80vw;
+  width: 88vw;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -28,6 +28,12 @@ body {
 
 .input {
   border-radius: 50px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .personal-wrapper {
