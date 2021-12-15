@@ -28,7 +28,31 @@
   }
 }
 .personal-avatar {
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   border-radius: 100%;
+}
+
+.personal-wrapper {
+  background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
+  height: 524px;
+  &__inner {
+    margin-top: 80px;
+    display: flex;
+    height: 100%;
+  }
+  .container {
+    height: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .personal-wrapper {
+    height: 380px;
+  }
+}
+
+@media (max-width: 767px) {
+  .personal-wrapper {
+    height: 280px;
+  }
 }

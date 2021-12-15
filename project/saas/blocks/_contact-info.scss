@@ -3,8 +3,10 @@
   text-align: center;
 
   &__inner {
+    position: relative;
     padding: 12px;
     padding-top: 24px;
+    height: 100%;
   }
   &__row {
     p {
@@ -18,7 +20,7 @@
   }
   .button {
     position: absolute;
-    bottom: 140px;
+    bottom: 20px;
     right: 20px;
   }
 }

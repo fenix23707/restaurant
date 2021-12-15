@@ -2,7 +2,7 @@
   background: rgba(111, 100, 129, 0.7);
   * {
     font-family: "Montserrat", sans-serif;
-    font-size: 22px;
+    font-size: 1.5vw;
     line-height: 40px;
     font-weight: 800;
   }
@@ -21,7 +21,7 @@
   }
 
   &__side-text {
-    width: 180px;
+    width: 12vw;
   }
   &__midl {
     display: flex;
@@ -30,5 +30,20 @@
     height: 270px;
     width: 33.33333%;
     background: #40286a;
+  }
+}
+
+@media (max-width: 767px) {
+  .achievements {
+    &__side {
+      height: 100px;
+    }
+
+    &__side-text {
+      width: 12vw;
+    }
+    &__midl {
+      height: 100px;
+    }
   }
 }

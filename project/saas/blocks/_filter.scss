@@ -2,10 +2,22 @@
   text-align: center;
   position: fixed;
   right: 0;
-  width: 33.333%;
+  width: 28%;
   height: 100px;
   background: rgba(27, 24, 196, 0.3);
   &__inner {
     padding-top: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .filter {
+    width: 22%;
+  }
+}
+
+@media (max-width: 747px) {
+  .filter {
+    width: 40%;
   }
 }

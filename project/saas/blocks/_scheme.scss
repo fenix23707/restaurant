@@ -1,5 +1,5 @@
 .scheme {
-  width: 80%;
+  max-width: 80%;
   height: 300px;
   background: #c4c4c4;
   &__inner {
@@ -16,5 +16,13 @@
     .input {
       margin: 16px 0;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  label,
+  select {
+    font-size: 3vw;
+    line-height: 3.2vw;
   }
 }

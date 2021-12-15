@@ -37,3 +37,19 @@
     width: 30%;
   }
 }
+
+@media (max-width: 1200px) {
+  .edit-form {
+    &__inner {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .edit-form {
+    &__inner {
+      width: 70%;
+    }
+  }
+}
