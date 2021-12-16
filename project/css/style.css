@@ -187,6 +187,13 @@ h5 {
   background-color: #bb0510;
 }
 
+@media (max-width: 767px) {
+  .button {
+    padding: 1.2vw 2vw;
+    font-size: 2vw;
+  }
+}
+
 .header {
   background-color: rgba(196, 196, 196, 0.3);
   position: fixed;
@@ -343,6 +350,61 @@ h5 {
   }
 }
 
+.add-restaurant-form {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.add-restaurant-form__inner {
+  padding-top: 20px;
+}
+
+.add-restaurant-form__inner .button {
+  margin: auto;
+  width: 60%;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.add-restaurant-form__main-info {
+  background: rgba(196, 196, 196, 0.2);
+}
+
+.add-restaurant-form__item {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 16px auto;
+}
+
+.add-restaurant-form__size-items {
+  margin: auto;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.add-restaurant-form__scheme-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.add-restaurant-form__scheme-add .scheme {
+  width: 80%;
+}
+
 .scheme {
   max-width: 80%;
   height: 300px;
@@ -368,6 +430,15 @@ h5 {
   select {
     font-size: 3vw;
     line-height: 3.2vw;
+  }
+  .add-scheme-form__inner {
+    width: 35%;
+  }
+  .add-scheme-form__inner .input {
+    font-size: 2vw;
+  }
+  .add-scheme-form__inner .button {
+    margin: 0px auto;
   }
 }
 
@@ -999,6 +1070,7 @@ h5 {
 .login {
   background: rgba(0, 0, 0, 0.6);
   padding: 72px 0;
+  height: 362px;
 }
 
 .login-form {
@@ -1009,7 +1081,7 @@ h5 {
 
 .login-form__item {
   padding-top: 32px;
-  font-size: 30px;
+  font-size: 2vw;
   line-height: 30px;
 }
 
@@ -1027,6 +1099,20 @@ h5 {
 @media (max-width: 767px) {
   .login {
     padding: 70px 0;
+    height: 402px;
+  }
+  .login-form {
+    width: 70%;
+  }
+  .login-form__item {
+    font-size: 5vw;
+    line-height: 30px;
+  }
+  .login-form .button {
+    width: 86%;
+  }
+  .login-form a {
+    font-size: 2vw;
   }
 }
 
@@ -1149,54 +1235,6 @@ h5 {
 
 .my-restaurants-list__item-text p {
   margin-top: 8px;
-}
-
-.add-restaurant-form {
-  text-align: center;
-  margin-top: 80px;
-}
-
-.add-restaurant-form__inner {
-  padding-top: 20px;
-}
-
-.add-restaurant-form__inner .button {
-  margin: auto;
-  width: 60%;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.add-restaurant-form__main-info {
-  background: rgba(196, 196, 196, 0.2);
-}
-
-.add-restaurant-form__item {
-  width: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 16px auto;
-}
-
-.add-restaurant-form__size-items {
-  margin: auto;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.add-restaurant-form__scheme-add {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .users .title {

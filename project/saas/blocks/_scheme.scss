@@ -25,4 +25,24 @@
     font-size: 3vw;
     line-height: 3.2vw;
   }
+  .add-scheme-form {
+    &__inner {
+      .input {
+        font-size: 2vw;
+      }
+      width: 35%;
+      .button {
+        margin: 0px auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
 }

@@ -13,8 +13,6 @@
   &__main-info {
     background: rgba(196, 196, 196, 0.2);
   }
-  &__scheme {
-  }
   &__item {
     width: 40%;
     display: flex;
@@ -29,5 +27,9 @@
   }
   &__scheme-add {
     display: flex;
+    justify-content: right;
+    .scheme {
+      width: 80%;
+    }
   }
 }

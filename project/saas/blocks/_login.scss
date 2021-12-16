@@ -1,6 +1,7 @@
 .login {
   background: rgba(0, 0, 0, 0.6);
   padding: 72px 0;
+  height: 362px;
 }
 .login-form {
   text-align: center;
@@ -8,7 +9,7 @@
   width: 60%;
   &__item {
     padding-top: 32px;
-    font-size: 30px;
+    font-size: 2vw;
     line-height: 30px;
   }
   .button {
@@ -25,5 +26,20 @@
 @media (max-width: 767px) {
   .login {
     padding: 70px 0;
+    height: 402px;
+  }
+  .login-form {
+    width: 70%;
+
+    &__item {
+      font-size: 5vw;
+      line-height: 30px;
+    }
+    .button {
+      width: 86%;
+    }
+    a {
+      font-size: 2vw;
+    }
   }
 }

@@ -19,3 +19,17 @@
     background-color: #bb0510;
   }
 }
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .button {
+    padding: 1.2vw 2vw;
+
+    font-size: 2vw;
+  }
+}
