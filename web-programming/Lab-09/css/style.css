@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+.start-display {
+    min-height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+#form {
+}
+
+.button {
+    width: 30%;
+    height: 5vw;
+}
