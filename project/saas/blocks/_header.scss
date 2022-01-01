@@ -1,6 +1,7 @@
 .header {
   background-color: rgba(196, 196, 196, 0.3);
   &__inner {
+    min-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,17 +14,108 @@
 }
 
 .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
     list-style: none;
     display: flex;
   }
 
   &__list-link {
-    font-size: 1.4vw;
+    transition: 0.3s ease-out;
+    font-size: 22px;
     font-weight: 800;
-    line-height: 40px;
+    line-height: 26px;
     color: white;
     text-decoration: none;
-    padding: 0 1vw;
+  }
+  &__list-link:hover {
+    color: dodgerblue;
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  &__bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .header {
+    &__inner {
+      justify-content: space-around;
+    }
+  }
+  .logo {
+    display: none;
+  }
+  .menu {
+    &__list {
+    }
+    &__list-link {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .hamburger__bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .hamburger__bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .hamburger__bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .menu {
+    &__list {
+      .active {
+        left: 0;
+      }
+      left: -100%;
+      top: 80px;
+      position: fixed;
+      gap: 0;
+      flex-direction: column;
+      background-color: #262626;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+    }
+    &__list-link {
+      margin: 16px 0;
+    }
+    .menu__item {
+      margin: 16px 0;
+    }
+
+    .menu__list.active {
+      left: 0;
+    }
   }
 }

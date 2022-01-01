@@ -2,10 +2,10 @@
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 16px;
   color: black;
   border: none;
-  padding: 0.6vw 2vw;
+  padding: 8px 16px;
   align-items: center;
   text-align: center;
   background: #db1a26;
@@ -27,9 +27,4 @@
 }
 
 @media (max-width: 767px) {
-  .button {
-    padding: 1.2vw 2vw;
-
-    font-size: 2vw;
-  }
 }

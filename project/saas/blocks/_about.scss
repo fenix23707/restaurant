@@ -14,3 +14,20 @@
   }
   padding-top: 260px;
 }
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .about {
+    &__inner {
+      p {
+        padding-bottom: 140px;
+      }
+    }
+    padding-top: 260px;
+  }
+}

@@ -65,4 +65,23 @@
       border-radius: 20px;
     }
   }
+  .reviews-list {
+    &__item-main-data {
+      h5 {
+        font-size: 4vw;
+      }
+    }
+    &__item-text {
+      font-size: 2vw;
+    }
+    &__item-date {
+      font-size: 2.4vw;
+    }
+  }
+  .reviews {
+    &__inner {
+      .title {
+      }
+    }
+  }
 }

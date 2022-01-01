@@ -119,13 +119,6 @@ body {
   .container {
     max-width: none;
   }
-  .title {
-    font-size: 4vw;
-  }
-  p {
-    font-size: 3vw;
-    line-height: 3.2vw;
-  }
   .avatar {
     width: 10vw;
     height: 10vw;
@@ -135,21 +128,21 @@ body {
 .title {
   font-family: "Pattaya", sans-serif;
   color: white;
-  font-size: 2.5vw;
+  font-size: 34px;
   line-height: 40px;
 }
 
 p {
   color: white;
   font-weight: 400;
-  font-size: 1.4vw;
-  line-height: 1.6vw;
+  font-size: 18px;
+  line-height: 22px;
   font-family: "Montserrat", sans-serif;
 }
 
 .sub-titile {
-  font-size: 1.8vw;
-  line-height: 2vw;
+  font-size: 28px;
+  line-height: 32px;
   width: 600;
   font-family: "Ubuntu", sans-serif;
 }
@@ -165,10 +158,10 @@ h5 {
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 16px;
   color: black;
   border: none;
-  padding: 0.6vw 2vw;
+  padding: 8px 16px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -187,13 +180,6 @@ h5 {
   background-color: #bb0510;
 }
 
-@media (max-width: 767px) {
-  .button {
-    padding: 1.2vw 2vw;
-    font-size: 2vw;
-  }
-}
-
 .header {
   background-color: rgba(196, 196, 196, 0.3);
   position: fixed;
@@ -202,6 +188,7 @@ h5 {
 }
 
 .header__inner {
+  min-height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -214,20 +201,120 @@ h5 {
   height: 80px;
 }
 
-.menu__list {
-  list-style: none;
+.menu {
   display: -webkit-box;
   display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+  list-style: none;
   display: flex;
 }
 
 .menu__list-link {
-  font-size: 1.4vw;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  font-size: 22px;
   font-weight: 800;
-  line-height: 40px;
+  line-height: 26px;
   color: white;
   text-decoration: none;
-  padding: 0 1vw;
+}
+
+.menu__list-link:hover {
+  color: dodgerblue;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger__bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+@media (max-width: 992px) {
+  .header__inner {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .logo {
+    display: none;
+  }
+  .menu__list-link {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hamburger.active .hamburger__bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .hamburger__bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .hamburger__bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
+  }
+  .menu__list {
+    left: -100%;
+    top: 80px;
+    position: fixed;
+    gap: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #262626;
+    width: 100%;
+    text-align: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .menu__list .active {
+    left: 0;
+  }
+  .menu__list-link {
+    margin: 16px 0;
+  }
+  .menu .menu__item {
+    margin: 16px 0;
+  }
+  .menu .menu__list.active {
+    left: 0;
+  }
 }
 
 .footer {
@@ -264,6 +351,13 @@ h5 {
 
 .footer__main-content p {
   padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .footer__main-content p {
+    font-size: 2.8vw;
+    line-height: 3.4vw;
+  }
 }
 
 .social-icon {
@@ -460,6 +554,15 @@ h5 {
   padding-bottom: 210px;
 }
 
+@media (max-width: 767px) {
+  .about {
+    padding-top: 260px;
+  }
+  .about__inner p {
+    padding-bottom: 140px;
+  }
+}
+
 .achievements {
   background: rgba(111, 100, 129, 0.7);
   text-align: center;
@@ -514,9 +617,13 @@ h5 {
     height: 100px;
   }
   .achievements__side-text {
+    font-size: 1.8vw;
+    line-height: 2.4vw;
     width: 12vw;
   }
   .achievements__midl {
+    font-size: 1.8vw;
+    line-height: 2.4vw;
     height: 100px;
   }
 }
@@ -548,6 +655,16 @@ h5 {
 .search-form__button {
   position: relative;
   right: 40px;
+}
+
+@media (max-width: 767px) {
+  .search-form__input {
+    font-size: 3vw;
+  }
+  .search-form__button {
+    position: relative;
+    right: 40px;
+  }
 }
 
 .restaurants {
@@ -621,6 +738,12 @@ h5 {
   .restaurants-list__item {
     width: 240px;
   }
+  .restaurants-list__item h5 {
+    font-size: 3vw;
+  }
+  .restaurants-list__item p {
+    font-size: 2vw;
+  }
 }
 
 .restaurant-info {
@@ -689,6 +812,15 @@ h5 {
 @media (max-width: 767px) {
   .restaurant-info {
     height: 140px;
+  }
+  .main-info-text__inner h2 {
+    font-size: 3vw;
+  }
+  .sub-info__inner p {
+    font-size: 2.2vw;
+  }
+  .booking-block__inner p {
+    font-size: 1.8vw;
   }
   .main-info {
     height: 140px;
@@ -784,6 +916,15 @@ h5 {
     height: 4vw;
     background-color: rebeccapurple;
     border-radius: 20px;
+  }
+  .reviews-list__item-main-data h5 {
+    font-size: 4vw;
+  }
+  .reviews-list__item-text {
+    font-size: 2vw;
+  }
+  .reviews-list__item-date {
+    font-size: 2.4vw;
   }
 }
 
@@ -898,6 +1039,21 @@ h5 {
   background: #33cf5f;
 }
 
+@media (max-width: 767px) {
+  .book-history__innner .title {
+    font-size: 6vw;
+  }
+  .book-history__main-info h5 {
+    font-size: 3vw;
+  }
+  .book-history__capacity p {
+    font-size: 2.4vw;
+  }
+  .book-history__date p {
+    font-size: 2vw;
+  }
+}
+
 .personal-info {
   text-align: center;
   width: 70%;
@@ -967,6 +1123,16 @@ h5 {
 }
 
 @media (max-width: 767px) {
+  .personal-info__content-text {
+    width: 180px;
+  }
+  .personal-info__content-text h5 {
+    font-size: 3vw;
+    line-height: 3.2vw;
+  }
+  .personal-info__content-text p {
+    font-size: 2vw;
+  }
   .personal-wrapper {
     height: 280px;
   }
@@ -1003,6 +1169,16 @@ h5 {
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+@media (max-width: 767px) {
+  .contact-info__inner {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .contact-info__row p {
+    font-size: 1.6vw;
+  }
 }
 
 .edit-form {
@@ -1059,11 +1235,38 @@ h5 {
   .edit-form__inner {
     width: 50%;
   }
+  .container .title {
+    font-size: 4vw;
+  }
+  .edit-form__item label {
+    font-size: 2.2vw;
+  }
+  .edit-form__input {
+    font-size: 1.6vw;
+  }
+  .edit-form__inner {
+    width: 100%;
+  }
+  .edit-form__inner .sub-title {
+    font-size: 2.4vw;
+  }
 }
 
 @media (max-width: 767px) {
+  .container .title {
+    font-size: 7vw;
+  }
+  .edit-form__item label {
+    font-size: 3.2vw;
+  }
+  .edit-form__input {
+    font-size: 3vw;
+  }
   .edit-form__inner {
-    width: 70%;
+    width: 100%;
+  }
+  .edit-form__inner .sub-title {
+    font-size: 4vw;
   }
 }
 

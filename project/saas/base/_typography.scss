@@ -1,21 +1,21 @@
 .title {
   font-family: "Pattaya", sans-serif;
   color: white;
-  font-size: 2.5vw;
+  font-size: 34px;
   line-height: 40px;
 }
 
 p {
   color: white;
   font-weight: 400;
-  font-size: 1.4vw;
-  line-height: 1.6vw;
+  font-size: 18px;
+  line-height: 22px;
   font-family: "Montserrat", sans-serif;
 }
 
 .sub-titile {
-  font-size: 1.8vw;
-  line-height: 2vw;
+  font-size: 28px;
+  line-height: 32px;
   width: 600;
   font-family: "Ubuntu", sans-serif;
 }
@@ -25,4 +25,13 @@ h5 {
   font-size: 1.6vw;
   font-family: "Ubuntu", sans-serif;
   line-height: 1.8vw;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
 }

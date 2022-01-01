@@ -52,6 +52,18 @@
 }
 
 @media (max-width: 767px) {
+  .personal-info {
+    &__content-text {
+      width: 180px;
+      h5 {
+        font-size: 3vw;
+        line-height: 3.2vw;
+      }
+      p {
+        font-size: 2vw;
+      }
+    }
+  }
   .personal-wrapper {
     height: 280px;
   }

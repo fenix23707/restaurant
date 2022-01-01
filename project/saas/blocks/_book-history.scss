@@ -42,3 +42,34 @@
 .booking-completed {
   background: #33cf5f;
 }
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .book-history {
+    &__innner {
+      .title {
+        font-size: 6vw;
+      }
+    }
+    &__main-info {
+      h5 {
+        font-size: 3vw;
+      }
+    }
+    &__capacity {
+      p {
+        font-size: 2.4vw;
+      }
+    }
+    &__date {
+      p {
+        font-size: 2vw;
+      }
+    }
+  }
+}
