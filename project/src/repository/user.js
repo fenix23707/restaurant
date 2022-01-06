@@ -1,9 +1,14 @@
 const User = require('../models/user');
 const constants = require('../constants');
+const ConflictError = require("../errors/ConflictError");
 
 class UserRepository {
     findUserById(id) {
-        return User.findOne({where: {id: id}});
+        return User.findByPk(id);
+    }
+
+    findUserByLogin(login) {
+        return User.findOne({where: {login: login}});
     }
 
     async list(page) {
@@ -15,6 +20,16 @@ class UserRepository {
             result = await User.findAll();
         }
         return result;
+    }
+
+    async create(userData) {
+        let userExist = await this.findUserByLogin(userData.login);
+        if (userExist) {
+            throw new ConflictError(`Login: ${userData.login} already exist`);
+        }
+        let user = null;
+        user = await User.create(userData);
+        return user;
     }
 }
 

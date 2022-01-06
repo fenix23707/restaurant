@@ -7,7 +7,9 @@
     "express-session": "^1.17.2",
     "pg": "^8.7.1",
     "sequelize": "^6.12.4",
-    "serialize-javascript": "^6.0.0"
+    "serialize-javascript": "^6.0.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
   },
   "name": "project",
   "version": "1.0.0",
@@ -25,5 +27,8 @@
     "url": "https://github.com/fenix23707/restaurant/issues"
   },
   "homepage": "https://github.com/fenix23707/restaurant#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
