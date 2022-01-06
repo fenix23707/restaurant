@@ -41,8 +41,8 @@ CREATE TABLE schemes
 (
 	PRIMARY KEY(id),	
 	id 				serial,	
-	width 			smallint 		NOT NULL 	CHECK(width BETWEEN 1 and 10000),
-	height 			smallint 		NOT NULL 	CHECK(height BETWEEN 1 and 10000),
+	width 			integer 		NOT NULL 	CHECK(width BETWEEN 1 and 10000),
+	height 			integer 		NOT NULL 	CHECK(height BETWEEN 1 and 10000),
 	restaurant_id 	int
 );
 

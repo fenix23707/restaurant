@@ -10,6 +10,15 @@ class AuthController {
             return next(err);
         }
     }
+
+    async login(req, res, next) {
+        const userData = req.body;
+        try {
+        //    TODO: complete this
+        } catch (err) {
+            return next(err);
+        }
+    }
 }
 
 module.exports = new AuthController();
