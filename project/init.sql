@@ -75,7 +75,7 @@ CREATE TABLE reviews
 (
 	PRIMARY KEY(id),
 	id 				serial,	
-	rate 			smallint  	NOT NULL 	CHECK(rate BETWEEN 0 and 10),
+	rate 			smallint  	NOT NULL 	CHECK(rate BETWEEN 1 and 10),
 	review 			text,
 	date 			timestamp 	NOT NULL,
 	user_id 		int,
