@@ -23,13 +23,14 @@ class UserRepository {
     }
 
     async create(userData) {
-        let userExist = await this.findUserByLogin(userData.login);
-        if (userExist) {
-            throw new ConflictError(`Login: ${userData.login} already exist`);
-        }
+
         let user = null;
         user = await User.create(userData);
         return user;
+    }
+
+    async update(id, userData) {
+        return await User.update(userData, {where: {id: id}});
     }
 }
 

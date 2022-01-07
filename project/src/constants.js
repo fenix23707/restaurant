@@ -10,7 +10,7 @@ const constants = {
     userActiveNum: 0,
     userNotActiveNum: 1,
 
-    usersOnPage: 2
+    pageSize: 6
 }
 
 module.exports = constants;

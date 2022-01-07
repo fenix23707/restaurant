@@ -1,6 +1,7 @@
 const userRepository = require('../repository/user');
 const userInfoService = require('../services/userinfo');
 const constants = require('../constants')
+const UserInfo = require("../models/userinfo");
 
 class AuthService {
     async signup(userData) {
@@ -10,8 +11,7 @@ class AuthService {
 
         const user = await userRepository.create(userData);
 
-        const userInfo = {user_id: user.id};
-        await userInfoService.create(userInfo);
+        UserInfo.create({user_id: user.id});
 
         return user;
     }

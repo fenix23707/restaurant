@@ -23,6 +23,9 @@ const sequelize = require("../database/sequelize");
  *          avatar:
  *            type: string
  *            description: The avatar of restaurant.
+ *          status:
+ *            type: integer
+ *            description: Status of restaurant. (Active - 0, Not active - 1)
  *          user_id:
  *            type: integer
  *            description: The id of restaurant owner.
@@ -31,6 +34,7 @@ const sequelize = require("../database/sequelize");
  *          name: ResTop
  *          adres: Belarus, Vitebsk, Moskovskiy Prospekt, 33
  *          avatar: restaurant/img/1/ava.png
+ *          status: 0
  *          user_id: 2
  */
 const Restaurant = sequelize.define("restaurant", {
@@ -51,6 +55,12 @@ const Restaurant = sequelize.define("restaurant", {
     avatar: {
         type: Sequelize.STRING,
     },
+    status: {
+        type: Sequelize.SMALLINT,
+        allowNull: false,
+        min: 0,
+        max: 1,
+    },
     user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -58,3 +68,48 @@ const Restaurant = sequelize.define("restaurant", {
 });
 
 module.exports = Restaurant;
+
+/**
+ * @swagger:
+ * components:
+ *   schemas:
+ *      RestaurantScheme:
+ *        type: object
+ *        required:
+ *          - name
+ *          - adres
+ *        properties:
+ *          id:
+ *            type: integer
+ *            description: The auto-generated id of restaurant
+ *          name:
+ *            type: string
+ *            description: The name of restaurant. Should be unique.
+ *          adres:
+ *            type: string
+ *            description: The adres of restaurant.
+ *          avatar:
+ *            type: string
+ *            description: The avatar of restaurant.
+ *          status:
+ *            type: integer
+ *            description: Status of restaurant. (Active - 0, Not active - 1)
+ *          user_id:
+ *            type: integer
+ *            description: The id of restaurant owner.
+ *          scheme:
+ *            $ref: '#/components/schemas/Scheme'
+ *        example:
+ *          id: 1
+ *          name: ResTop
+ *          adres: Belarus, Vitebsk, Moskovskiy Prospekt, 33
+ *          avatar: restaurant/img/1/ava.png
+ *          status: 0
+ *          user_id: 2
+ *          scheme:
+ *            id: 1
+ *            width: 200
+ *            height: 200
+ *            restaurant_id: 1
+ *
+ */

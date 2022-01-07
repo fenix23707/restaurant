@@ -34,7 +34,8 @@ CREATE TABLE restaurants
 	name 	varchar(255)	NOT NULL 	UNIQUE,
 	adres 	varchar(255)	NOT NULL,
 	avatar 	varchar(255),
-	user_id int 
+	status 	smallint        NOT NULL    DEFAULT 0,
+	user_id int
 );
 
 CREATE TABLE schemes
@@ -93,6 +94,7 @@ ALTER TABLE reviews ADD CONSTRAINT fk_reviews_restaurants FOREIGN KEY(restaurant
 
 ALTER TABLE users ADD CONSTRAINT role_range CHECK(role BETWEEN 0 and 2);
 ALTER TABLE users ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
+ALTER TABLE restaurants ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
 ALTER TABLE book_tables ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 2);
 -- ALTER TABLE book_tables DROP CONSTRAINT status_range;
 

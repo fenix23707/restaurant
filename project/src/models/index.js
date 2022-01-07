@@ -4,11 +4,11 @@ const Restaurant = require("./restaurant");
 const Scheme = require("./scheme");
 const Table = require("./table");
 
-User.hasOne(UserInfo, {foreignKey: "user_id", onDelete: "CASCADE"});
+User.hasMany(Restaurant, {foreignKey: "user_id"});
 
-Restaurant.hasOne(User, {foreignKey: "user_id"});
+UserInfo.belongsTo(User, {foreignKey: "user_id", onDelete: "CASCADE"});
 
-Scheme.BelongsTo(Restaurant, {foreignKey: "restaurant_id"});
+Scheme.belongsTo(Restaurant, {foreignKey: "restaurant_id"});
 
-Table.BelongsTo(Scheme, {foreignKey: "scheme_id"});
+Table.belongsTo(Scheme, {foreignKey: "scheme_id"});
 
