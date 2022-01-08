@@ -69,8 +69,8 @@ class RestaurantController {
     async create(req, res, next) {
         try {
             const restaurantData = req.body;
-            let user = await restaurantService.create(restaurantData);
-            res.status(201).json(user);
+            let restaurant = await restaurantService.create(restaurantData);
+            res.status(201).json(restaurant);
         } catch (err) {
             return next(err);
         }

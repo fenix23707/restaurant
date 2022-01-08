@@ -8,18 +8,18 @@ const sequelize = require("../database/sequelize");
  *      TableReservation:
  *        type: object
  *        required:
- *          - date_begin
- *          - date_end
+ *          - datetime_begin
+ *          - datetime_end
  *          - capacity
  *          - table_id
  *        properties:
  *          id:
  *            type: integer
  *            description: The auto-generated id of table reservation
- *          date_begin:
+ *          datetime_begin:
  *            type: string
  *            description: Start of reservation
- *          date_end:
+ *          datetime_end:
  *            type: string
  *            description: End of reservation
  *          capacity:
@@ -36,8 +36,8 @@ const sequelize = require("../database/sequelize");
  *            description: The id of user who was booked the table
  *        example:
  *          id: 1
- *          date_begin: "2020-02-08 09:30:00"
- *          date_end: "2020-02-08 10:30:00"
+ *          datetime_begin: "2020-02-08 09:30:00"
+ *          datetime_end: "2020-02-08 10:30:00"
  *          capacity: 1
  *          status: 0
  *          table_id: 1
@@ -66,7 +66,6 @@ const TableReservation = sequelize.define("book_table", {
     },
     status: {
         type: Sequelize.SMALLINT,
-        allowNull: false,
         min: 0,
         max: 2,
     },

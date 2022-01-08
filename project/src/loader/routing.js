@@ -7,11 +7,13 @@ const usersRouter = require("../routes/user");
 const signupRouter = require("../routes/signup");
 const userInfoRouter = require("../routes/userinfo");
 const restaurantRouter = require("../routes/restaurant");
+const reservationRouter = require("../routes/tableReservation");
 
 router.use('/signup', signupRouter);
 router.use('/users', usersRouter);
 router.use('/userinfo', userInfoRouter);
 router.use('/restaurants', restaurantRouter);
+router.use('/reservations', reservationRouter);
 
 router.use(errorConsoleLogger);
 router.use(errorHandler);

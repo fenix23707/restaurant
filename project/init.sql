@@ -66,7 +66,7 @@ CREATE TABLE book_tables
 	datetime_begin 	timestamp 	NOT NULL,
 	datetime_end  	timestamp  	NOT NULL 	CHECK(datetime_end > datetime_begin),
 	capacity  		smallint 	NOT NULL 	CHECK(capacity BETWEEN 1 and 5000),
-	status 			smallint  	NOT NULL,
+	status 			smallint  	NOT NULL    DEFAULT 0,
 	table_id  		int,
 	user_id  		int	
 );

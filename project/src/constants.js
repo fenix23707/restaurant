@@ -10,7 +10,11 @@ const constants = {
     userActiveNum: 0,
     userNotActiveNum: 1,
 
-    pageSize: 6
+    bookedReservationStatusNum: 0,
+    completedReservationStatusNum: 0,
+    cancelledReservationStatusNum: 0,
+
+    pageSize: 4
 }
 
 module.exports = constants;
