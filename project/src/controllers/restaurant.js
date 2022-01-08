@@ -8,7 +8,7 @@ const Op = require("sequelize").Op;
 
 class RestaurantController {
     async search(req, res, next) {
-        const match = {};
+        const match = {status: constants.restaurantActiveNum};
         if (req.query.name) {
             match.name = {[Op.iLike]: `%${req.query.name}%`};
         }
@@ -77,9 +77,9 @@ class RestaurantController {
     }
 
     async update(req, res, next) {
+        const id = req.params.id;
+        const restaurantData = req.body;
         try {
-            const id = req.params.id;
-            const restaurantData = req.body;
             await restaurantService.update(id, restaurantData)
             res.json(res.json(new Response("Update successful", 200)));
         } catch (err) {
@@ -88,7 +88,13 @@ class RestaurantController {
     }
 
     async delete(req, res, next) {
-
+        const id = req.params.id;
+        try {
+            await restaurantService.delete(id);
+            res.json(new Response("The restaurant was successfully deleted", 200));
+        } catch (err) {
+            return next(err);
+        }
     }
 }
 

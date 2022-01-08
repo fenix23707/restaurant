@@ -10,6 +10,9 @@ const constants = {
     userActiveNum: 0,
     userNotActiveNum: 1,
 
+    restaurantActiveNum: 0,
+    restaurantNotActiveNum: 1,
+
     bookedReservationStatusNum: 0,
     completedReservationStatusNum: 0,
     cancelledReservationStatusNum: 0,

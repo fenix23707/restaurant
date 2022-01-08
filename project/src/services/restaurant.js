@@ -1,6 +1,7 @@
 const restaurantRepository = require('../repository/restaurant');
 const schemeService = require('../services/scheme');
 const userService = require('../services/user');
+const tableReservationService = require('../services/tableReservation');
 const constants = require('../constants')
 const ConflictError = require("../errors/ConflictError");
 const NotFoundError = require("../errors/NotFoundError");
@@ -46,7 +47,26 @@ class RestaurantService {
     }
 
     async delete(id) {
-        //TODO: complete
+        await this.checkRestaurantExist(id);
+
+        if (await this.canDelete(id)) {
+            await restaurantRepository.delete(id);
+        } else {
+            const restaurantData = {status: constants.restaurantNotActiveNum};
+            await restaurantRepository.update(id, restaurantData);
+        }
+    }
+
+    async checkRestaurantExist(id) {
+        const restaurant = await restaurantRepository.findById(id);
+        if (!restaurant) {
+            throw new NotFoundError(`Restaurant wit id = ${id} not found`);
+        }
+    }
+
+    async canDelete(id) {
+        const reservations = await tableReservationService.findAllByRestaurantId(id, [], {});
+        return reservations.length === 0;
     }
 
     async checkNameIsUnique(name) {

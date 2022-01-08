@@ -31,6 +31,34 @@ class TableReservationController {
         }
     }
 
+    async findAllByRestaurantId(req, res, next) {
+        const restaurantId = req.params.id;
+
+        const sort = [];
+        if (req.query.sortBy) {
+            sort.push([
+                req.query.sortBy,
+                req.query.order === 'desc' ? 'DESC' : 'ASC'
+            ]);
+        }
+
+        const pagination = {};
+        let pageSize = constants.pageSize;
+        if (req.query.pageSize) {
+            pageSize = parseInt(req.query.pageSize, 10);
+        }
+        if (req.query.pageNum) {
+            pagination.offset = pageSize * (parseInt(req.query.pageNum, 10) - 1);
+            pagination.limit = pageSize;
+        }
+
+        try {
+            res.json(await tableReservationService.findAllByRestaurantId(restaurantId, sort, pagination));
+        } catch (err) {
+            return next(err);
+        }
+    }
+
     async create(req, res, next) {
         try {
             const tableReservationBody = req.body;

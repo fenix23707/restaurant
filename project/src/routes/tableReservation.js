@@ -57,6 +57,51 @@ router.get('/users/:id', tableReservationController.findAllByUserId);
 
 /**
  * @swagger:
+ * /reservations/restaurants/{id}:
+ *   get:
+ *     summary: Get list of reservations by restaurant id
+ *     tags: [Reservation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the restaurant id
+ *       - in: query
+ *         name: sortBy
+ *         scheme:
+ *           type: string
+ *         description: The field to sort by
+ *       - in: query
+ *         name: order
+ *         scheme:
+ *           type: string
+ *         description: Order of sort. ASC or DESC
+ *       - in: query
+ *         name: pageNum
+ *         scheme:
+ *           type: integer
+ *         description: Page number. Start from 1
+ *       - in: query
+ *         name: pageSize
+ *         scheme:
+ *           type: integer
+ *         description: How many records on page
+ *     responses:
+ *       200:
+ *         description: Ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/TableReservation'
+ */
+router.get('/restaurants/:id', tableReservationController.findAllByRestaurantId);
+
+/**
+ * @swagger:
  * /reservations:
  *   post:
  *     summary: Create a new reservation

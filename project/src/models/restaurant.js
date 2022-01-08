@@ -57,7 +57,6 @@ const Restaurant = sequelize.define("restaurant", {
     },
     status: {
         type: Sequelize.SMALLINT,
-        allowNull: false,
         min: 0,
         max: 1,
     },

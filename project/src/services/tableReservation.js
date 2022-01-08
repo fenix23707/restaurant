@@ -8,6 +8,10 @@ class TableReservationService {
         return await tableReservationRepository.findAllByUserId(userId, sort, pagination);
     }
 
+    async findAllByRestaurantId(restaurantId, sort, pagination) {
+        return await tableReservationRepository.findAllByRestaurantId(restaurantId, sort, pagination);
+    }
+
     async findAllByTableId(tableId) {
         return await tableReservationRepository.findAllByTableId(tableId);
     }

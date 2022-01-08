@@ -1,12 +1,34 @@
 const TableReservation = require('../models/tableReservation');
+const Scheme = require('../models/scheme');
+const Restaurant = require('../models/restaurant');
 const constants = require("../constants");
-const Restaurant = require("../models/restaurant");
-const Op = require("sequelize").Op;
+const sequelize = require("sequelize");
+const Table = require("../models/table");
+const Op = sequelize.Op;
 
 class TableReservationRepository {
     async findAllByUserId(userId, sort, pagination) {
         return await TableReservation.findAll({
             where: {user_id: userId},
+            order: sort,
+            offset: pagination.offset,
+            limit: pagination.limit,
+        });
+    }
+
+    async findAllByRestaurantId(restaurantId, sort, pagination) {
+        return await TableReservation.findAll({
+            include: [{
+                model: Table,
+                required: true,
+                attributes: ["scheme_id"],
+                include: [{
+                    model: Scheme,
+                    attributes: ["restaurant_id"],
+                    required: true,
+                    where: {restaurant_id: restaurantId},
+                }]
+            }],
             order: sort,
             offset: pagination.offset,
             limit: pagination.limit,

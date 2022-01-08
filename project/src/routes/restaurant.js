@@ -15,7 +15,7 @@ const router = express.Router();
  * @swagger:
  * /restaurants:
  *   get:
- *     summary: Get list of restaurants
+ *     summary: Get list of active restaurants
  *     tags: [Restaurant]
  *     parameters:
  *       - in: query
@@ -182,5 +182,34 @@ router.post('/', restaurantController.create);
  *               $ref: '#/components/schemas/Error'
  */
 router.put('/:id', restaurantController.update);
+
+/**
+ * @swagger:
+ * /restaurants/{id}:
+ *   delete:
+ *     summary: Delete restaurant by id. If restaurant has reservations, then it's status change on not active, otherwise delete
+ *     tags: [Restaurant]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the restaurant id
+ *     responses:
+ *       200:
+ *         description: The restaurant was successfully deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       404:
+ *         description: Restaurant with id ... not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.delete('/:id', restaurantController.delete);
 
 module.exports = router;
