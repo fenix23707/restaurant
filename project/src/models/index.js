@@ -11,6 +11,7 @@ User.hasMany(Restaurant, {foreignKey: "user_id"});
 UserInfo.belongsTo(User, {foreignKey: "user_id", onDelete: "CASCADE"});
 
 Scheme.belongsTo(Restaurant, {foreignKey: "restaurant_id"});
+Scheme.hasMany(Table, {foreignKey: "scheme_id"});
 
 Table.belongsTo(Scheme, {foreignKey: "scheme_id"});
 

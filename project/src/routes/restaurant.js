@@ -119,7 +119,7 @@ router.get('/:id', restaurantController.searchById);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/RestaurantScheme'
+ *             $ref: '#/components/schemas/RestaurantSchemeTables'
  *     responses:
  *       201:
  *         description: The restaurant was successfully created

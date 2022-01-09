@@ -37,6 +37,7 @@ const sequelize = require("../database/sequelize");
  *            description: The id of scheme that the table belongs to.
  *        example:
  *          id: 1
+ *          capacity: 2
  *          width: 15
  *          height: 15
  *          x: 10
