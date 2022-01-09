@@ -7,7 +7,7 @@ class UserService {
         return await userRepository.list(page);
     }
 
-    async findUserById(id) {
+    async findById(id) {
         return await userRepository.findUserById(id);
     }
 

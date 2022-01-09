@@ -97,6 +97,7 @@ ALTER TABLE users ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
 ALTER TABLE restaurants ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 1);
 ALTER TABLE book_tables ADD CONSTRAINT status_range CHECK(status BETWEEN 0 and 2);
 -- ALTER TABLE book_tables DROP CONSTRAINT status_range;
+ALTER TABLE reviews ADD CONSTRAINT user_id_restaurant_id_unique UNIQUE (user_id, restaurant_id);
 
 INSERT INTO users (login, password, role) VALUES
 	('logiiiin1', 'passssword', 0),

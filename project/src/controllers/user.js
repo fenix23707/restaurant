@@ -19,7 +19,7 @@ class UserController {
             if (req.params.id) {
                 id = req.params.id;
             }
-            res.json(await userService.findUserById(id));
+            res.json(await userService.findById(id));
         } catch (err) {
             return next(err);
         }

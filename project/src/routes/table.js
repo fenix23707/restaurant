@@ -29,7 +29,9 @@ const router = express.Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Table'
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Table'
  */
 router.get('/schemes/:id', tableController.findAllBySchemeId);
 
