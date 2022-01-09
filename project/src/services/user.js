@@ -14,7 +14,7 @@ class UserService {
     }
 
     async create(userData) {
-        let userExist = await userRepository.findUserByLogin(userData.login);
+        let userExist = await userRepository.findByLogin(userData.login);
         if (userExist) {
             throw new ConflictError(`Login: ${userData.login} already exist`);
         }

@@ -1,5 +1,7 @@
 const express = require('express')
 const restaurantController = require('../controllers/restaurant');
+const validate = require("../middleware/validate");
+const RestaurantScheme = require("../schemes/restaurant");
 
 const router = express.Router();
 
@@ -139,8 +141,14 @@ router.get('/:id', restaurantController.searchById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.post('/', restaurantController.create);
+router.post('/', validate(RestaurantScheme.create), restaurantController.create);
 
 /**
  * @swagger:
@@ -180,8 +188,14 @@ router.post('/', restaurantController.create);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', restaurantController.update);
+router.put('/:id', validate(RestaurantScheme.update), restaurantController.update);
 
 /**
  * @swagger:

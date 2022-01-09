@@ -63,6 +63,9 @@ class RestaurantService {
     }
 
     async checkNameIsUnique(name) {
+        if (!name) {
+            return;
+        }
         let restaurant = await restaurantRepository.findByName(name);
         if (restaurant) {
             throw new ConflictError(`Restaurant with name: ${name} already exist`);

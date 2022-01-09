@@ -1,5 +1,7 @@
 const express = require('express')
 const userController = require('../controllers/user');
+const validate = require("../middleware/validate");
+const UserScheme = require("../schemes/user");
 
 const router = express.Router();
 
@@ -71,10 +73,10 @@ router.get('/:id', userController.searchById);
  *           schema:
  *             properties:
  *               oldPassword:
- *                 type: integer
+ *                 type: string
  *                 description: old password
  *               newPassword:
- *                 type: integer
+ *                 type: string
  *                 description: new password
  *             example:
  *               oldPassword: 12344321
@@ -98,8 +100,14 @@ router.get('/:id', userController.searchById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.patch('/passwords/:id', userController.changePassword);
+router.patch('/passwords/:id',validate(UserScheme.changePassword), userController.changePassword);
 
 /**
  * @swagger:

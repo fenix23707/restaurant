@@ -1,5 +1,7 @@
 const express = require('express')
 const userInfoController = require('../controllers/userinfo');
+const validate = require("../middleware/validate");
+const UserInfoScheme = require("../schemes/userinfo");
 
 const router = express.Router();
 
@@ -55,7 +57,7 @@ router.get('/:id', userInfoController.searchById);
  *             schema:
  *               $ref: '#/components/schemas/UserInfo'
  */
-router.get('/users/:id', userInfoController.searchById);
+router.get('/users/:id', userInfoController.searchByUserId);
 
 /**
  * @swagger:
@@ -89,7 +91,13 @@ router.get('/users/:id', userInfoController.searchById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', userInfoController.update);
+router.put('/:id', validate(UserInfoScheme.update), userInfoController.update);
 
 module.exports = router;

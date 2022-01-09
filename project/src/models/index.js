@@ -8,6 +8,7 @@ const Review = require("./review");
 
 // users:
 User.hasMany(Restaurant, {foreignKey: "user_id"});
+User.hasOne(UserInfo, {foreignKey: "user_id"});
 
 // user info:
 UserInfo.belongsTo(User, {foreignKey: "user_id", onDelete: "CASCADE"});

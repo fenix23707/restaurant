@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const UserInfo = require('../models/userinfo');
 const constants = require('../constants');
 const ConflictError = require("../errors/ConflictError");
 
@@ -7,7 +8,7 @@ class UserRepository {
         return User.findByPk(id);
     }
 
-    findUserByLogin(login) {
+    findByLogin(login) {
         return User.findOne({where: {login: login}});
     }
 
@@ -23,9 +24,9 @@ class UserRepository {
     }
 
     async create(userData) {
-
-        let user = null;
-        user = await User.create(userData);
+        const user = await User.create(userData, {
+            include: UserInfo
+        });
         return user;
     }
 

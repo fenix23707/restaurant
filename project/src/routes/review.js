@@ -1,6 +1,7 @@
 const express = require('express')
 const reviewController = require('../controllers/review');
-const restaurantController = require("../controllers/restaurant");
+const validate = require("../middleware/validate");
+const ReviewScheme = require("../schemes/review");
 
 const router = express.Router();
 
@@ -119,8 +120,14 @@ router.get('/:id', reviewController.findById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.post('/', reviewController.create);
+router.post('/', validate(ReviewScheme.create), reviewController.create);
 
 /**
  * @swagger:
@@ -164,7 +171,13 @@ router.post('/', reviewController.create);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', reviewController.update);
+router.put('/:id', validate(ReviewScheme.update), reviewController.update);
 
 module.exports = router;

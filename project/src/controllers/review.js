@@ -34,6 +34,8 @@ class ReviewController {
         const reviewData = req.body;
         try {
             reviewData.date = new Date();
+            // TODO: add session
+            reviewData.user_id = 1;
             res.json(await reviewService.create(reviewData));
         } catch (err) {
             return next(err);

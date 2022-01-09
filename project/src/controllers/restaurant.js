@@ -69,6 +69,8 @@ class RestaurantController {
     async create(req, res, next) {
         try {
             const restaurantData = req.body;
+            // TODO: add session
+            restaurantData.user_id = 1;
             let restaurant = await restaurantService.create(restaurantData);
             res.status(201).json(restaurant);
         } catch (err) {

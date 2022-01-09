@@ -1,5 +1,7 @@
 const express = require('express')
 const tableReservationController = require('../controllers/tableReservation');
+const validate = require("../middleware/validate");
+const TableReservationScheme = require("../schemes/tableReservation");
 
 const router = express.Router();
 
@@ -131,8 +133,14 @@ router.get('/restaurants/:id', tableReservationController.findAllByRestaurantId)
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.post('/', tableReservationController.create);
+router.post('/', validate(TableReservationScheme.create), tableReservationController.create);
 
 /**
  * @swagger:
@@ -174,7 +182,13 @@ router.post('/', tableReservationController.create);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.patch('/status/:id', tableReservationController.changeStatus);
+router.patch('/status/:id', validate(TableReservationScheme.changeStatus), tableReservationController.changeStatus);
 
 module.exports = router;

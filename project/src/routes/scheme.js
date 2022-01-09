@@ -1,5 +1,7 @@
 const express = require('express')
 const schemeController = require('../controllers/scheme');
+const validate = require("../middleware/validate");
+const SchemeScheme = require("../schemes/scheme");
 
 const router = express.Router();
 
@@ -88,7 +90,13 @@ router.get('/restaurants/:id', schemeController.findByRestaurantId);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       422:
+ *         description: body is not valid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', schemeController.update);
+router.put('/:id',validate(SchemeScheme.update), schemeController.update);
 
 module.exports = router;

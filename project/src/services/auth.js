@@ -1,19 +1,22 @@
 const userRepository = require('../repository/user');
-const userInfoService = require('../services/userinfo');
 const constants = require('../constants')
-const UserInfo = require("../models/userinfo");
+const ConflictError = require("../errors/ConflictError");
 
 class AuthService {
     async signup(userData) {
-        userData.id = undefined;
+        await this.checkLoginUnique(userData.login);
+
         userData.role = constants.userRoleNum;
         userData.status = constants.userActiveNum;
 
-        const user = await userRepository.create(userData);
+        return  await userRepository.create(userData);
+    }
 
-        UserInfo.create({user_id: user.id});
-
-        return user;
+    async checkLoginUnique(login) {
+        const userExist = await userRepository.findByLogin(login);
+        if (userExist) {
+            throw new ConflictError(`User with login = ${login} already exist`);
+        }
     }
 }
 
