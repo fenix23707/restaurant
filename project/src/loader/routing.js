@@ -9,6 +9,7 @@ const userInfoRouter = require("../routes/userinfo");
 const restaurantRouter = require("../routes/restaurant");
 const reservationRouter = require("../routes/tableReservation");
 const schemeRouter = require("../routes/scheme");
+const tableRouter = require("../routes/table");
 
 router.use('/signup', signupRouter);
 router.use('/users', usersRouter);
@@ -16,6 +17,7 @@ router.use('/userinfo', userInfoRouter);
 router.use('/restaurants', restaurantRouter);
 router.use('/reservations', reservationRouter);
 router.use('/schemes', schemeRouter);
+router.use('/tables', tableRouter);
 
 router.use(errorConsoleLogger);
 router.use(errorHandler);

@@ -1,6 +1,10 @@
 const Table = require('../models/table');
 
 class TableRepository {
+    async findAllBySchemeId(schemeId) {
+        return await Table.findAll({where: {scheme_id: schemeId}});
+    }
+
     async findById(id) {
         return await Table.findByPk(id);
     }

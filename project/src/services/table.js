@@ -1,12 +1,12 @@
 const tableRepository = require('../repository/table');
 
 class TableService {
-    async findById(id) {
-        return await tableRepository.findById(id);
+    async findAllBySchemeId(schemeId) {
+        return await tableRepository.findAllBySchemeId(schemeId);
     }
 
-    async createMany(tablesData) {
-        return await tableRepository.createMany(tablesData);
+    async findById(id) {
+        return await tableRepository.findById(id);
     }
 }
 
