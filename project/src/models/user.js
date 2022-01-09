@@ -68,6 +68,12 @@ User.beforeCreate((user, opts) => {
     user.password = User.hashPassword(user.password);
 })
 
+User.beforeBulkUpdate((user, opts) => {
+    if (user.attributes.password) {
+        user.attributes.password = User.hashPassword(user.attributes.password);
+    }
+})
+
 User.hashPassword = password => {
     return bcrypt.hashSync(password.toString(), bcrypt.genSaltSync(8));
 }
@@ -76,7 +82,7 @@ User.prototype.validatePassword = function (password) {
     if (!password || !this.password) {
         return false;
     }
-    return bcrypt.compare(password, this.password);
+    return bcrypt.compareSync(password.toString(), this.password.toString());
 }
 
 module.exports = User;

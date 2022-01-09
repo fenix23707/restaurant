@@ -53,24 +53,81 @@ router.get('/:id', userController.searchById);
 
 /**
  * @swagger:
- * /users:
- *   post:
- *     summary: Create a new user
+ * /users/passwords/{id}:
+ *   patch:
+ *     summary: Change password
  *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the user id
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             properties:
+ *               oldPassword:
+ *                 type: integer
+ *                 description: old password
+ *               newPassword:
+ *                 type: integer
+ *                 description: new password
+ *             example:
+ *               oldPassword: 12344321
+ *               newPassword: 43211234
  *     responses:
- *       201:
- *         description: The user was successfully created
+ *       200:
+ *         description: Password was successfully changed
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               $ref: '#/components/schemas/Response'
+ *       403:
+ *         description: Incorrect password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       404:
+ *         description: User with id not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
-router.post('/', userController.create);
+router.patch('/passwords/:id', userController.changePassword);
+
+/**
+ * @swagger:
+ * /users/{id}:
+ *   delete:
+ *     summary: Block user
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the user id
+ *     responses:
+ *       200:
+ *         description: User was successfully blocked
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       404:
+ *         description: User with id not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.delete('/:id', userController.block);
 
 module.exports = router;

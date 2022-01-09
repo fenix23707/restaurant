@@ -3,7 +3,7 @@ const constants = require('../constants');
 const ConflictError = require("../errors/ConflictError");
 
 class UserRepository {
-    findUserById(id) {
+    findById(id) {
         return User.findByPk(id);
     }
 
