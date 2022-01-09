@@ -12,6 +12,29 @@ const router = express.Router();
 
 /**
  * @swagger:
+ * /schemes/{id}:
+ *   get:
+ *     summary: Get scheme by id
+ *     tags: [Scheme]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the id
+ *     responses:
+ *       200:
+ *         description: Ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Scheme'
+ */
+router.get('/:id', schemeController.findById);
+
+/**
+ * @swagger:
  * /schemes/restaurants/{id}:
  *   get:
  *     summary: Get scheme by restaurant id
@@ -29,8 +52,43 @@ const router = express.Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Scheme'
+ *               $ref: '#/components/schemas/SchemeTables'
  */
 router.get('/restaurants/:id', schemeController.findByRestaurantId);
+
+/**
+ * @swagger:
+ * /schemes/{id}:
+ *   put:
+ *     summary: Update scheme by id
+ *     tags: [Scheme]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the scheme id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/SchemeTables'
+ *     responses:
+ *       200:
+ *         description: Scheme was successfully updated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       404:
+ *         description: Scheme with id = ... not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.put('/:id', schemeController.update);
 
 module.exports = router;

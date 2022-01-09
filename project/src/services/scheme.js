@@ -1,23 +1,29 @@
 const schemeRepository = require('../repository/scheme');
-const tableService = require('../services/table');
-const constants = require('../constants')
+const NotFoundError = require("../errors/NotFoundError");
 
 class SchemeService {
+    async findById(id) {
+        return await schemeRepository.findById(id);
+    }
+
     async findByRestaurantId(restaurantId) {
         return await schemeRepository.findByRestaurantId(restaurantId);
     }
 
     async create(schemeData) {
-        //TODO: add transaction
-        const tables = schemeData.tables;
-        const scheme = await schemeRepository.create(schemeData);
+        return await schemeRepository.create(schemeData);
+    }
 
-        tables.forEach(table => {
-            table.scheme_id = scheme.id;
-        });
-        await tableService.createMany(tables);
+    async update(id, schemeData) {
+        await this.checkSchemeExist(id);
+        return await schemeRepository.update(id, schemeData);
+    }
 
-        return scheme;
+    async checkSchemeExist(id) {
+        const scheme = schemeRepository.findById(id);
+        if (!scheme) {
+            throw new NotFoundError(`Scheme with id = ${id} not found`);
+        }
     }
 }
 

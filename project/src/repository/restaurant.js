@@ -1,4 +1,6 @@
 const Restaurant = require('../models/restaurant');
+const Scheme = require('../models/scheme');
+const Table = require('../models/table');
 
 class RestaurantRepository {
     async findAll(match, sort, pagination) {
@@ -23,7 +25,12 @@ class RestaurantRepository {
     }
 
     async create(restaurantData) {
-        return await Restaurant.create(restaurantData);
+        return Restaurant.create(restaurantData, {
+            include: [{
+                model: Scheme,
+                include: [Table]
+            }]
+        });
     }
 
     async update(id, restaurantData) {

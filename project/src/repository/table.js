@@ -1,14 +1,29 @@
 const Table = require('../models/table');
-const constants = require("../constants");
-const Op = require("sequelize").Op;
 
 class TableRepository {
-     async findById(id) {
+    async findById(id) {
         return await Table.findByPk(id);
     }
 
-    async createMany(tablesData) {
-        return await Table.bulkCreate(tablesData);
+    async createMany(tablesData, transaction) {
+        return await Table.bulkCreate(tablesData, {
+            transaction: transaction
+        });
+    }
+
+    async updateManyBySchemeId(schemeId,tables, transaction) {
+        await this.deleteBySchemeId(schemeId, transaction);
+        for (let table of tables) {
+            table.scheme_id = schemeId;
+        }
+        return await this.createMany(tables, transaction);
+    }
+
+    async deleteBySchemeId(schemeId, transaction) {
+        return await Table.destroy({
+            where: {scheme_id: schemeId},
+            transaction: transaction
+        });
     }
 }
 

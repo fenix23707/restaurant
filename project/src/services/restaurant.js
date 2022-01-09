@@ -1,5 +1,4 @@
 const restaurantRepository = require('../repository/restaurant');
-const schemeService = require('../services/scheme');
 const userService = require('../services/user');
 const tableReservationService = require('../services/tableReservation');
 const constants = require('../constants')
@@ -23,16 +22,10 @@ class RestaurantService {
         //TODO: use transaction:
         await this.checkNameIsUnique(restaurantData.name);
 
-        const restaurant = await restaurantRepository.create(restaurantData);
-
-        const schemeData = restaurantData.scheme;
-        schemeData.restaurant_id = restaurant.id;
-        await schemeService.create(schemeData);
-
         const userId = restaurantData.user_id;
         await userService.changeRole(userId, constants.managerRoleNum);
 
-        return restaurant;
+        return await restaurantRepository.create(restaurantData);
     }
 
     async update(id, restaurantData) {
