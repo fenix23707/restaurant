@@ -30,12 +30,8 @@ const sequelize = require("../database/sequelize");
  *            type: integer
  *            description: The id of restaurant owner.
  *        example:
- *          id: 1
  *          name: ResTop
  *          adres: Belarus, Vitebsk, Moskovskiy Prospekt, 33
- *          avatar: restaurant/img/1/ava.png
- *          status: 0
- *          user_id: 2
  */
 const Restaurant = sequelize.define("restaurant", {
     id: {
@@ -99,17 +95,11 @@ module.exports = Restaurant;
  *          scheme:
  *            $ref: '#/components/schemas/Scheme'
  *        example:
- *          id: 1
  *          name: ResTop
  *          adres: Belarus, Vitebsk, Moskovskiy Prospekt, 33
- *          avatar: restaurant/img/1/ava.png
- *          status: 0
- *          user_id: 2
  *          scheme:
- *            id: 1
  *            width: 200
  *            height: 200
- *            restaurant_id: 1
  *
  */
 
@@ -144,24 +134,16 @@ module.exports = Restaurant;
  *          scheme:
  *            $ref: '#/components/schemas/SchemeTables'
  *        example:
- *          id: 1
  *          name: ResTop
  *          adres: Belarus, Vitebsk, Moskovskiy Prospekt, 33
- *          avatar: restaurant/img/1/ava.png
- *          status: 0
- *          user_id: 2
  *          scheme:
- *            id: 1
  *            width: 200
  *            height: 200
- *            restaurant_id: 1
  *            tables:
- *            - id: 1
- *              capacity: 2
+ *            - capacity: 2
  *              width: 15
  *              height: 15
  *              x: 10
  *              y: 10
- *              scheme_id: 2
  *
  */

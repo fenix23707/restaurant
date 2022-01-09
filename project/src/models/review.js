@@ -30,11 +30,8 @@ const sequelize = require("../database/sequelize");
  *            type: integer
  *            description: ID of the restaurant that the review belongs to
  *        example:
- *          id: 1
  *          rate: 10
  *          review: Good
- *          date: "2020-02-08 09:33:20"
- *          user_id: 2
  *          restaurant_id: 1
  */
 const Review = sequelize.define("review", {

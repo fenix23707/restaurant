@@ -28,11 +28,8 @@ const bcrypt = require("bcrypt");
  *            type: smallint
  *            description: The user role
  *        example:
- *          id: 1
  *          login: fenix23707
  *          password: 12345678
- *          role: 1
- *          status: 1
  */
 const User = sequelize.define("user", {
     id: {

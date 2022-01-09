@@ -35,13 +35,10 @@ const sequelize = require("../database/sequelize");
  *            type: integer
  *            description: The id of user who was booked the table
  *        example:
- *          id: 1
  *          datetime_begin: "2020-02-08 09:30:00"
  *          datetime_end: "2020-02-08 10:30:00"
  *          capacity: 1
- *          status: 0
  *          table_id: 1
- *          user_id: 2
  */
 const TableReservation = sequelize.define("book_table", {
     id: {

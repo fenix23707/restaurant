@@ -24,7 +24,6 @@ const sequelize = require("../database/sequelize");
  *            type: integer
  *            description: The id of restaurant that the scheme belongs to.
  *        example:
- *          id: 1
  *          width: 200
  *          height: 200
  *          restaurant_id: 2
@@ -82,18 +81,15 @@ module.exports = Scheme;
  *          scheme:
  *            $ref: '#/components/schemas/Table'
  *        example:
- *          id: 1
  *          width: 200
  *          height: 200
  *          restaurant_id: 2
  *          tables:
- *            - id: 1
- *              capacity: 2
+ *            - capacity: 2
  *              width: 15
  *              height: 15
  *              x: 10
  *              y: 10
- *              scheme_id: 2
  *
  *
  */
