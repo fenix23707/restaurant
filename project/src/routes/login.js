@@ -1,5 +1,7 @@
 const express = require('express')
 const authController = require('../controllers/auth');
+const validate = require("../middleware/validate");
+const UserScheme = require("../schemes/user");
 
 const router = express.Router();
 
@@ -21,17 +23,28 @@ const router = express.Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             type: object
+ *             required:
+ *               -  login
+ *               -  password
+ *             properties:
+ *               login:
+ *                 type: string
+ *                 description: User's login
+ *               password:
+ *                 type: string
+ *                 description: User's password
+ *             example:
+ *               login: fenix23707
+ *               password: qwerty
  *     responses:
  *       201:
- *         description: The user was successfully created
+ *         description: Authorization successful
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
- *       409:
- *         description: The login already exist
+ *               $ref: '#/components/schemas/Response'
  */
-router.post('/', authController.login);
+router.post('/',validate(UserScheme.login),  authController.login);
 
 module.exports = router;

@@ -70,7 +70,7 @@ class RestaurantController {
         try {
             const restaurantData = req.body;
             // TODO: add session
-            restaurantData.user_id = 1;
+            restaurantData.user_id = req.session.user.id;
             let restaurant = await restaurantService.create(restaurantData);
             res.status(201).json(restaurant);
         } catch (err) {

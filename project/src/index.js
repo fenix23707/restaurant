@@ -11,8 +11,8 @@ const spec = swaggerJsDoc(options);
 
 const app = express();
 
-app.use(loader);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec));
+app.use(loader);
 
 async function start() {
     app.listen(port, () => console.log(`Server started at port ${port}`));

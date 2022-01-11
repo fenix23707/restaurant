@@ -17,7 +17,10 @@ const constants = {
     completedReservationStatusNum: 0,
     cancelledReservationStatusNum: 0,
 
-    pageSize: 4
+    pageSize: 4,
+
+    secret: "secret",
+    jwtExpiresIn: 30 * 1000 // = 60s
 }
 
 module.exports = constants;

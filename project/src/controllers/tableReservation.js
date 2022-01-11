@@ -62,7 +62,7 @@ class TableReservationController {
     async create(req, res, next) {
         try {
             const tableReservationBody = req.body;
-            tableReservationBody.user_id =  1; // TODO: delete default id and add req.session.user.id
+            tableReservationBody.user_id =  req.session.user.id; // TODO: delete default id and add req.session.user.id
             const reservation = await tableReservationService.create(tableReservationBody);
             res.status(201).json(reservation);
         } catch (err) {
