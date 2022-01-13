@@ -8,7 +8,6 @@
 .my-restaurants-list {
   &__item {
     justify-content: space-between;
-    padding: 0 4vw;
   }
   &__item-info {
     align-items: center;
@@ -30,4 +29,17 @@
 }
 
 @media (max-width: 767px) {
+  .my-restaurants-list {
+    &__item {
+      // padding: 0 10px;
+
+      display: block;
+    }
+    &__item-info {
+    }
+    &__item-text {
+      p {
+      }
+    }
+  }
 }

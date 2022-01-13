@@ -23,9 +23,16 @@
     margin-left: 15px;
   }
   &__item {
+    select {
+      text-align: center;
+      width: 60px;
+    }
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
+  }
+  .button {
+    margin: 0 auto;
   }
 }
 

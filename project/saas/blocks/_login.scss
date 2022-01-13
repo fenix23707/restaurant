@@ -9,17 +9,18 @@
   width: 60%;
   &__item {
     padding-top: 32px;
-    font-size: 2vw;
     line-height: 30px;
   }
   .button {
-    margin-top: 24px;
     width: 56%;
+    margin: 0 auto;
+    margin-top: 24px;
   }
   a {
     padding-top: 7px;
     display: block;
     text-align: center;
+    color: white;
   }
 }
 
@@ -32,14 +33,12 @@
     width: 70%;
 
     &__item {
-      font-size: 5vw;
       line-height: 30px;
     }
     .button {
       width: 86%;
     }
     a {
-      font-size: 2vw;
     }
   }
 }

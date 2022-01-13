@@ -19,30 +19,38 @@
   }
 }
 
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .add-scheme-form {
+    &__inner {
+      width: 40%;
+    }
+  }
+  .scheme {
+    width: 60%;
+  }
+}
+
 @media (max-width: 767px) {
   label,
   select {
-    font-size: 3vw;
-    line-height: 3.2vw;
   }
   .add-scheme-form {
     &__inner {
       .input {
-        font-size: 2vw;
+        display: block;
+        margin: 10px auto;
+        font-size: 20px;
       }
-      width: 35%;
+      width: 100%;
       .button {
         margin: 0px auto;
       }
     }
   }
-}
-
-@media (max-width: 1200px) {
-}
-
-@media (max-width: 992px) {
-}
-
-@media (max-width: 767px) {
+  .scheme {
+    max-width: 100%;
+  }
 }

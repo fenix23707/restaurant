@@ -14,7 +14,6 @@
 
   &__content-text {
     padding-top: 30px;
-    width: 24vw;
     * {
       padding: 4px 0;
     }
@@ -35,7 +34,7 @@
 
 .personal-wrapper {
   background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
-  height: 524px;
+  min-height: 524px;
   &__inner {
     margin-top: 80px;
     display: flex;
@@ -52,19 +51,22 @@
 }
 
 @media (max-width: 767px) {
-  .personal-info {
-    &__content-text {
-      width: 180px;
-      h5 {
-        font-size: 3vw;
-        line-height: 3.2vw;
-      }
-      p {
-        font-size: 2vw;
-      }
-    }
+  .personal-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
   }
   .personal-wrapper {
-    height: 280px;
+    background: linear-gradient(180deg, #524178 53.7%, #3a3961 40%);
+
+    &__inner {
+      display: block;
+    }
+  }
+  .personal-info {
+    &__inner {
+      padding-bottom: 16px;
+    }
+    width: 100%;
   }
 }

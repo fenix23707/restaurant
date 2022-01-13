@@ -2,7 +2,6 @@
   background: rgba(111, 100, 129, 0.7);
   * {
     font-family: "Montserrat", sans-serif;
-    font-size: 1.5vw;
     line-height: 40px;
     font-weight: 800;
   }
@@ -21,7 +20,10 @@
   }
 
   &__side-text {
-    width: 12vw;
+    width: 150px;
+    line-height: 22px;
+    height: 44px;
+    overflow: hidden;
   }
   &__midl {
     display: flex;
@@ -35,18 +37,17 @@
 
 @media (max-width: 767px) {
   .achievements {
+    &__inner {
+      display: block;
+    }
     &__side {
       height: 100px;
+      width: 100%;
     }
 
-    &__side-text {
-      font-size: 1.8vw;
-      line-height: 2.4vw;
-      width: 12vw;
-    }
     &__midl {
-      font-size: 1.8vw;
-      line-height: 2.4vw;
+      width: 100%;
+
       height: 100px;
     }
   }

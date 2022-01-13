@@ -28,18 +28,35 @@
 }
 
 @media (max-width: 992px) {
+  .contact-info {
+    &__text {
+      padding-top: 0;
+    }
+    &__row {
+      text-align: left;
+      display: block;
+      margin: 40px 0px;
+    }
+  }
 }
 
 @media (max-width: 767px) {
   .contact-info {
+    width: 100%;
     &__inner {
-      padding-left: 0px;
-      padding-right: 0px;
+      .button {
+        position: relative;
+        bottom: unset;
+        right: unset;
+        margin-top: 20px;
+      }
+    }
+    &__text {
+      padding-top: 30px;
     }
     &__row {
-      p {
-        font-size: 1.6vw;
-      }
+      margin: 0;
+      display: flex;
     }
   }
 }

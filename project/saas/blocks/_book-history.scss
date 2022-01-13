@@ -8,16 +8,13 @@
   &__list {
   }
   &__item {
-    height: 80px;
+    min-height: 80px;
     border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
     margin-top: 16px;
-    .button {
-      height: 3vw;
-    }
   }
   &__main-info {
     display: grid;
@@ -51,25 +48,28 @@
 
 @media (max-width: 767px) {
   .book-history {
-    &__innner {
-      .title {
-        font-size: 6vw;
+    &__item {
+      p {
+        font-size: 15px;
       }
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .button {
+      display: block;
+      margin: 10px auto;
     }
     &__main-info {
       h5 {
-        font-size: 3vw;
+        font-size: 16px;
       }
     }
     &__capacity {
       p {
-        font-size: 2.4vw;
       }
     }
     &__date {
-      p {
-        font-size: 2vw;
-      }
     }
   }
 }

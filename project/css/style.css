@@ -61,8 +61,6 @@ a:active {
 html,
 body {
   font-weight: 400;
-  font-size: 1.2vw;
-  line-height: 1.3vw;
   font-family: "Montserrat", sans-serif;
   background-color: #4d4a8b;
   height: 100%;
@@ -99,8 +97,8 @@ body {
 
 .avatar {
   border-radius: 50%;
-  width: 7vw;
-  height: 7vw;
+  width: 100px;
+  height: 100px;
 }
 
 @media (max-width: 1200px) {
@@ -120,8 +118,8 @@ body {
     max-width: none;
   }
   .avatar {
-    width: 10vw;
-    height: 10vw;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -140,7 +138,7 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
-.sub-titile {
+.sub-title {
   font-size: 28px;
   line-height: 32px;
   width: 600;
@@ -149,12 +147,18 @@ p {
 
 h5 {
   color: white;
-  font-size: 1.6vw;
+  font-size: 22px;
   font-family: "Ubuntu", sans-serif;
-  line-height: 1.8vw;
+  line-height: 22px;
+}
+
+select,
+label {
+  font-size: 18px;
 }
 
 .button {
+  display: block;
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
@@ -377,9 +381,10 @@ h5 {
 
 .list__item {
   background: #2385ce;
-  height: 120px;
+  min-height: 120px;
   border-radius: 36px;
   margin: 24px 0;
+  padding: 0 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -407,15 +412,12 @@ h5 {
           align-items: center;
 }
 
-@media (max-width: 992px) {
-  .my-restaurants-list__item {
-    height: 100px;
+@media (max-width: 767px) {
+  .list__item {
+    padding: 10px 20px;
   }
-}
-
-@media (max-width: 700px) {
-  .my-restaurants-list__item {
-    height: 80px;
+  .list .button {
+    margin: 10px 10px;
   }
 }
 
@@ -450,6 +452,7 @@ h5 {
 }
 
 .add-restaurant-form__inner {
+  padding-bottom: 20px;
   padding-top: 20px;
 }
 
@@ -499,6 +502,31 @@ h5 {
   width: 80%;
 }
 
+@media (max-width: 992px) {
+  .add-restaurant-form__item {
+    width: 55%;
+  }
+  .add-restaurant-form__size-items {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .add-restaurant-form__item {
+    width: 70%;
+  }
+  .add-restaurant-form__size-items {
+    width: 80%;
+    display: block;
+  }
+  .add-restaurant-form__scheme-add {
+    display: block;
+  }
+  .add-restaurant-form__scheme-add .scheme {
+    width: 100%;
+  }
+}
+
 .scheme {
   max-width: 80%;
   height: 300px;
@@ -519,20 +547,29 @@ h5 {
   margin: 16px 0;
 }
 
-@media (max-width: 767px) {
-  label,
-  select {
-    font-size: 3vw;
-    line-height: 3.2vw;
-  }
+@media (max-width: 992px) {
   .add-scheme-form__inner {
-    width: 35%;
+    width: 40%;
+  }
+  .scheme {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  .add-scheme-form__inner {
+    width: 100%;
   }
   .add-scheme-form__inner .input {
-    font-size: 2vw;
+    display: block;
+    margin: 10px auto;
+    font-size: 20px;
   }
   .add-scheme-form__inner .button {
     margin: 0px auto;
+  }
+  .scheme {
+    max-width: 100%;
   }
 }
 
@@ -570,7 +607,6 @@ h5 {
 
 .achievements * {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5vw;
   line-height: 40px;
   font-weight: 800;
 }
@@ -595,7 +631,10 @@ h5 {
 }
 
 .achievements__side-text {
-  width: 12vw;
+  width: 150px;
+  line-height: 22px;
+  height: 44px;
+  overflow: hidden;
 }
 
 .achievements__midl {
@@ -613,17 +652,15 @@ h5 {
 }
 
 @media (max-width: 767px) {
+  .achievements__inner {
+    display: block;
+  }
   .achievements__side {
     height: 100px;
-  }
-  .achievements__side-text {
-    font-size: 1.8vw;
-    line-height: 2.4vw;
-    width: 12vw;
+    width: 100%;
   }
   .achievements__midl {
-    font-size: 1.8vw;
-    line-height: 2.4vw;
+    width: 100%;
     height: 100px;
   }
 }
@@ -738,16 +775,9 @@ h5 {
   .restaurants-list__item {
     width: 240px;
   }
-  .restaurants-list__item h5 {
-    font-size: 3vw;
-  }
-  .restaurants-list__item p {
-    font-size: 2vw;
-  }
 }
 
 .restaurant-info {
-  height: 200px;
   background: rgba(27, 24, 196, 0.4);
 }
 
@@ -769,6 +799,8 @@ h5 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .main-info .restaurant-avatar {
@@ -790,6 +822,8 @@ h5 {
 }
 
 .booking-block {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -810,25 +844,12 @@ h5 {
 }
 
 @media (max-width: 767px) {
-  .restaurant-info {
-    height: 140px;
+  .restaurant-info__inner {
+    display: block;
   }
-  .main-info-text__inner h2 {
-    font-size: 3vw;
-  }
-  .sub-info__inner p {
-    font-size: 2.2vw;
-  }
-  .booking-block__inner p {
-    font-size: 1.8vw;
-  }
-  .main-info {
-    height: 140px;
-  }
-  .main-info .restaurant-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
+  .booking-block__inner {
+    margin-top: 40px;
+    padding-bottom: 20px;
   }
 }
 
@@ -841,7 +862,7 @@ h5 {
 }
 
 .create-review {
-  height: 124px;
+  min-height: 124px;
 }
 
 .create-review__inner {
@@ -858,6 +879,7 @@ h5 {
 }
 
 .create-review__select {
+  text-align: center;
   width: 5vw;
   height: 2vw;
   background-color: rebeccapurple;
@@ -865,6 +887,7 @@ h5 {
 }
 
 .create-review__textarea {
+  padding: 10px;
   margin: 0 32px;
   resize: none;
   height: 80px;
@@ -878,7 +901,6 @@ h5 {
 
 .reviews-list__item {
   padding: 0 18px;
-  height: 100px;
   background: rgba(18, 156, 233, 0.72);
   margin-top: 12px;
   border-radius: 36px;
@@ -908,23 +930,29 @@ h5 {
 .reviews-list__item-text {
   padding-top: 14px;
   text-align: left;
+  padding-bottom: 14px;
 }
 
 @media (max-width: 767px) {
+  .create-review__inner {
+    padding-top: 0;
+    display: block;
+  }
+  .create-review__textarea {
+    width: 90%;
+    margin: 0 auto;
+  }
   .create-review__select {
-    width: 10vw;
-    height: 4vw;
+    display: block;
+    width: 60%;
+    height: 30px;
+    margin: 16px auto;
     background-color: rebeccapurple;
     border-radius: 20px;
   }
-  .reviews-list__item-main-data h5 {
-    font-size: 4vw;
-  }
-  .reviews-list__item-text {
-    font-size: 2vw;
-  }
-  .reviews-list__item-date {
-    font-size: 2.4vw;
+  .create-review .button {
+    width: 80%;
+    margin: 10px auto;
   }
 }
 
@@ -970,6 +998,15 @@ h5 {
   padding: 8px 0;
 }
 
+.booking-form__item select {
+  text-align: center;
+  width: 60px;
+}
+
+.booking-form .button {
+  margin: 0 auto;
+}
+
 .display-block {
   display: block;
 }
@@ -983,7 +1020,7 @@ h5 {
 }
 
 .book-history__item {
-  height: 80px;
+  min-height: 80px;
   border-radius: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -996,10 +1033,6 @@ h5 {
           justify-content: space-between;
   padding: 0 24px;
   margin-top: 16px;
-}
-
-.book-history__item .button {
-  height: 3vw;
 }
 
 .book-history__main-info {
@@ -1040,17 +1073,19 @@ h5 {
 }
 
 @media (max-width: 767px) {
-  .book-history__innner .title {
-    font-size: 6vw;
+  .book-history__item {
+    display: block;
+    padding-bottom: 10px;
+  }
+  .book-history__item p {
+    font-size: 15px;
+  }
+  .book-history .button {
+    display: block;
+    margin: 10px auto;
   }
   .book-history__main-info h5 {
-    font-size: 3vw;
-  }
-  .book-history__capacity p {
-    font-size: 2.4vw;
-  }
-  .book-history__date p {
-    font-size: 2vw;
+    font-size: 16px;
   }
 }
 
@@ -1074,7 +1109,6 @@ h5 {
 
 .personal-info__content-text {
   padding-top: 30px;
-  width: 24vw;
   text-align: left;
 }
 
@@ -1101,7 +1135,7 @@ h5 {
 .personal-wrapper {
   background: -webkit-gradient(linear, left top, right top, color-stop(65.7%, #524178), color-stop(40%, #3a3961));
   background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
-  height: 524px;
+  min-height: 524px;
 }
 
 .personal-wrapper__inner {
@@ -1123,18 +1157,23 @@ h5 {
 }
 
 @media (max-width: 767px) {
-  .personal-info__content-text {
-    width: 180px;
-  }
-  .personal-info__content-text h5 {
-    font-size: 3vw;
-    line-height: 3.2vw;
-  }
-  .personal-info__content-text p {
-    font-size: 2vw;
+  .personal-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
   }
   .personal-wrapper {
-    height: 280px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(53.7%, #524178), color-stop(40%, #3a3961));
+    background: linear-gradient(180deg, #524178 53.7%, #3a3961 40%);
+  }
+  .personal-wrapper__inner {
+    display: block;
+  }
+  .personal-info {
+    width: 100%;
+  }
+  .personal-info__inner {
+    padding-bottom: 16px;
   }
 }
 
@@ -1171,13 +1210,35 @@ h5 {
   right: 20px;
 }
 
-@media (max-width: 767px) {
-  .contact-info__inner {
-    padding-left: 0px;
-    padding-right: 0px;
+@media (max-width: 992px) {
+  .contact-info__text {
+    padding-top: 0;
   }
-  .contact-info__row p {
-    font-size: 1.6vw;
+  .contact-info__row {
+    text-align: left;
+    display: block;
+    margin: 40px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-info {
+    width: 100%;
+  }
+  .contact-info__inner .button {
+    position: relative;
+    bottom: unset;
+    right: unset;
+    margin-top: 20px;
+  }
+  .contact-info__text {
+    padding-top: 30px;
+  }
+  .contact-info__row {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -1227,46 +1288,23 @@ h5 {
 }
 
 .edit-form .button {
-  margin-top: 20px;
   width: 30%;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 @media (max-width: 1200px) {
   .edit-form__inner {
     width: 50%;
   }
-  .container .title {
-    font-size: 4vw;
-  }
-  .edit-form__item label {
-    font-size: 2.2vw;
-  }
-  .edit-form__input {
-    font-size: 1.6vw;
-  }
   .edit-form__inner {
     width: 100%;
-  }
-  .edit-form__inner .sub-title {
-    font-size: 2.4vw;
   }
 }
 
 @media (max-width: 767px) {
-  .container .title {
-    font-size: 7vw;
-  }
-  .edit-form__item label {
-    font-size: 3.2vw;
-  }
-  .edit-form__input {
-    font-size: 3vw;
-  }
   .edit-form__inner {
     width: 100%;
-  }
-  .edit-form__inner .sub-title {
-    font-size: 4vw;
   }
 }
 
@@ -1284,19 +1322,20 @@ h5 {
 
 .login-form__item {
   padding-top: 32px;
-  font-size: 2vw;
   line-height: 30px;
 }
 
 .login-form .button {
-  margin-top: 24px;
   width: 56%;
+  margin: 0 auto;
+  margin-top: 24px;
 }
 
 .login-form a {
   padding-top: 7px;
   display: block;
   text-align: center;
+  color: white;
 }
 
 @media (max-width: 767px) {
@@ -1308,14 +1347,10 @@ h5 {
     width: 70%;
   }
   .login-form__item {
-    font-size: 5vw;
     line-height: 30px;
   }
   .login-form .button {
     width: 86%;
-  }
-  .login-form a {
-    font-size: 2vw;
   }
 }
 
@@ -1418,7 +1453,6 @@ h5 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 4vw;
 }
 
 .my-restaurants-list__item-info {
@@ -1440,6 +1474,12 @@ h5 {
   margin-top: 8px;
 }
 
+@media (max-width: 767px) {
+  .my-restaurants-list__item {
+    display: block;
+  }
+}
+
 .users .title {
   margin-top: 20px;
   text-align: center;
@@ -1447,5 +1487,14 @@ h5 {
 
 .users .button {
   width: 24%;
+}
+
+@media (max-width: 767px) {
+  .users__inner .list__item {
+    display: block;
+  }
+  .users .button {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
