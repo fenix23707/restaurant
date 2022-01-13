@@ -176,6 +176,12 @@ router.post('/', validate(TableReservationScheme.create), tableReservationContro
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Response'
+ *       403:
+ *         description: Status can't be changed, current status = 1
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Reservation with id ... not found
  *         content:

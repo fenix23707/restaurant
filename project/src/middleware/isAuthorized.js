@@ -4,7 +4,7 @@ const jsonwebtoken = require('jsonwebtoken');
 
 
 module.exports = (req, res, next) => {
-    passport.authenticate("jwt", {session: false}, (err, user, info) => {
+    passport.authenticate("jwt", {session: true}, (err, user, info) => {
         if (user) {
             req.session.user = user;
             return next();

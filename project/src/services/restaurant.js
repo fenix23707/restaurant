@@ -33,7 +33,7 @@ class RestaurantService {
         if (!old) {
             throw new NotFoundError(`Restaurant with id = ${id} not found`);
         }
-        if (old.name != restaurantData.name) {
+        if (old.name !== restaurantData.name) {
             await this.checkNameIsUnique(restaurantData.name);
         }
         await restaurantRepository.update(id, restaurantData);
@@ -64,7 +64,7 @@ class RestaurantService {
 
     async checkNameIsUnique(name) {
         if (!name) {
-            return;
+            return;l
         }
         let restaurant = await restaurantRepository.findByName(name);
         if (restaurant) {

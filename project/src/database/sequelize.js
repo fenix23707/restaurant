@@ -5,6 +5,6 @@ const sequelize = new Sequelize("restaurant_reservations", "postgres", "vlad", c
 
 module.exports = sequelize;
 
-// test
-sequelize.authenticate()
-.then(()=> console.log('connection has been established successful'))
+// // test
+// sequelize.authenticate()
+// .then(()=> console.log('connection has been established successful'))

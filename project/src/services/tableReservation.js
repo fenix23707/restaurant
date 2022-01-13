@@ -2,6 +2,7 @@ const tableReservationRepository = require('../repository/tableReservation');
 const tableService = require('../services/table');
 const ConflictError = require("../errors/ConflictError");
 const NotFoundError = require("../errors/NotFoundError");
+const constants = require("../constants");
 
 class TableReservationService {
     async findAllByUserId(userId, sort, pagination) {
@@ -26,15 +27,27 @@ class TableReservationService {
         return await tableReservationRepository.create(reservationData);
     }
 
-    async changeStatus(id, status) {
+    async changeStatus(id, data) {
         await this.checkReservationExist(id);
-        return await tableReservationRepository.update(id, status);
+        await this.checkCanChangeStatus(id);
+        const dataToUpdate = {
+            status: data.status
+        }
+        return await tableReservationRepository.update(id, dataToUpdate);
     }
 
     async checkReservationExist(id) {
         const reservation = await tableReservationRepository.findById(id);
         if (!reservation) {
             throw new NotFoundError(`Reservation with id = ${id} not found`);
+        }
+    }
+
+    async checkCanChangeStatus(id) {
+        const reservation = await tableReservationRepository.findById(id);
+
+        if (reservation.status !== constants.bookedReservationStatusNum) {
+            throw new ConflictError(`Status can't be changed, current status: ${reservation.status}`);
         }
     }
 

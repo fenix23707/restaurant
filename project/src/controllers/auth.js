@@ -8,6 +8,7 @@ class AuthController {
         const userData = req.body;
         try {
             const user = await authService.signup(userData);
+            req.session.user = user;
             const token = JWTUtil.issueJWT(user);
             res.status(201).json({
                 user: user,
@@ -23,9 +24,9 @@ class AuthController {
         const loginData = req.body;
         try {
             const user = await authService.login(loginData.login, loginData.password);
+            req.session.user = user;
             const token = JWTUtil.issueJWT(user);
             res.status(201).json({
-                user: user,
                 token: token.token,
                 expiresIn: token.expires
             });

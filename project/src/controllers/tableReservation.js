@@ -74,7 +74,7 @@ class TableReservationController {
         const id = req.params.id;
         const status = req.body;
         try {
-            await tableReservationService.changeStatus(id, status);
+            await tableReservationService.changeStatus(id, data);
             res.json(new Response("Status successfully changed", 200))
         } catch (err) {
             next(err);

@@ -1,6 +1,8 @@
+const mongoLogger = require("../utils/mongoLogger");
+
 module.exports = {
-    logging: false,
     dialect: "postgres",
     host: "localhost",
-    define: {timestamps: false}
+    define: {timestamps: false},
+    logging: mongoLogger.dbOperations,
 }
