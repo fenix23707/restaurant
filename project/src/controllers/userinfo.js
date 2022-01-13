@@ -12,7 +12,10 @@ class UserInfoController {
     }
 
     async searchByUserId(req, res, next) {
-        const userId = req.params.id;
+        let userId = req.params.id;
+        if (!userId) {
+            userId = req.session.user.id;
+        }
         try {
             res.json(await userInfoService.findByUserId(userId))
         } catch (err) {

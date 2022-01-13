@@ -61,6 +61,22 @@ router.get('/users/:id', userInfoController.searchByUserId);
 
 /**
  * @swagger:
+ * /userinfo:
+ *   get:
+ *     summary: Get the user info for authorized user
+ *     tags: [UserInfo]
+ *     responses:
+ *       200:
+ *         description: Ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UserInfo'
+ */
+router.get('/', userInfoController.searchByUserId);
+
+/**
+ * @swagger:
  * /userinfo/{id}:
  *   put:
  *     summary: Update the user info

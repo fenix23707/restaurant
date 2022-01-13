@@ -83,3 +83,44 @@ User.prototype.validatePassword = function (password) {
 }
 
 module.exports = User;
+
+/**
+ * @swagger:
+ * components:
+ *   schemas:
+ *      SignUp:
+ *        type: object
+ *        required:
+ *          - login
+ *          - email
+ *          - password
+ *        properties:
+ *          id:
+ *            type: integer
+ *            description: The auto-generated id of user
+ *          login:
+ *            type: string
+ *            description: The user login
+ *          password:
+ *            type: string
+ *            description: The user password
+ *          role:
+ *            type: smallint
+ *            description: The user role
+ *          status:
+ *            type: smallint
+ *            description: The user role
+ *          user_info:
+ *            type: object
+ *            description: The user info
+ *            properties:
+ *              email:
+ *                type: string
+ *                description: The user email
+ *
+ *        example:
+ *          login: fenix23707
+ *          password: qwerty
+ *          user_info:
+ *            email: fenix23707@gmail.com
+ */

@@ -13,7 +13,14 @@ const UserInfoScheme = {
         email: Joi.string()
             .email()
             .max(50),
-    })
+    }),
+
+    signup: {
+        email: Joi.string()
+            .email()
+            .max(50)
+            .required(),
+    }
 }
 
 module.exports = UserInfoScheme;

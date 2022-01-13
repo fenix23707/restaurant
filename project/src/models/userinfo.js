@@ -62,7 +62,8 @@ const UserInfo = sequelize.define("user_info", {
         type: Sequelize.STRING,
         validate: {
             isEmail: true
-        }
+        },
+        allowNull: false,
     },
     user_id: {
         type: Sequelize.INTEGER,

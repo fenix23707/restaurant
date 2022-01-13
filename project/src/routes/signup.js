@@ -30,9 +30,18 @@ const router = express.Router();
  *               password:
  *                 type: string
  *                 description: Password must be min 4 symbols
+ *               user_info:
+ *                 type: object
+ *                 description: The user info
+ *                 properties:
+ *                   email:
+ *                     type: string
+ *                     description: The user email
  *             example:
  *               login: fenix23707
  *               password: qwerty
+ *               user_info:
+ *                 email: fenix23707@gmail.com
  *     responses:
  *       201:
  *         description: The user was successfully created
@@ -53,6 +62,6 @@ const router = express.Router();
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post('/', validate(UserScheme.create), authController.signup);
+router.post('/', validate(UserScheme.signup), authController.signup);
 
 module.exports = router;

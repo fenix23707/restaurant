@@ -29,7 +29,7 @@ router.use('/schemes', schemeRouter);
 router.use('/tables', tableRouter);
 router.use('/reviews', reviewRouter);
 
-// router.use(errorConsoleLogger);
+router.use(errorConsoleLogger);
 router.use(errorMongoLogger);
 router.use(errorHandler);
 
