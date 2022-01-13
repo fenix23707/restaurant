@@ -1,6 +1,7 @@
 const express = require('express')
 const userController = require('../controllers/user');
 const validate = require("../middleware/validate");
+const isAdmin = require("../middleware/isAdmin");
 const UserScheme = require("../schemes/user");
 
 const router = express.Router();
@@ -28,7 +29,7 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/User'
  */
-router.get('/', userController.list);
+router.get('/',isAdmin, userController.list);
 
 /**
  * @swagger:
@@ -51,7 +52,7 @@ router.get('/', userController.list);
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-router.get('/:id', userController.searchById);
+router.get('/:id',isAdmin, userController.searchById);
 
 /**
  * @swagger:
@@ -136,6 +137,6 @@ router.patch('/passwords/:id',validate(UserScheme.changePassword), userControlle
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete('/:id', userController.block);
+router.delete('/:id',isAdmin, userController.block);
 
 module.exports = router;

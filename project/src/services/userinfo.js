@@ -1,9 +1,14 @@
 const userInfoRepository = require('../repository/userinfo');
 const NotFoundError = require("../errors/NotFoundError");
+const ConflictError = require("../errors/ConflictError");
 
 class UserInfoService {
     async findById(id) {
         return await userInfoRepository.findById(id);
+    }
+
+    async findByEmail(email) {
+        return await userInfoRepository.findByEmail(email);
     }
 
     async findByUserId(userId) {

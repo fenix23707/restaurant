@@ -1,4 +1,6 @@
 const userRepository = require('../repository/user');
+const userInfoService = require('../services/userinfo');
+const mailer = require('../utils/mailer');
 const constants = require('../constants')
 const ConflictError = require("../errors/ConflictError");
 const ForbiddenError = require("../errors/ForbiddenError");
@@ -11,12 +13,16 @@ class AuthService {
     }
 
     async signup(userData) {
+        const email = userData.user_info.email;
         await this.checkLoginUnique(userData.login);
+        await this.checkEmailUnique(email);
 
         userData.role = constants.userRoleNum;
         userData.status = constants.userActiveNum;
 
-        return await userRepository.create(userData);
+        const user = await userRepository.create(userData);
+        await mailer.send(email, 'sign up', 'Account successfully created.');
+        return user;
     }
 
     async login(login, password) {
@@ -40,6 +46,13 @@ class AuthService {
         const userExist = await userRepository.findByLogin(login);
         if (userExist) {
             throw new ConflictError(`User with login = ${login} already exist`);
+        }
+    }
+
+    async checkEmailUnique(email) {
+        const userInfo = await userInfoService.findByEmail(email);
+        if (userInfo) {
+            throw new ConflictError(`Email = ${email} already exist`);
         }
     }
 }
