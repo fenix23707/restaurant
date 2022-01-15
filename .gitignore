@@ -1,5 +1,5 @@
 #Modules
-./project/node_modules
+node_modules/
 
 #resources
 src/resources
