@@ -3,6 +3,7 @@ const tableService = require('../services/table');
 const ConflictError = require("../errors/ConflictError");
 const NotFoundError = require("../errors/NotFoundError");
 const constants = require("../constants");
+const ForbiddenError = require("../errors/ForbiddenError");
 
 class TableReservationService {
     async findAllByUserId(userId, sort, pagination) {
@@ -47,7 +48,7 @@ class TableReservationService {
         const reservation = await tableReservationRepository.findById(id);
 
         if (reservation.status !== constants.bookedReservationStatusNum) {
-            throw new ConflictError(`Status can't be changed, current status: ${reservation.status}`);
+            throw new ForbiddenError(`Status can't be changed, current status: ${reservation.status}`);
         }
     }
 

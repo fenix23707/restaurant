@@ -2,6 +2,8 @@ const reservationService = require("../../services/tableReservation");
 const tableService = require("../../services/table");
 const reservationRepository = require("../../repository/tableReservation");
 const ConflictError = require("../../errors/ConflictError");
+const constants = require("../../constants");
+const ForbiddenError = require("../../errors/ForbiddenError");
 
 describe("TableReservationService: create", () => {
     let reservationData;
@@ -55,43 +57,34 @@ describe("TableReservationService: create", () => {
     })
 
 });
-/*
 
 describe("TableReservationService: changeStatus", () => {
+    const id = 1;
+    const data = {
+        status: constants.cancelledReservationStatusNum
+    }
 
     test("successful change status", async () => {
-        tableService.findById = jest.fn().mockResolvedValue({});
-        reservationRepository.findById = jest.fn().mockResolvedValue({});
-        reservationService.create = jest.fn((data) => {
-            data.id = 1;
-            return data;
-        });
+        reservationRepository.findById = jest.fn().mockResolvedValue({status: constants.bookedReservationStatusNum});
+        reservationRepository.update = jest.fn();
 
-        const result = await reservationService.create(reservationData);
+        await reservationService.changeStatus(id, data);
 
-        expect(result.id).not.toBeUndefined();
-        expect(reservationService.create).toHaveBeenCalledTimes(1);
+        expect(reservationRepository.update).toHaveBeenCalledTimes(1);
     })
 
-    test("table is not free", async () => {
-        tableService.findById = jest.fn().mockResolvedValue({});
-        reservationRepository.findAllBookedByTableIdAndReservationTime = jest.fn().mockResolvedValue(reserved);
-        reservationService.create = jest.fn((data) => {
-            data.id = 1;
-            return data;
-        });
-
-        await reservationService.create(reservationData);
+    test("status is not booked", async () => {
+        reservationRepository.findById = jest.fn().mockResolvedValue({status: constants.completedReservationStatusNum});
+        reservationRepository.update = jest.fn();
 
         try {
-            await reservationService.create(reservationData);
+            await reservationService.changeStatus(id, data);
         } catch (err) {
-            expect(err).toBeInstanceOf(ConflictError);
+            expect(err).toBeInstanceOf(ForbiddenError);
             expect(err.message).toEqual(
-                `Table with id = ${reservationData.table_id}
-                from ${reserved.datetime_begin} to ${reserved.datetime_end} is taken`
+                `Status can't be changed, current status: ${constants.completedReservationStatusNum}`
             );
         }
     })
 
-});*/
+});

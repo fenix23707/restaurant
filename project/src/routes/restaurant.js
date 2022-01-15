@@ -176,6 +176,12 @@ router.post('/', validate(RestaurantScheme.create), restaurantController.create)
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Response'
+ *       403:
+ *         description: The user is trying to change the wrong restaurant
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: User with id ... not found
  *         content:
@@ -217,6 +223,12 @@ router.put('/:id', validate(RestaurantScheme.update), restaurantController.updat
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Response'
+ *       403:
+ *         description: The user is trying to delete the wrong restaurant
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Restaurant with id ... not found
  *         content:

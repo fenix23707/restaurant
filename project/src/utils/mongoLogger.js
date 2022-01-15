@@ -30,7 +30,7 @@ class MongoLogger {
         const dbOperations = new DbOperations({
             date: new Date(),
             type: data.type,
-            model: data.model.name,
+            model: data.model && data.model.name,
             query: query.replaceAll('"', '\''),
         });
         await dbOperations.save();

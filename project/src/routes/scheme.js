@@ -84,6 +84,12 @@ router.get('/restaurants/:id', schemeController.findByRestaurantId);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Response'
+ *       403:
+ *         description: User with id = ... doesn't have access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       404:
  *         description: Scheme with id = ... not found
  *         content:

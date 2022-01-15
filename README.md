@@ -1,7 +1,5 @@
-10.	Бронирование столиков в ресторане
+# Restaurant reservations
 
-Сервис предоставляет возможность бронировать столиков в ресторане. 
-Менеджер отеля может зарегистрировать свой ресторан  и внести в базу столы и схему их расположения. 
-Пользователи могут бронировать столики на определенную дату и время. 
-Менеджер также имеет возможность бронировать столики по своему усмотрению.
-Также должна быть возможность написания отзывов по отдельным ресторанам.
+**The service provides an opportunity to book tables in the restaurant. The hotel manager can register his restaurant and add tables and a scheme to the database. Users can book tables for a specific date and time. The manager also has the opportunity to book tables at his discretion. It should also be possible to write reviews for individual restaurants.**
+
+---

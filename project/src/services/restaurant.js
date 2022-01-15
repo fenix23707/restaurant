@@ -4,6 +4,7 @@ const tableReservationService = require('../services/tableReservation');
 const constants = require('../constants')
 const ConflictError = require("../errors/ConflictError");
 const NotFoundError = require("../errors/NotFoundError");
+const ForbiddenError = require("../errors/ForbiddenError");
 
 class RestaurantService {
     async findAll(match, sort, pagination) {
@@ -28,19 +29,21 @@ class RestaurantService {
         return await restaurantRepository.create(restaurantData);
     }
 
-    async update(id, restaurantData) {
+    async update(id, restaurantData, userId) {
         const old = await restaurantRepository.findById(id);
         if (!old) {
             throw new NotFoundError(`Restaurant with id = ${id} not found`);
         }
+        this.checkUserHaveAccess(old, userId);
         if (old.name !== restaurantData.name) {
             await this.checkNameIsUnique(restaurantData.name);
         }
         await restaurantRepository.update(id, restaurantData);
     }
 
-    async delete(id) {
-        await this.checkRestaurantExist(id);
+    async delete(id, userId) {
+        const restaurant = await this.checkRestaurantExist(id);
+        this.checkUserHaveAccess(restaurant, userId);
 
         if (await this.canDelete(id)) {
             await restaurantRepository.delete(id);
@@ -50,11 +53,18 @@ class RestaurantService {
         }
     }
 
+    checkUserHaveAccess(restaurantData, ownerId) {
+        if (restaurantData.user_id !== ownerId) {
+            throw new ForbiddenError("Forbidden");
+        }
+    }
+
     async checkRestaurantExist(id) {
         const restaurant = await restaurantRepository.findById(id);
         if (!restaurant) {
             throw new NotFoundError(`Restaurant wit id = ${id} not found`);
         }
+        return restaurant;
     }
 
     async canDelete(id) {
@@ -64,7 +74,8 @@ class RestaurantService {
 
     async checkNameIsUnique(name) {
         if (!name) {
-            return;l
+            return;
+            l
         }
         let restaurant = await restaurantRepository.findByName(name);
         if (restaurant) {

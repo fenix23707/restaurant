@@ -25,8 +25,9 @@ class SchemeController {
     async update(req, res, next) {
         const id = req.params.id;
         const schemeData = req.body;
+        const userId = req.session.user.id;
         try {
-            await schemeService.update(id, schemeData);
+            await schemeService.update(id, schemeData, userId);
             res.json(new Response("Scheme was successfully updated"));
         } catch (err) {
             return next(err);
