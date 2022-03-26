@@ -1,0 +1,4 @@
+add restaurant edit
+add sccheme edit
+
+userInfo update: add constraint that update can only yoursalfe user info
