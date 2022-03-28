@@ -77,3 +77,4 @@ function dayOfWeek(date, k) {
     date.setDate(date.getDate() + k);
     return daysOfWeek[date.getDay()];
 }
+//# sourceMappingURL=index.js.map
