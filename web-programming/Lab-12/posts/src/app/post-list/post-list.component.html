@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let post of posts; let i = index">
+    <h3>{{post.title}}</h3>
+    <p>{{post.text}}</p>
+    <p>{{post.date}}</p>
+    <button (click)="onDeleteClick(i)">delete</button>
+    <hr>
+  </li>
+</ul>
