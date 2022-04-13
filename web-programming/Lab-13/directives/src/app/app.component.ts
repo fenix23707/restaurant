@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Post} from "./Post";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'directives';
+
+  condition = true;
+  index = 0;
+  public posts: Post[] = [
+    new Post("title", "text"),
+    new Post("title", "text"),
+    new Post("title", "text"),
+
+  ];
 }

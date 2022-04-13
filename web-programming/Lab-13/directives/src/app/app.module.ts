@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ColorOpacityDirective } from './color-opacity.directive';
+import { ColorOpacityDirective } from './directives/color-opacity.directive';
+import { WhileDirective } from './directives/while.directive';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ColorOpacityDirective
+    ColorOpacityDirective,
+    WhileDirective,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule
   ],
   providers: [],
