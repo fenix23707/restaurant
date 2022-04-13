@@ -9,6 +9,7 @@ import {PostAddComponent} from "./post-add/post-add.component";
 import {PostListComponent} from "./post-list/post-list.component";
 import {FormsModule} from "@angular/forms";
 import { TrackByDirective } from './directives/track-by.directive';
+import {PostsModule} from "./posts/posts.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TrackByDirective } from './directives/track-by.directive';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    PostsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
