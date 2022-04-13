@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Post} from "../models/post";
+import {Component, OnInit} from '@angular/core';
+import {PostService} from "../posts/services/post.service";
+import {Post} from "../posts/models/post";
 
 @Component({
   selector: 'post-list',
@@ -8,14 +9,17 @@ import {Post} from "../models/post";
 })
 export class PostListComponent implements OnInit {
 
-  @Input() posts: Post[] = [];
-  @Output() onDelete = new EventEmitter<number>();
+  posts: Post[] = [];
 
-  ngOnInit(): void {
+  constructor(private postService: PostService) {
   }
 
-  onDeleteClick(index: number) {
-    this.onDelete.emit(index);
+  ngOnInit(): void {
+    this.posts = this.postService.getAll();
+  }
+
+  onDeleteClick(id: number) {
+    this.postService.delete(id);
   }
 
 }

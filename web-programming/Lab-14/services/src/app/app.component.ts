@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Post} from "./models/post";
 
 @Component({
   selector: 'app-root',
@@ -7,21 +6,5 @@ import {Post} from "./models/post";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  posts: Post[];
-  constructor() {
-    this.posts = [
-      new Post("name", "text"),
-      new Post("name", "text1"),
-      new Post("name", "text2"),
-      new Post("name", "text3"),
-    ];
-  }
 
-  addPost(post: Post) {
-    this.posts.push(post);
-  }
-
-  onDelete(index: number) {
-    this.posts.splice(index, 1);
-  }
 }

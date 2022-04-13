@@ -1,9 +1,10 @@
 <ul *trackBy="posts">
-  <li *while="posts; let post; let i = index">
+  <li *while="posts; let post;">
     <h3>{{post.title}}</h3>
     <p>{{post.text}}</p>
     <p>{{post.date}}</p>
-    <button (click)="onDeleteClick(i)">delete</button>
+    <button (click)="onDeleteClick(post.id)">delete</button>
+
     <hr>
   </li>
 </ul>

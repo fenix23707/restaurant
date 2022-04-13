@@ -1,23 +1,22 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Post} from "../models/post";
+import {Component} from '@angular/core';
+import {PostService} from "../posts/services/post.service";
+import {Post} from "../posts/models/post";
 
 @Component({
   selector: 'post-add',
   templateUrl: './post-add.component.html',
   styleUrls: ['./post-add.component.scss']
 })
-export class PostAddComponent implements OnInit {
+export class PostAddComponent {
 
   title: any
   text: any
 
-  @Output() newPostEvent = new EventEmitter<Post>();
-
-  ngOnInit(): void {
+  constructor(private postService: PostService) {
   }
 
   onSubmit(): void {
-    this.newPostEvent.emit(new Post(this.title, this.text));
+    this.postService.save(new Post(this.title, this.text))
     this.title = "";
     this.text = "";
   }

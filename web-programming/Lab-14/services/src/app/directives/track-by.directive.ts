@@ -1,4 +1,4 @@
-import {Directive, DoCheck, Input, OnChanges, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, DoCheck, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 
 @Directive({
   selector: '[trackBy]'
