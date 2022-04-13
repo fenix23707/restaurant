@@ -7,13 +7,21 @@ import {Post} from "./Post";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  posts: Post[];
+  constructor() {
+    this.posts = [
+      new Post("name", "text"),
+      new Post("name", "text1"),
+      new Post("name", "text2"),
+      new Post("name", "text3"),
+    ];
+  }
 
-  condition = true;
-  index = 0;
-  public posts: Post[] = [
-    new Post("title", "text"),
-    new Post("title", "text"),
-    new Post("title", "text"),
+  addPost(post: Post) {
+    this.posts.push(post);
+  }
 
-  ];
+  onDelete(index: number) {
+    this.posts.splice(index, 1);
+  }
 }

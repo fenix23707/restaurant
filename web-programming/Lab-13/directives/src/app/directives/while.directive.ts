@@ -2,6 +2,7 @@ import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 
 interface WhileContext {
   $implicit: any,
+  index: number
 }
 
 @Directive({
@@ -14,9 +15,10 @@ export class WhileDirective {
 
   @Input('while') set appWhile(array: any[]) {
     this.viewContainer.clear();
-    array.forEach(value => {
+    array.forEach((value, index, array) => {
       this.viewContainer.createEmbeddedView(this.templateRef, {
-        $implicit: value
+        $implicit: value,
+        index
       });
     })
   }
