@@ -10,6 +10,7 @@ import {PostListComponent} from "./post-list/post-list.component";
 import {FormsModule} from "@angular/forms";
 import {TrackByDirective} from './directives/track-by.directive';
 import {PostsModule} from "./posts/posts.module";
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {PostsModule} from "./posts/posts.module";
     PostAddComponent,
     PostListComponent,
     TrackByDirective,
+    CommentComponent,
   ],
   imports: [
     AppRoutingModule,

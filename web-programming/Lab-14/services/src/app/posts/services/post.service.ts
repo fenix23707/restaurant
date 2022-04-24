@@ -6,14 +6,14 @@ import {Post} from "../models/post";
   providedIn: PostsModule
 })
 export class PostService {
-  posts: Post[];
+  posts: Post[] = [
+    new Post("name", "text"),
+    new Post("name1", "text1"),
+    new Post("name2", "text2"),
+    new Post("name3", "text3"),
+  ];
+
   constructor() {
-    this.posts = [
-      new Post("name", "text"),
-      new Post("name", "text1"),
-      new Post("name", "text2"),
-      new Post("name", "text3"),
-    ];
   }
 
   getAll(): Post[] {

@@ -1,21 +1,21 @@
+import {Post} from "./post";
+import {User} from "./user";
+
 export class Comment {
   private readonly _id: number = Date.now();
   private _text: string;
   private _date: Date;
-  private _postId: number;
-  private _userId: number;
+  private _post: Post;
+  private _user: User;
 
-  constructor(text: string, postId: number, userId: number) {
+
+  constructor(text: string, post: Post, user: User) {
     this._text = text;
-    this._postId = postId;
-    this._userId = userId;
+    this._post = post;
+    this._user = user;
     this._date = new Date();
   }
 
-
-  get id(): number {
-    return this._id;
-  }
 
   get text(): string {
     return this._text;
@@ -33,19 +33,19 @@ export class Comment {
     this._date = value;
   }
 
-  get postId(): number {
-    return this._postId;
+  get post(): Post {
+    return this._post;
   }
 
-  set postId(value: number) {
-    this._postId = value;
+  set post(value: Post) {
+    this._post = value;
   }
 
-  get userId(): number {
-    return this._userId;
+  get user(): User {
+    return this._user;
   }
 
-  set userId(value: number) {
-    this._userId = value;
+  set user(value: User) {
+    this._user = value;
   }
 }
