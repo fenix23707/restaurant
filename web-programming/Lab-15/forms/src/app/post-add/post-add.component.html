@@ -1,11 +1,11 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="postForm">
   <div>
     <label for="title">title: </label>
-    <input type="text" [(ngModel)]="title" id="title" name="title"/>
+    <input type="text" formControlName="title" id="title" name="title"/>
   </div>
   <div>
     <label for="text">text: </label>
-    <input type="text" [(ngModel)]="text" id="text" name="text"/>
+    <input type="text" formControlName="text" id="text" name="text"/>
   </div>
   <button type="submit">Submit</button>
 </form>
