@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let post of posts">
+    <h3>{{post.title}}</h3>
+    <p>{{post.text}}</p>
+    <p>{{post.date}}</p>
+    <button (click)="onDeleteClick(post.id)">delete</button>
+    <app-comment [_postId]=post.id></app-comment>
+    <hr>
+  </li>
+</ul>
