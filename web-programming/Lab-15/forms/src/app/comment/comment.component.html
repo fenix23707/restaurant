@@ -1,16 +1,19 @@
-<!--<ul>-->
-<!--  <li *ngFor="let comment of comments">-->
-<!--    <p>text: {{comment.text}}</p>-->
-<!--    <p>date: {{comment.date}}</p>-->
-<!--    <p>user name: {{comment.user.name}}</p>-->
-<!--    <br/>-->
-<!--  </li>-->
-<!--</ul>-->
+<ul>
+  <li *ngFor="let comment of comments">
+    <p>text: {{comment.text}}</p>
+    <p>date: {{comment.date}}</p>
+    <p>user name: {{comment.user.name}}</p>
+    <br/>
+  </li>
+</ul>
 
-<!--<form (ngSubmit)="onSubmit()">-->
-<!--  <div>-->
-<!--    <label for="comment-text">text: </label>-->
-<!--    <input type="text" [(ngModel)]="commentText"  id="comment-text" name="comment{{_postId}}" />-->
-<!--  </div>-->
-<!--  <button type="submit">Submit</button>-->
-<!--</form>-->
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="comment-text">text: </label>
+    <input type="text" formControlName="text" id="comment-text" name="comment{{_postId}}" />
+    <div class="error" *ngIf="text && text.invalid && text.touched">
+      Неверные данные
+    </div>
+  </div>
+  <button [disabled]="commentForm.invalid" type="submit">Submit</button>
+</form>
