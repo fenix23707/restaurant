@@ -2,10 +2,16 @@
   <div>
     <label for="title">title: </label>
     <input type="text" formControlName="title" id="title" name="title"/>
+    <div class="error" *ngIf="title && title.invalid && title.touched">
+      Неверные данные
+    </div>
   </div>
   <div>
     <label for="text">text: </label>
     <input type="text" formControlName="text" id="text" name="text"/>
+    <div class="error" *ngIf="text && text.invalid && text.touched">
+      Неверные данные
+    </div>
   </div>
-  <button type="submit">Submit</button>
+  <button [disabled]="postForm.invalid" type="submit">Submit</button>
 </form>

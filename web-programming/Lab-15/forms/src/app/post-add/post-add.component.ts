@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../posts/services/post.service";
 import {Post} from "../posts/models/post";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 
 @Component({
   selector: 'post-add',
@@ -22,15 +22,21 @@ export class PostAddComponent implements OnInit{
 
   initializeForm() {
     this.postForm = this.fb.group({
-      title: '',
-      text: ''
+      title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      text: new FormControl('', [Validators.required])
     });
   }
-
-
 
   onSubmit(): void {
     let post = new Post(this.postForm?.value.title, this.postForm?.value.text);
     this.postService.save(post);
+  }
+
+  get title() {
+    return this.postForm.get('title');
+  }
+
+  get text() {
+    return this.postForm.get('text');
   }
 }
