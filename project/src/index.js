@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const options = require("./config/swagger");
 const db = require('./database');
 const port = require('./config').app.port;
-const mongoPort = require('./config').app.mongoPort;
+const mongoConfig = require('./config').mongo;
 
 
 // swagger
@@ -20,9 +20,11 @@ app.use(loader);
 async function start() {
     app.listen(port, () => console.log(`Server started at port ${port}`));
 
-    await mongoose.connect(`mongodb://localhost:${mongoPort}/restaurant_logs`, {
+    await mongoose.connect(`mongodb://localhost:${mongoConfig.port}/restaurant_logs`, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        user: mongoConfig.user,
+        pass: mongoConfig.pass,
     });
 }
 
