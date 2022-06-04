@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const config = require("../congif");
+const config = require("../config");
 class EmailService {
     sendMessage(email, subject, message) {
         const mailTransport = this.getMailTransport();

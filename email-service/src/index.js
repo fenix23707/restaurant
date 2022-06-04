@@ -1,8 +1,14 @@
 const amqp = require('amqplib');
 const emailService = require("./services/email");
+const express = require("express");
+const port = require('./config').app.port;
+
+const app = express();
+app.use('/', require('./routes/healthchecker'));
 
 const url = 'amqp://localhost';
 const queue = 'email-service';
+
 
 async function start() {
     try {
@@ -15,6 +21,8 @@ async function start() {
     } catch (err) {
         console.error(err);
     }
+
+    app.listen(port, () => console.log(`Server started at port ${port}`));
 }
 
 function onMessage(msg) {

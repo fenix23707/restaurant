@@ -1,7 +1,19 @@
-FROM rabbitmq:latest
+FROM node:16
 
-COPY ./build/libs/enrichment-service-1.0-SNAPSHOT-all.jar /home/app.jar
+# Create app directory
+WORKDIR /usr/src/app
 
-EXPOSE
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-ENTRYPOINT ["java","-jar","/home/app.jar"]
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 8080
+CMD [ "node", "index.js" ]
