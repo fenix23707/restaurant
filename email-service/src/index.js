@@ -6,7 +6,7 @@ const port = require('./config').app.port;
 const app = express();
 app.use('/', require('./routes/healthchecker'));
 
-const url = 'amqp://localhost';
+const url = process.env.RABBITMQ_URL | 'amqp://localhost';
 const queue = 'email-service';
 
 
