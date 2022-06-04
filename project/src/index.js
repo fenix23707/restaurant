@@ -20,11 +20,12 @@ app.use(loader);
 async function start() {
     app.listen(port, () => console.log(`Server started at port ${port}`));
 
-    await mongoose.connect(`mongodb://localhost:${mongoConfig.port}/restaurant_logs`, {
+    await mongoose.connect(`mongodb://${mongoConfig.host}:${mongoConfig.port}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         user: mongoConfig.user,
         pass: mongoConfig.pass,
+        dbName: mongoConfig.dbName,
     });
 }
 
