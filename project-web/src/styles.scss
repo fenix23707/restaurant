@@ -6,6 +6,8 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #4d4a8b;
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   color: white;
 }
 
@@ -16,7 +18,7 @@ body {
 }
 
 .main {
-  flex: 1 0 auto;
+  //flex: 1 0 auto;
 }
 
 .container {
@@ -57,6 +59,88 @@ body {
     height: 100px;
   }
 }
+
+// typography
+
+.title {
+  font-family: "Pattaya", sans-serif;
+  color: white;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+p {
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sub-title {
+  font-size: 28px;
+  line-height: 32px;
+  width: 600px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h5 {
+  color: white;
+  font-size: 22px;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 22px;
+}
+
+select,
+label {
+  font-size: 18px;
+}
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+}
+
+// buttons
+
+.button {
+  display: block;
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  align-items: center;
+  text-align: center;
+  background: #db1a26;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  &:hover {
+    background-color: #ff000f;
+  }
+
+  &:active {
+    background-color: #bb0510;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+}
+
+
+
+// reset
 
 html {
   box-sizing: border-box;
