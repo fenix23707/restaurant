@@ -27,6 +27,7 @@ class AuthController {
             req.session.user = user;
             const token = JWTUtil.issueJWT(user);
             res.status(201).json({
+                user: user,
                 token: token.token,
                 expiresIn: token.expires
             });

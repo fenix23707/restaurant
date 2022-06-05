@@ -8,7 +8,7 @@ module.exports = {
     },
     config: {
         dialect: "postgres",
-        host: process.env.POSTGRES_SERVICE_HOST || "postgres",
+        host: process.env.POSTGRES_SERVICE_HOST || "localhost",
         define: {timestamps: false},
         logging: mongoLogger.dbOperations,
     }

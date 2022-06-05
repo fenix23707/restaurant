@@ -1,5 +1,5 @@
 const amqp = require('amqplib');
-const rabbitmqUrl = process.env.RABBITMQ_HOST
+const rabbitmqUrl = process.env.RABBITMQ_HOST || 'localhost'
 const url = `amqp://guest:guest@${rabbitmqUrl}/`;
 const queue = 'email-service';
 

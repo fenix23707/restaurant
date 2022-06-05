@@ -21,8 +21,9 @@ class AuthService {
         userData.status = constants.userActiveNum;
 
         const user = await userRepository.create(userData);
-        await mailer.send(email, 'sign up', 'Account successfully created.');
-        return user;
+
+        // await mailer.send(email, 'sign up', 'Account successfully created.');
+        return AuthService.#createUser(user);
     }
 
     async login(login, password) {
@@ -32,8 +33,7 @@ class AuthService {
         }
 
         this.checkUserIsActive(user);
-
-        return user;
+        return AuthService.#createUser(user);
     }
 
     checkUserIsActive(user) {
@@ -53,6 +53,14 @@ class AuthService {
         const userInfo = await userInfoService.findByEmail(email);
         if (userInfo) {
             throw new ConflictError(`Email = ${email} already exist`);
+        }
+    }
+
+    static #createUser(user) {
+        return {
+            id: user.id,
+            login: user.login,
+            role: user.role,
         }
     }
 }
