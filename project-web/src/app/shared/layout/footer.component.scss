@@ -1,0 +1,39 @@
+.footer {
+  height: 80px;
+  flex: 0 0 auto;
+  background-color: #213e5a;
+
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+  }
+  &__main-content {
+    align-items: center;
+    display: inline-flex;
+    p {
+      padding-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .footer {
+    &__main-content {
+      p {
+        font-size: 2.8vw;
+        line-height: 3.4vw;
+      }
+    }
+  }
+}
