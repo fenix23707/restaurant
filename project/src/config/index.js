@@ -9,7 +9,7 @@ module.exports = {
 
     mongo: {
         host: process.env.MONGO_HOST || 'localhost',
-        port: parseInt(process.env.MONGO_PORT, 10) || 1999,
+        port: parseInt(process.env.MONGO_PORT, 10) || 27017,
         user: process.env.MONGO_USER || 'user',
         pass: process.env.MONGO_PASS || 'pass',
         dbName: process.env.MONGO_DB_NAME || 'restaurant_logs',
