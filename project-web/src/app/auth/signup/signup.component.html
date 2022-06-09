@@ -1,0 +1,22 @@
+<main class="main">
+  <section class="signup">
+    <div class="container">
+      <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="signup()">
+        <div class="signup-form__item">
+          <label for="login">Логин</label>
+          <input formControlName="login" class="input" type="text" name="" id="login"/>
+        </div>
+        <div class="signup-form__item">
+          <label for="password">Пароль</label>
+          <input formControlName="password" class="input" type="password" name="" id="password"/>
+        </div>
+        <div class="signup-form__item">
+          <label for="email">Email</label>
+          <input formControlName="email" class="input" type="email" name="" id="email"/>
+        </div>
+        <input class="button" type="submit" name="" id="" value="Зарегистрироваться"/>
+        <a routerLink="/login">Войти</a>
+      </form>
+    </div>
+  </section>
+</main>
