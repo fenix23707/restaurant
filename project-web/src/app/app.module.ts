@@ -9,6 +9,7 @@ import {
   FooterComponent,
   SharedModule,
 } from './shared';
+import {CoreModule} from "./core";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {
     AppRoutingModule,
     SharedModule,
     AuthModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

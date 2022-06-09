@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ApiService, AuthService, JwtService} from "./services";
 
 
 
@@ -7,6 +8,11 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule
+  ],
+  providers: [
+    AuthService,
+    ApiService,
+    JwtService
   ]
 })
 export class CoreModule { }
