@@ -14,7 +14,8 @@
           <label for="email">Email</label>
           <input formControlName="email" class="input" type="email" name="" id="email"/>
         </div>
-        <input class="button" type="submit" name="" id="" value="Зарегистрироваться"/>
+        <app-list-errors [errors]="errors"></app-list-errors>
+        <button [disabled]="signupForm.invalid" class="button" type="submit" >Зарегистрироваться</button>
         <a routerLink="/login">Войти</a>
       </form>
     </div>

@@ -18,3 +18,18 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 2001
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurant
+  labels:
+    app: restaurant
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 2001
+  selector:
+    app: restaurant

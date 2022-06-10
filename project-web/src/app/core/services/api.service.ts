@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {JwtService} from "./jwt.service";
 import {catchError, Observable, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
@@ -13,31 +13,35 @@ export class ApiService {
   }
 
   private formatErrors(error: any) {
-    return throwError(error.error());
+    return throwError(error.error);
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(`${environment.api_url}${path}`, {params})
+    return this.http.get(`${environment.server_url}${path}`, {params})
       .pipe(catchError(this.formatErrors));
   }
 
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
-      `${environment.api_url}${path}`,
+      `${environment.server_url}${path}`,
       JSON.stringify(body)
     ).pipe(catchError(this.formatErrors));
   }
 
   post(path: string, body: Object = {}): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set('accept', 'application/json;');
     return this.http.post(
-      `${environment.api_url}${path}`,
-      JSON.stringify(body)
+      `${environment.server_url}${path}`,
+      JSON.stringify(body),
+      {headers: headers}
     ).pipe(catchError(this.formatErrors));
   }
 
   delete(path: string): Observable<any> {
     return this.http.delete(
-      `${environment.api_url}${path}`
+      `${environment.server_url}${path}`
     ).pipe(catchError(this.formatErrors));
   }
 }

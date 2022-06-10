@@ -7,13 +7,14 @@ const options = require("./config/swagger");
 const db = require('./database');
 const port = require('./config').app.port;
 const mongoConfig = require('./config').mongo;
+const cors = require('cors')
 
 
 // swagger
 const spec = swaggerJsDoc(options);
 
 const app = express();
-
+app.use(cors({origin: '*'}))
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec));
 app.use(loader);
 
