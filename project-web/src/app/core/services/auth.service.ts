@@ -11,7 +11,14 @@ export class AuthService {
     private jwtService: JwtService
   ) { }
 
-  signup(data: Object): Observable<User> {
+  signup(user: any): Observable<User> {
+    let data = {
+      login: user.login,
+      password: user.password,
+      user_info: {
+        email: user.email
+      }
+    }
     return this.apiService.post('/signup', data)
       .pipe(map(data => {
         this.auth(data);
