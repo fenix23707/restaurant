@@ -53,7 +53,8 @@ export class RestaurantListComponent implements OnInit {
     return restaurant.avatar ? restaurant.avatar : this.defaultImage;
   }
 
-  imageErrorHandler() {
-
+  onSearchTextEntered(name: string) {
+    this.listConfig.filters.name = name;
+    this.runQuery();
   }
 }

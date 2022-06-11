@@ -6,7 +6,6 @@ import {RestaurantRoutingModule} from "./restaurant-routing.module";
 import {NgxPaginationModule} from "ngx-pagination";
 
 
-
 @NgModule({
   imports: [
     SharedModule,
@@ -15,7 +14,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     NgxPaginationModule
   ],
   declarations: [
-    RestaurantListComponent
+    RestaurantListComponent,
   ],
 })
 export class RestaurantModule { }

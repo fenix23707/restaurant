@@ -2,11 +2,12 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { ListErrorsComponent } from './list-errors/list-errors.component';
+import {ListErrorsComponent} from './list-errors/list-errors.component';
+import {SearchComponent} from "./search/search.component";
 
 @NgModule({
   declarations: [
-
+    SearchComponent,
     ListErrorsComponent,
   ],
   imports: [
@@ -16,6 +17,7 @@ import { ListErrorsComponent } from './list-errors/list-errors.component';
     HttpClientModule
   ],
   exports: [
+    SearchComponent,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

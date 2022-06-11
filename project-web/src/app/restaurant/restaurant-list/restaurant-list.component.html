@@ -1,15 +1,4 @@
-<section class="search-line">
-  <div class="container">
-    <form class="search-form" method="get">
-      <input
-        class="search-form__input"
-        type="text"
-        placeholder="Введите название ресторана"
-      />
-      <input class="search-form__button" type="image" src="assets/icons/findIcon.svg"/>
-    </form>
-  </div>
-</section>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 <section class="restaurants">
   <div class="container">
     <div class="restaurants__inner">
@@ -22,11 +11,12 @@
                  alt="ava"/>
           </a>
           <h5>{{restaurant.name}}</h5>
-          <div >
+          <div>
             <span style=" text-align: center; vertical-align: middle">
             {{restaurant.rating}}
             </span>
-            <img style="width: 25px; display: inline-block; vertical-align: middle" src="assets/icons/star.png" alt="stars">
+            <img style="width: 25px; display: inline-block; vertical-align: middle" src="assets/icons/star.png"
+                 alt="stars">
           </div>
         </li>
 
@@ -34,9 +24,6 @@
     </div>
   </div>
 </section>
-<!--<div class="container">-->
 <div class="pagination">
-
   <pagination-controls class="pagination__inner" (pageChange)="pageChange($event)"></pagination-controls>
 </div>
-<!--</div>-->

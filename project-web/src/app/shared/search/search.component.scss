@@ -1,0 +1,43 @@
+
+.search-line {
+  background-color: #b62174;
+}
+.search-form {
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  &__input {
+    // display: none;
+    margin-left: 8vw;
+    font-size: 18px;
+
+    height: 48px;
+    width: 605px;
+    background: rgba(229, 229, 229, 0.8);
+    border-radius: 60px;
+    border: none;
+  }
+  &__button {
+    position: relative;
+    right: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .search-form {
+    &__input {
+    }
+    &__button {
+      position: relative;
+      right: 40px;
+    }
+  }
+}
+

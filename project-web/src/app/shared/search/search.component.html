@@ -1,0 +1,15 @@
+<section class="search-line">
+  <div class="container">
+    <form class="search-form" method="get">
+      <input
+        [(ngModel)]="searchValue"
+        (input)="onSearchTextChanged()"
+        class="search-form__input"
+        type="text"
+        placeholder="Введите название ресторана"
+        name="searchName"
+      />
+      <input class="search-form__button" type="image" src="assets/icons/findIcon.svg"/>
+    </form>
+  </div>
+</section>
