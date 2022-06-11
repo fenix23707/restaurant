@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ApiService, AuthService, JwtService} from "./services";
+import {ApiService, AuthService, JwtService, RestaurantService} from "./services";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HttpTokenInterceptor} from "./interceptors";
 
 
 
@@ -10,9 +12,11 @@ import {ApiService, AuthService, JwtService} from "./services";
     CommonModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
     AuthService,
     ApiService,
-    JwtService
+    JwtService,
+    RestaurantService
   ]
 })
 export class CoreModule { }
