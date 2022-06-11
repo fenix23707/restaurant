@@ -72,16 +72,6 @@ body {
   color: white;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.main {
-  //flex: 1 0 auto;
-}
-
 .container {
   // width: 88vw;
   max-width: 1230px;
@@ -179,7 +169,7 @@ label {
   align-items: center;
   text-align: center;
   background: #db1a26;
-  border-radius: 50px;
+  border-radius: 15px;
   transition-duration: 0.4s;
   &:hover {
     background-color: #ff000f;

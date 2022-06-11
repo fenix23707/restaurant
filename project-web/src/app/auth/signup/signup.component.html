@@ -1,23 +1,21 @@
-<main class="main">
-  <section class="signup">
-    <div class="container">
-      <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="signup()">
-        <div class="signup-form__item">
-          <label for="login">Логин</label>
-          <input formControlName="login" class="input" type="text" name="" id="login"/>
-        </div>
-        <div class="signup-form__item">
-          <label for="password">Пароль</label>
-          <input formControlName="password" class="input" type="password" name="" id="password"/>
-        </div>
-        <div class="signup-form__item">
-          <label for="email">Email</label>
-          <input formControlName="email" class="input" type="email" name="" id="email"/>
-        </div>
-        <app-list-errors [errors]="errors"></app-list-errors>
-        <button [disabled]="signupForm.invalid" class="button" type="submit" >Зарегистрироваться</button>
-        <a routerLink="/login">Войти</a>
-      </form>
-    </div>
-  </section>
-</main>
+<section class="signup">
+  <div class="container">
+    <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="signup()">
+      <div class="signup-form__item">
+        <label for="login">Логин</label>
+        <input formControlName="login" class="input" type="text" name="" id="login"/>
+      </div>
+      <div class="signup-form__item">
+        <label for="password">Пароль</label>
+        <input formControlName="password" class="input" type="password" name="" id="password"/>
+      </div>
+      <div class="signup-form__item">
+        <label for="email">Email</label>
+        <input formControlName="email" class="input" type="email" name="" id="email"/>
+      </div>
+      <app-list-errors [errors]="errors"></app-list-errors>
+      <button [disabled]="signupForm.invalid" class="button" type="submit">Зарегистрироваться</button>
+      <a routerLink="/login">Войти</a>
+    </form>
+  </div>
+</section>

@@ -4,7 +4,7 @@ import {RestaurantModule} from "./restaurant/restaurant.module";
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', redirectTo: 'restaurants', pathMatch: 'full'
   },
   {
     path: 'restaurants',

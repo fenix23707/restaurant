@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit {
       'password': ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       'email': ['', [Validators.required, Validators.email, Validators.maxLength(50)]],
     });
-    console.log(this.signupForm.invalid)
   }
 
 
