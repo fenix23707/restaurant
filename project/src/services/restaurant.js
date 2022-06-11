@@ -1,6 +1,7 @@
 const restaurantRepository = require('../repository/restaurant');
 const userService = require('../services/user');
 const tableReservationService = require('../services/tableReservation');
+const reviewService = require('../services/review');
 const constants = require('../constants')
 const ConflictError = require("../errors/ConflictError");
 const NotFoundError = require("../errors/NotFoundError");
@@ -9,6 +10,14 @@ const ForbiddenError = require("../errors/ForbiddenError");
 class RestaurantService {
     async findAll(match, sort, pagination) {
         return await restaurantRepository.findAll(match, sort, pagination);
+    }
+
+    async findAllWithRating(match, sort, pagination) {
+        const restaurants = await this.findAll(match, sort, pagination);
+        for (const restaurant of restaurants) {
+            restaurant.dataValues.rating = await reviewService.getAvgRainingByRestaurantId(restaurant.id);
+        }
+        return restaurants
     }
 
     async findByUserId(id) {

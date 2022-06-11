@@ -34,7 +34,7 @@ class RestaurantController {
             pagination.limit = pageSize;
         }
 
-        const restaurants = await restaurantService.findAll(match, sort, pagination);
+        const restaurants = await restaurantService.findAllWithRating(match, sort, pagination);
         const totalSize = await restaurantService.getTotalSize();
 
         const result = {
