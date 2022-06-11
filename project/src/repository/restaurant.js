@@ -40,6 +40,10 @@ class RestaurantRepository {
     async delete(id) {
         return await Restaurant.destroy({where: {id: id}});
     }
+
+    async getTotalSize() {
+        return await Restaurant.count();
+    }
 }
 
 module.exports = new RestaurantRepository();

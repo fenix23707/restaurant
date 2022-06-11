@@ -2,8 +2,8 @@ const mongoLogger = require("../utils/mongoLogger");
 
 module.exports = {
     postgres: {
-      password: 'admin',
-      user: 'admin',
+      user: 'postgres',
+      password: 'vlad',
       db: 'restaurant_reservations'
     },
     config: {

@@ -53,6 +53,10 @@ class RestaurantService {
         }
     }
 
+    async getTotalSize() {
+        return await restaurantRepository.getTotalSize();
+    }
+
     checkUserHaveAccess(restaurantData, ownerId) {
         if (restaurantData.user_id !== ownerId) {
             throw new ForbiddenError("Forbidden");
