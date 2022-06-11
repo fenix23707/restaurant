@@ -1,0 +1,37 @@
+<main class="main">
+  <section class="search-line">
+    <div class="container">
+      <form class="search-form" method="get">
+        <input
+          class="search-form__input"
+          type="text"
+          placeholder="Введите название ресторана"
+        />
+        <input class="search-form__button" type="image" src="assets/icons/findIcon.svg" />
+      </form>
+    </div>
+  </section>
+  <section class="restaurants">
+    <div class="container">
+      <div class="restaurants__inner">
+        <ul class="restaurants-list">
+
+          <li *ngFor="let restaurant of restaurants" class="restaurants-list__item">
+
+            <a routerLink="'/restaurants/{{restaurant.id}}" >
+              <img class="restaurant-avatar" src="{{restaurant.avatar" (error)="onImgError($event)" alt="ava" />
+            </a>
+            <h5>{{restaurant.name}}</h5>
+            <p>5.3</p>
+          </li>
+
+        </ul>
+        <div class="filter">
+          <div class="filter__inner">
+            <h2 class="sub-titile">Фильтры</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
