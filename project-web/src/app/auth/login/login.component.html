@@ -1,20 +1,17 @@
-
-<main class="main">
-  <section class="login">
-    <div class="container">
-      <form class="login-form" action="">
-        <div class="login-form__item">
-          <label for="login">Логин</label>
-          <input class="input" type="text" name="" id="login"/>
-        </div>
-        <div class="login-form__item">
-          <label for="password">Пароль</label>
-          <input class="input" type="password" name="" id="password"/>
-        </div>
-        <input class="button" type="submit" name="" id="" value="Войти"/>
-        <a routerLink="/signup">Зарегистрироваться</a>
-      </form>
-    </div>
-  </section>
-</main>
-
+<section class="login">
+  <div class="container">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+      <div class="login-form__item">
+        <label for="login">Логин</label>
+        <input formControlName="login" class="input" type="text" name="" id="login"/>
+      </div>
+      <div class="login-form__item">
+        <label for="password">Пароль</label>
+        <input formControlName="password" class="input" type="password" name="" id="password"/>
+      </div>
+      <app-list-errors [errors]="errors"></app-list-errors>
+      <button [disabled]="loginForm.invalid" class="button" type="submit">Войти</button>
+      <a routerLink="/login">Зарегистрироваться</a>
+    </form>
+  </div>
+</section>
