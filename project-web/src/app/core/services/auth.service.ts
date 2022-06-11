@@ -3,12 +3,14 @@ import {ApiService} from "./api.service";
 import {JwtService} from "./jwt.service";
 import {User, UserData} from "../models";
 import {map, Observable} from "rxjs";
+import {UserService} from "./user.service";
 
 @Injectable()
 export class AuthService {
   constructor(
     private apiService: ApiService,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private userService: UserService
   ) { }
 
   signup(user: any): Observable<User> {
@@ -38,6 +40,6 @@ export class AuthService {
 
   private auth(userData: UserData) {
     this.jwtService.saveToken(userData.token);
-    //TODO save user in variable
+    this.userService.setAuth(userData.user);
   }
 }

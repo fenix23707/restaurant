@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(data)
       .subscribe(
         user => {
-          console.log(user)
           this.router.navigateByUrl('/')
         },
         error => {

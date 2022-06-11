@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {RestaurantModule} from "./restaurant/restaurant.module";
+import {AuthGuard} from "./core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -8,8 +8,8 @@ const routes: Routes = [
   },
   {
     path: 'restaurants',
-    loadChildren: () => import('./restaurant/restaurant.module').then(m => m.RestaurantModule)
-
+    loadChildren: () => import('./restaurant/restaurant.module').then(m => m.RestaurantModule),
+    canActivate: [AuthGuard]
   }
 ];
 

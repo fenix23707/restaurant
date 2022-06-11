@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {ApiService, AuthService, JwtService, RestaurantService} from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpTokenInterceptor} from "./interceptors";
+import {UserService} from "./services/user.service";
+import {AuthGuard} from "./guards/auth.guard";
 
 
 
@@ -13,9 +15,12 @@ import {HttpTokenInterceptor} from "./interceptors";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
-    AuthService,
     ApiService,
     JwtService,
+    AuthService,
+    UserService,
+    AuthService,
+    AuthGuard,
     RestaurantService
   ]
 })
