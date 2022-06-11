@@ -15,21 +15,22 @@
     <div class="restaurants__inner">
       <ul class="restaurants-list">
 
-        <li *ngFor="let restaurant of restaurants" class="restaurants-list__item">
+        <li *ngFor="let restaurant of restaurants | paginate: pagination" class="restaurants-list__item">
 
           <a routerLink="'/restaurants/{{restaurant.id}}">
-            <img class="restaurant-avatar" src="{{restaurant.avatar" (error)="onImgError($event)" alt="ava"/>
+            <img class="restaurant-avatar" [src]="getImage(restaurant)" alt="ava"/>
           </a>
           <h5>{{restaurant.name}}</h5>
           <p>5.3</p>
         </li>
 
       </ul>
-      <div class="filter">
-        <div class="filter__inner">
-          <h2 class="sub-titile">Фильтры</h2>
-        </div>
-      </div>
     </div>
   </div>
 </section>
+<!--<div class="container">-->
+  <div class="pagination">
+
+    <pagination-controls class="pagination__inner" (pageChange)="pageChange($event)"></pagination-controls>
+  </div>
+<!--</div>-->
