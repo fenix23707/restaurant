@@ -1,8 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {concatMap} from "rxjs";
 import {Restaurant, RestaurantListConfig, RestaurantService} from "../../core";
-import {query} from "@angular/animations";
 import {PaginatePipeArgs} from "ngx-pagination";
 
 @Component({
@@ -15,7 +12,7 @@ export class RestaurantListComponent implements OnInit {
   pagination : PaginatePipeArgs = {
     itemsPerPage: 6,
     currentPage: 1,
-    totalItems: 16
+    totalItems: 6
   }
   restaurants!: Restaurant[]
   listConfig: RestaurantListConfig = {filters: {}};
@@ -43,7 +40,8 @@ export class RestaurantListComponent implements OnInit {
     this.restaurantService.query(this.listConfig)
       .subscribe(
         data => {
-          this.restaurants = data
+          this.restaurants = data.restaurants;
+          this.pagination.totalItems = data.totalSize;
         },
         error => {
           console.log(error)
@@ -53,5 +51,9 @@ export class RestaurantListComponent implements OnInit {
 
   getImage(restaurant: Restaurant) {
     return restaurant.avatar ? restaurant.avatar : this.defaultImage;
+  }
+
+  imageErrorHandler() {
+
   }
 }

@@ -11,7 +11,7 @@ export class RestaurantService {
     private apiService: ApiService,
   ) { }
 
-  query(config: RestaurantListConfig): Observable<Restaurant[]> {
+  query(config: RestaurantListConfig): Observable<any> {
     const params = {};
 
 Object.keys(config.filters)

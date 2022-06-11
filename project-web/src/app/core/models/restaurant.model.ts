@@ -2,6 +2,6 @@ export interface Restaurant {
   id: number,
   name: string,
   adres: string,
-  avatar: number,
+  avatar: string,
   user_id: number
 }
