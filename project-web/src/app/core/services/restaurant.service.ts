@@ -22,4 +22,9 @@ Object.keys(config.filters)
 
     return this.apiService.get('/restaurants', new HttpParams({fromObject: params}));
   }
+
+  get(restaurantId: number | string) {
+    return this.apiService.get('/restaurants/' + restaurantId);
+      // .pipe(map((data: { restaurant: Restaurant }) => data.restaurant));
+  }
 }
