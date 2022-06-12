@@ -7,7 +7,7 @@ const ReviewScheme = {
             .min(1)
             .max(10)
             .required(),
-        review: Joi.string().alloc(null, ''),
+        review: Joi.string().allow(null, ''),
         restaurant_id: Joi.number()
             .integer()
             .min(1)
@@ -19,7 +19,7 @@ const ReviewScheme = {
             .min(1)
             .max(10)
             .required(),
-        review: Joi.string(),
+            review: Joi.string().allow(null, ''),
     })
 }
 

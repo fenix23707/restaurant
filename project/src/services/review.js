@@ -1,6 +1,6 @@
 const reviewRepository = require('../repository/review');
-const restaurantService = require('../services/restaurant');
 const userService = require('../services/user');
+const restaurantService = require('../services/restaurant');
 const NotFoundError = require("../errors/NotFoundError");
 const ConflictError = require("../errors/ConflictError");
 
