@@ -42,10 +42,14 @@ class ReviewService {
         );
     }
 
-    async getRainingByRestaurantId(restaurantId) {
+    async getRatingByRestaurantId(restaurantId) {
         const reviews = await reviewRepository.findAllByRestaurantId(restaurantId);
-        let numOr0 = n => isNaN(n) ? 0 : n;
-        return reviews.reduce((a, b) => numOr0(a.rate) + numOr0(b.rate), 0) / reviews.length;
+
+        let sum = 0;
+        for( let i = 0; i < reviews.length; i++ ){
+            sum += parseInt( reviews[i].rate, 10 ) || 0;
+        }
+        return sum / reviews.length;
     }
 
     async checkRestaurantExist(restaurantId) {

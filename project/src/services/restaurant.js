@@ -15,7 +15,7 @@ class RestaurantService {
     async findAllWithRating(match, sort, pagination) {
         const restaurants = await this.findAll(match, sort, pagination);
         for (const restaurant of restaurants) {
-            restaurant.dataValues.rating = await reviewService.getRainingByRestaurantId(restaurant.id);
+            restaurant.dataValues.rating = await reviewService.getRatingByRestaurantId(restaurant.id);
         }
         return restaurants
     }

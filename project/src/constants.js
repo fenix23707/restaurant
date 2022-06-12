@@ -20,7 +20,7 @@ const constants = {
     pageSize: 4,
 
     secret: "secret",
-    jwtExpiresIn: 10 * 60 * 1000 // = 10m
+    jwtExpiresIn: 60 * 60 * 1000 // = 60m
 }
 
 module.exports = constants;

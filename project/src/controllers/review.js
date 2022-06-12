@@ -14,7 +14,7 @@ class ReviewController {
     async findRatingByRestaurantId(req, res, next) {
         const restaurantId = req.params.id;
         try {
-            const rating = await reviewService.getRainingByRestaurantId(restaurantId);
+            const rating = await reviewService.getRatingByRestaurantId(restaurantId);
             const response = {
                 restaurantId: restaurantId,
                 rating: rating
