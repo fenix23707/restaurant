@@ -9,6 +9,10 @@ export class ReviewService {
     private apiService: ApiService
   ) { }
 
+  getAllByRestaurantId(restaurantId: number | string) {
+    return this.apiService.get('/reviews/restaurants/' + restaurantId);
+  }
+
   getRating(restaurantId: number | string) {
     return this.apiService.get('/reviews/restaurants/rating/' + restaurantId)
     .pipe(map((data: { restaurantId: number, rating: number }) => data.rating));

@@ -16,7 +16,6 @@ export class RestaurantAvaComponent {
 
   @Input()
   set avatarUrl(value: string) {
-    console.log(value)
     if (!value) {
       this._avatarUrl = this.defaultImage;
     } else {

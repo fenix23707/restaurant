@@ -1,0 +1,19 @@
+<section class="reviews">
+  <div class="container">
+    <div class="reviews__inner">
+      <h1 class="title">Отзывы</h1>
+      <ul class="reviews-list">
+        <li *ngFor="let review of reviews" class="reviews-list__item">
+          <div class="reviews-list__item-info">
+            <div class="reviews-list__item-main-data">
+              <app-user-name [userId]="review.user_id"></app-user-name>
+              <p class="reviews-list__item-score">{{review.rate}}</p>
+            </div>
+            <p class="reviews-list__item-date">{{review.data}}</p>
+          </div>
+          <p class="reviews-list__item-text">{{review.review}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

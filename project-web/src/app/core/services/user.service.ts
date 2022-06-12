@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from "./api.service";
 import {JwtService} from "./jwt.service";
-import {BehaviorSubject, distinctUntilChanged, ReplaySubject} from "rxjs";
+import {BehaviorSubject, distinctUntilChanged, map, ReplaySubject} from "rxjs";
 import {User} from "../models";
 
 @Injectable()
@@ -16,7 +16,6 @@ export class UserService {
     private apiService: ApiService,
     private jwtService: JwtService
   ) {}
-
 
   setAuth(user: User) {
     this.currentUserSubject.next(user);
