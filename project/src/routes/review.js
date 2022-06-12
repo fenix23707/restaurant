@@ -39,6 +39,47 @@ router.get('/restaurants/:id', reviewController.findAllByRestaurantId);
 
 /**
  * @swagger:
+ * tags:
+ *   name: Review
+ *   description: The reviews managing api
+ */
+
+/**
+ * @swagger:
+ * /reviews/restaurants/rating/{id}:
+ *   get:
+ *     summary: Get rating by restaurant id
+ *     tags: [Review]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the restaurant id
+ *     responses:
+ *       200:
+ *         description: Ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 restaurantId:
+ *                   type: integer
+ *                   description: id of restaurant.
+ *                 rating:
+ *                   type: float
+ *                   description: rating of restaurant.
+ *               example:
+ *                 restaurantId: 1
+ *                 rating: 8.2
+ *
+ */
+router.get('/restaurants/rating/:id', reviewController.findRatingByRestaurantId);
+
+/**
+ * @swagger:
  * /reviews/users/{userId}/restaurants/{restaurantId}:
  *   get:
  *     summary: Get review by user id and restaurant id

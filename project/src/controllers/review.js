@@ -11,6 +11,20 @@ class ReviewController {
         }
     }
 
+    async findRatingByRestaurantId(req, res, next) {
+        const restaurantId = req.params.id;
+        try {
+            const rating = await reviewService.getRainingByRestaurantId(restaurantId);
+            const response = {
+                restaurantId: restaurantId,
+                rating: rating
+            }
+            res.json(response);
+        } catch (err) {
+            return next(err);
+        }
+    }
+
     async findById(req, res, next) {
         const id = req.params.id;
         try {

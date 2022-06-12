@@ -42,7 +42,7 @@ class ReviewService {
         );
     }
 
-    async getAvgRainingByRestaurantId(restaurantId) {
+    async getRainingByRestaurantId(restaurantId) {
         const reviews = await reviewRepository.findAllByRestaurantId(restaurantId);
         let numOr0 = n => isNaN(n) ? 0 : n;
         return reviews.reduce((a, b) => numOr0(a.rate) + numOr0(b.rate), 0) / reviews.length;
