@@ -7,6 +7,7 @@ class JWTUtil {
         const payload = {
             sub: user.id,
             role: user.role,
+            user: user,
             iat: Date.now(),
             exp: Date.now() + constants.jwtExpiresIn
         };
