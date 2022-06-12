@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ApiService, AuthService, JwtService, RestaurantService, ReviewService, UserInfoService} from "./services";
+import {
+  AlertifyService,
+  ApiService,
+  AuthService,
+  JwtService,
+  RestaurantService,
+  ReviewService,
+  UserInfoService
+} from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {HttpTokenInterceptor} from "./interceptors";
+import {HttpErrorInterceptor, HttpTokenInterceptor} from "./interceptors";
 import {UserService} from "./services/user.service";
 import {AuthGuard} from "./guards/auth.guard";
 
@@ -15,6 +23,7 @@ import {AuthGuard} from "./guards/auth.guard";
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     ApiService,
     JwtService,
     AuthService,
@@ -23,6 +32,7 @@ import {AuthGuard} from "./guards/auth.guard";
     ReviewService,
     RestaurantService,
     UserInfoService,
+    AlertifyService,
     AuthGuard,
   ]
 })
