@@ -8,7 +8,6 @@ import {PaginatePipeArgs} from "ngx-pagination";
   styleUrls: ['./restaurant-list.component.scss']
 })
 export class RestaurantListComponent implements OnInit {
-  defaultImage = "assets/restaurants/default.png";
   pagination : PaginatePipeArgs = {
     itemsPerPage: 6,
     currentPage: 1,
@@ -47,10 +46,6 @@ export class RestaurantListComponent implements OnInit {
           console.log(error)
         }
       )
-  }
-
-  getImage(restaurant: Restaurant) {
-    return restaurant.avatar ? restaurant.avatar : this.defaultImage;
   }
 
   onSearchTextEntered(name: string) {

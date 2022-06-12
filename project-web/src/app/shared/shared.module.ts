@@ -4,11 +4,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ListErrorsComponent} from './list-errors/list-errors.component';
 import {SearchComponent} from "./search/search.component";
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
     ListErrorsComponent,
+    ReviewsComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {SearchComponent} from "./search/search.component";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ListErrorsComponent
+    ListErrorsComponent,
+    ReviewsComponent
   ],
 })
 export class SharedModule {

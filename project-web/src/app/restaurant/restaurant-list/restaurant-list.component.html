@@ -6,18 +6,12 @@
 
         <li *ngFor="let restaurant of restaurants | paginate: pagination" class="restaurants-list__item">
 
-          <a routerLink="'/restaurants/{{restaurant.id}}">
-            <img class="restaurant-avatar" [src]="getImage(restaurant)" (error)="restaurant.avatar =defaultImage"
-                 alt="ava"/>
+          <a routerLink="{{restaurant.id}}">
+            <app-restaurant-ava [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
+
           </a>
           <h5>{{restaurant.name}}</h5>
-          <div>
-            <span style=" text-align: center; vertical-align: middle">
-            {{restaurant.rating}}
-            </span>
-            <img style="width: 25px; display: inline-block; vertical-align: middle" src="assets/icons/star.png"
-                 alt="stars">
-          </div>
+          <app-restaurant-rating [restaurantId]="restaurant.id"></app-restaurant-rating>
         </li>
 
       </ul>

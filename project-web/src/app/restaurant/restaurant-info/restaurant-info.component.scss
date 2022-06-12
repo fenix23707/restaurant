@@ -1,0 +1,68 @@
+.restaurant-info {
+  background: rgba(27, 24, 196, 0.4);
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.main-info {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .restaurant-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+  }
+}
+
+.main-info-text {
+  &__inner {
+    margin-left: 5vw;
+  }
+}
+
+.sub-info {
+  &__inner {
+    padding-top: 12px;
+    p {
+      padding: 6px 0;
+    }
+  }
+}
+.booking-block {
+  justify-content: space-around;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space;
+  &__inner {
+    p {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .restaurant-info {
+    &__inner {
+      display: block;
+    }
+  }
+  .main-info-text {
+    &__inner {
+    }
+  }
+  .sub-info {
+    &__inner {
+    }
+  }
+  .booking-block {
+    &__inner {
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  }
+}
