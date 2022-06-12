@@ -4,35 +4,7 @@
     padding-top: 24px;
   }
 }
-.create-review {
-  min-height: 124px;
 
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 24px;
-  }
-  &__select {
-    text-align: center;
-    width: 5vw;
-    height: 2vw;
-    background-color: rebeccapurple;
-    border-radius: 20px;
-  }
-  &__textarea {
-    padding: 10px;
-
-    margin: 0 32px;
-    resize: none;
-    height: 80px;
-    width: 55vw;
-    border-radius: 20px;
-  }
-  .button {
-    width: 14vw;
-  }
-}
 .reviews-list {
   &__item {
     padding: 0 18px;
@@ -41,16 +13,19 @@
     border-radius: 36px;
   }
   &__item-info {
+    display: flex;
     justify-content: space-between;
     padding-top: 12px;
-    display: flex;
   }
   &__item-main-data {
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
     display: flex;
+    justify-content: space-around;
   }
-  &__item-score {
-    font-size: 30px;
-    padding-left: 5vw;
+  &__item-date {
+    width: 30%;
   }
   &__item-text {
     padding-top: 14px;

@@ -2,7 +2,7 @@ export interface Review {
   id: number,
   rate: number,
   review: string,
-  data: Date,
+  date: Date,
   user_id: number,
   restaurantId: number
 }

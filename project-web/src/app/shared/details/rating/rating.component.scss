@@ -1,0 +1,12 @@
+.rating {
+  &__number {
+    text-align: center;
+    vertical-align: middle
+  }
+
+  &__img {
+    width: 25px;
+    display: inline-block;
+    vertical-align: middle
+  }
+}

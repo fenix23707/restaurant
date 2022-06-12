@@ -7,6 +7,7 @@ import {SearchComponent} from "./search/search.component";
 import { ReviewListComponent } from './review/review-list/review-list.component';
 import { ReviewAddComponent } from './review/review-add/review-add.component';
 import { UserNameComponent } from './details/user-name/user-name.component';
+import { RatingComponent } from './details/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { UserNameComponent } from './details/user-name/user-name.component';
     ReviewListComponent,
     ReviewAddComponent,
     UserNameComponent,
+    RatingComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { UserNameComponent } from './details/user-name/user-name.component';
     ReactiveFormsModule,
     HttpClientModule,
     ListErrorsComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    RatingComponent
   ],
 })
 export class SharedModule {

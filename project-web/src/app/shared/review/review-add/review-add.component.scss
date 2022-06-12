@@ -1,0 +1,29 @@
+.create-review {
+  min-height: 124px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24px;
+  }
+  &__select {
+    text-align: center;
+    width: 5vw;
+    height: 2vw;
+    background-color: rebeccapurple;
+    border-radius: 20px;
+  }
+  &__textarea {
+    padding: 10px;
+
+    margin: 0 32px;
+    resize: none;
+    height: 80px;
+    width: 55vw;
+    border-radius: 20px;
+  }
+  .button {
+    width: 14vw;
+  }
+}

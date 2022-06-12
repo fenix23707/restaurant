@@ -9,7 +9,8 @@ import {Review, ReviewService} from "../../../core";
 export class ReviewListComponent implements OnInit {
   constructor(
     private reviewService: ReviewService
-  ) { }
+  ) {
+  }
 
   private _restaurantId: number = 0;
   reviews: Review[] = [];
@@ -26,7 +27,7 @@ export class ReviewListComponent implements OnInit {
   ngOnInit(): void {
     this.reviewService.getAllByRestaurantId(this.restaurantId)
       .subscribe(value => {
-        this.reviews = value;
+        this.reviews = value
       })
   }
 

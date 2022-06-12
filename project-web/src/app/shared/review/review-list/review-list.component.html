@@ -7,9 +7,9 @@
           <div class="reviews-list__item-info">
             <div class="reviews-list__item-main-data">
               <app-user-name [userId]="review.user_id"></app-user-name>
-              <p class="reviews-list__item-score">{{review.rate}}</p>
+              <app-rating [rating]="review.rate"></app-rating>
             </div>
-            <p class="reviews-list__item-date">{{review.data}}</p>
+            <p class="reviews-list__item-date">{{review.date |date: 'dd-MM-yy hh:mm'}}</p>
           </div>
           <p class="reviews-list__item-text">{{review.review}}</p>
         </li>
