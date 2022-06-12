@@ -22,6 +22,20 @@ class SchemeController {
         }
     }
 
+    async getCountFreeTables(req, res, next) {
+        const restaurantId = req.params.id;
+        try {
+            const count = await schemeService.getCountFreeTables(restaurantId);
+            const result = {
+                restaurantId: restaurantId,
+                count: count
+            }
+            res.json(result);
+        } catch (err) {
+            return next(err);
+        }
+    }
+
     async update(req, res, next) {
         const id = req.params.id;
         const schemeData = req.body;

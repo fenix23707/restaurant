@@ -60,6 +60,39 @@ router.get('/restaurants/:id', schemeController.findByRestaurantId);
 
 /**
  * @swagger:
+ * /schemes/restaurants/count/{id}:
+ *   get:
+ *     summary: Get number of free tables by restaurant id
+ *     tags: [Scheme]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         scheme:
+ *           type: integer
+ *         required: true
+ *         description: the restaurant id
+ *     responses:
+ *       200:
+ *         description: Ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               parameters:
+ *                 restaurantId:
+ *                   type: integer
+ *                   description: restaurant id
+ *                 count:
+ *                   type: integer
+ *                   description: number of free table right now in specific restaurant
+ *               example:
+ *                restaurantId: 1
+ *                count: 3
+ */
+router.get('/restaurants/count/:id', schemeController.getCountFreeTables);
+
+/**
+ * @swagger:
  * /schemes/{id}:
  *   put:
  *     summary: Update scheme by id

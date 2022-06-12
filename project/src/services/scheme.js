@@ -1,5 +1,6 @@
 const schemeRepository = require('../repository/scheme');
 const restaurantService = require('../services/restaurant');
+const tableReservationService = require('../services/tableReservation');
 const NotFoundError = require("../errors/NotFoundError");
 const ForbiddenError = require("../errors/ForbiddenError");
 
@@ -20,6 +21,12 @@ class SchemeService {
         await this.checkSchemeExist(id);
         await this.checkUserHaveAccess(id, userId);
         return await schemeRepository.update(id, schemeData);
+    }
+
+    async getCountFreeTables(restaurantId) {
+        const scheme = await this.findByRestaurantId(restaurantId);
+        const reservedCount = await tableReservationService.countReservedTableBySchemeId(scheme.id, Date.now());
+        return scheme.tables.length - reservedCount;
     }
 
     async checkSchemeExist(id) {

@@ -67,6 +67,38 @@ class TableReservationRepository {
     async update(id, reservationData) {
         return await TableReservation.update(reservationData, {where: {id: id}});
     }
+
+    async countTableReservations(tableId, time) {
+        const where = {
+            [Op.and]: [
+                {table_id: tableId},
+                {datetime_begin: {[Op.lte]: time}},
+                {datetime_end: {[Op.gte]: time}},
+            ]
+        }
+        return await TableReservation.count({where: where});
+    }
+
+
+    async countReservedTableBySchemeId(schemeId, time) {
+        return await TableReservation.count({
+            include: [{
+                model: Table,
+                required: true,
+                attributes: ["scheme_id"],
+                where: {
+                    scheme_id: schemeId
+                }
+            }],
+            where: {
+                [Op.and]: [
+                    // {scheme_id: schemeId},
+                    {datetime_begin: {[Op.lte]: time}},
+                    {datetime_end: {[Op.gte]: time}},
+                ]
+            },
+        });
+    }
 }
 
 module.exports = new TableReservationRepository();

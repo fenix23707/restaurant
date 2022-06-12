@@ -37,6 +37,14 @@ class TableReservationService {
         return await tableReservationRepository.update(id, dataToUpdate);
     }
 
+    async isReservedTable(tableId, time) {
+        return await tableReservationRepository.countTableReservations(tableId, time) > 1;
+    }
+
+    async countReservedTableBySchemeId(schemeId, time) {
+        return await tableReservationRepository.countReservedTableBySchemeId(schemeId, time);
+    }
+
     async checkReservationExist(id) {
         const reservation = await tableReservationRepository.findById(id);
         if (!reservation) {
