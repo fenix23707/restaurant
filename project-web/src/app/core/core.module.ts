@@ -6,7 +6,7 @@ import {
   AuthService,
   JwtService,
   RestaurantService,
-  ReviewService,
+  ReviewService, SchemeService,
   UserInfoService
 } from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
@@ -33,6 +33,7 @@ import {AuthGuard} from "./guards/auth.guard";
     RestaurantService,
     UserInfoService,
     AlertifyService,
+    SchemeService,
     AuthGuard,
   ]
 })

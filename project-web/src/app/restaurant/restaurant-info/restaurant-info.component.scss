@@ -7,22 +7,24 @@
     justify-content: space-between;
   }
 }
+:host ::ng-deep app-restaurant-ava  {
+  .restaurant-avatar {
+    margin: 10px 0;
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+  }
+}
 .main-info {
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  .restaurant-avatar {
-    width: 180px;
-    height: 180px;
-    border-radius: 100%;
-  }
+
 }
 
 .main-info-text {
-  &__inner {
-    margin-left: 5vw;
-  }
+  width: 45%;
 }
 
 .sub-info {
@@ -34,12 +36,10 @@
   }
 }
 .booking-block {
-  justify-content: space-around;
-
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space;
+  justify-content: space-between;
   &__inner {
     p {
       margin-bottom: 16px;
@@ -47,10 +47,11 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1050px) {
   .restaurant-info {
     &__inner {
-      display: block;
+      flex-direction: column;
+      justify-content: center;
     }
   }
   .main-info-text {
@@ -62,9 +63,15 @@
     }
   }
   .booking-block {
+    align-self: center;
     &__inner {
       margin-top: 40px;
       padding-bottom: 20px;
     }
   }
+}
+
+
+@media (max-width: 767px) {
+
 }

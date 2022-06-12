@@ -2,7 +2,7 @@
     <div class="container">
       <div class="restaurant-info__inner">
         <div class="main-info">
-          <app-restaurant-ava [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
+          <app-restaurant-ava style="height: 200px" [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
           <div class="main-info-text">
             <div class="main-info-text__inner">
               <h2 class="sub-title">{{restaurant.name}}</h2>
@@ -17,7 +17,7 @@
         </div>
         <div class="booking-block">
           <div class="booking-block__inner">
-            <p>5 свободных столов</p>
+           <app-free-table-count [restaurantId]="restaurant.id"></app-free-table-count>
             <a class="button" href="book-table.html">Забронировать</a>
           </div>
         </div>
