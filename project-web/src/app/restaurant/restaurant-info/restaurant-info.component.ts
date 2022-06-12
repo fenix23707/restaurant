@@ -12,7 +12,6 @@ export class RestaurantInfoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private restaurantService: RestaurantService
   ) { }
 
   restaurant!: Restaurant
@@ -20,7 +19,6 @@ export class RestaurantInfoComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.pipe(map(value => value['restaurant']))
       .subscribe(restaurant => {
-        console.log(restaurant)
         this.restaurant = restaurant;
       })
   }
