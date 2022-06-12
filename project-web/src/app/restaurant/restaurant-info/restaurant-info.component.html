@@ -1,27 +1,28 @@
-  <section class="restaurant-info">
-    <div class="container">
-      <div class="restaurant-info__inner">
-        <div class="main-info">
-          <app-restaurant-ava style="height: 200px" [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
-          <div class="main-info-text">
-            <div class="main-info-text__inner">
-              <h2 class="sub-title">{{restaurant.name}}</h2>
-              <div class="sub-info">
-                <div class="sub-info__inner">
-                  <p>{{restaurant.adres}}</p>
-                  <app-restaurant-rating [restaurantId]="restaurant.id"></app-restaurant-rating>
-                </div>
+<section class="restaurant-info">
+  <div class="container">
+    <div class="restaurant-info__inner">
+      <div class="main-info">
+        <app-restaurant-ava style="height: 200px" [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
+        <div class="main-info-text">
+          <div class="main-info-text__inner">
+            <h2 class="sub-title">{{restaurant.name}}</h2>
+            <div class="sub-info">
+              <div class="sub-info__inner">
+                <p>{{restaurant.adres}}</p>
+                <app-restaurant-rating [restaurantId]="restaurant.id"></app-restaurant-rating>
               </div>
             </div>
           </div>
         </div>
-        <div class="booking-block">
-          <div class="booking-block__inner">
-           <app-free-table-count [restaurantId]="restaurant.id"></app-free-table-count>
-            <a class="button" href="book-table.html">Забронировать</a>
-          </div>
+      </div>
+      <div class="booking-block">
+        <div class="booking-block__inner">
+          <app-free-table-count [restaurantId]="restaurant.id"></app-free-table-count>
+          <a class="button" href="book-table.html">Забронировать</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<app-review-add [restaurantId]="restaurant.id"></app-review-add>
 <app-review-list [restaurantId]="restaurant.id"></app-review-list>

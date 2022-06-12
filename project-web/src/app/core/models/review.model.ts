@@ -1,8 +1,8 @@
 export interface Review {
-  id: number,
+  id?: number,
   rate: number,
   review: string,
-  date: Date,
+  date?: Date,
   user_id: number,
   restaurantId: number
 }

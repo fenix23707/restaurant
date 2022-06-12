@@ -26,16 +26,17 @@ import { FreeTableCountComponent } from './details/free-table-count/free-table-c
     ReactiveFormsModule,
     HttpClientModule
   ],
-    exports: [
-        SearchComponent,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ListErrorsComponent,
-        ReviewListComponent,
-        RatingComponent,
-        FreeTableCountComponent
-    ],
+  exports: [
+    SearchComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ListErrorsComponent,
+    ReviewListComponent,
+    RatingComponent,
+    FreeTableCountComponent,
+    ReviewAddComponent
+  ],
 })
 export class SharedModule {
 }

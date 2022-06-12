@@ -4,7 +4,6 @@ import {SchemeService} from "../../../core/services/scheme.service";
 @Component({
   selector: 'app-free-table-count',
   templateUrl: './free-table-count.component.html',
-  styleUrls: ['./free-table-count.component.scss']
 })
 export class FreeTableCountComponent implements OnInit {
 

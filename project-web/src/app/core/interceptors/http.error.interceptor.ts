@@ -24,6 +24,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   }
 
   handleError(error: HttpErrorResponse): Observable<never> {
+    if (error.status == 401) {
+      this.unauthErrorHandler();
+    }
     const message = this.getErrorMessage(error);
     this.alertifyService.error(message);
     return throwError(message);
@@ -34,16 +37,16 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     let errorMessage = 'Неизвестаня ошибка';
     if (error.error instanceof ErrorEvent) {
       // Client side error
+      console.log('client')
       errorMessage = error.error.message;
     } else {
-      if (error.status == 401) {
-        this.unauthErrorHandler();
-      }
+      console.log('server')
       if (error.status != 0) {
         // Server side error
-        errorMessage = error.error.message;
+        errorMessage = error.error.message || error.message;
       }
     }
+    console.log(error)
     return errorMessage;
   }
 

@@ -22,5 +22,4 @@ export class RestaurantInfoComponent implements OnInit {
         this.restaurant = restaurant;
       })
   }
-
 }

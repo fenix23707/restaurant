@@ -3,6 +3,7 @@ import {ApiService} from "./api.service";
 import {JwtService} from "./jwt.service";
 import {BehaviorSubject, distinctUntilChanged, map, ReplaySubject} from "rxjs";
 import {User} from "../models";
+import jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class UserService {
@@ -19,6 +20,7 @@ export class UserService {
 
   setAuth(user: User) {
     this.currentUserSubject.next(user);
+    console.log(this.getCurrentUser())
     this.isAuthenticatedSubject.next(true);
   }
 
@@ -29,6 +31,7 @@ export class UserService {
   }
 
   getCurrentUser(): User {
-    return this.currentUserSubject.value;
+    // @ts-ignore
+    return jwt_decode(this.jwtService.getToken()).user;
   }
 }
