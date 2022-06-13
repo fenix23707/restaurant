@@ -3,11 +3,11 @@ const Joi = require("joi").extend(require("@joi/date"));
 const TableReservationScheme = {
     create: Joi.object().keys({
         datetime_begin: Joi.date()
-            .format('YYYY-DD-MM HH:mm:SS')
+            // .format('YYYY-MM-ddTHH:mm:ss')
             .utc()
             .required(),
         datetime_end: Joi.date()
-            .format('YYYY-DD-MM HH:mm:SS')
+            // .format('YYYY-MM-ddTHH:mm:ss')
             .utc()
             .required(),
         capacity: Joi.number()
