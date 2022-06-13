@@ -5,3 +5,5 @@ export * from './restaurant.model';
 export * from './restaurant-list-config.model';
 export * from './review.model';
 export * from './userinfo.model';
+export * from './table.model';
+export * from './scheme.model';
