@@ -18,7 +18,7 @@
       <div class="booking-block">
         <div class="booking-block__inner">
           <app-free-table-count [restaurantId]="restaurant.id"></app-free-table-count>
-          <a class="button" href="book-table.html">Забронировать</a>
+          <a class="button" [routerLink]="'/reservations/' + restaurant.id">Забронировать</a>
         </div>
       </div>
     </div>

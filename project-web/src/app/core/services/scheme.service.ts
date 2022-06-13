@@ -10,6 +10,10 @@ export class SchemeService {
   ) {
   }
 
+  getSchemeByRestaurantId(restaurantId: number) {
+    return this.apiService.get('/schemes/restaurants/' + restaurantId);
+  }
+
   getCountFreeTables(restaurantId: number) {
     return this.apiService.get('/schemes/restaurants/count/' + restaurantId)
       .pipe(map((data: { restaurantId: number, count: number; }) => data.count));

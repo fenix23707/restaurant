@@ -35,7 +35,7 @@ import { FreeTableCountComponent } from './details/free-table-count/free-table-c
     ReviewListComponent,
     RatingComponent,
     FreeTableCountComponent,
-    ReviewAddComponent
+    ReviewAddComponent,
   ],
 })
 export class SharedModule {

@@ -20,7 +20,7 @@ import {CoreModule} from "./core";
     AppRoutingModule,
     SharedModule,
     AuthModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

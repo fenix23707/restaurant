@@ -1,0 +1,39 @@
+.booking {
+  background: rgba(192, 151, 151, 0.4);
+
+  text-align: center;
+  &__inner {
+    padding-top: 20px;
+  }
+}
+.scheme-display {
+  height: 400px;
+  width: 100%;
+  overflow: auto;
+}
+.booking-form {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    border-radius: 50px;
+    margin-left: 15px;
+  }
+  &__item {
+    select {
+      text-align: center;
+      width: 60px;
+    }
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  .button {
+    margin: 0 auto;
+  }
+}
+
+.display-block {
+  display: block;
+}
