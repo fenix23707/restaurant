@@ -1,8 +1,9 @@
 import {Table} from "./table.model";
 
 export interface Scheme {
+  id?: number
   width: number;
   height: number;
-  restaurant_id: number;
   tables: Table[];
+  restaurant_id?: number;
 }

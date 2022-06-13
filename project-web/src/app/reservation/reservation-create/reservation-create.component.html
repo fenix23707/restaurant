@@ -1,24 +1,24 @@
 <section class="booking">
   <div class="container">
     <div class="booking__inner">
-      <app-scheme-view (tableChosen)="onTableChosen($event)"></app-scheme-view>
+      <app-scheme-view [scheme]="scheme" (tableChosen)="onTableChosen($event)"></app-scheme-view>
 
-      <form class="booking-form">
+      <form class="booking-form" [formGroup]="reservationForm" (submit)="onSubmit()">
         <div class="booking-form__inner">
           <div class="booking-form__item">
             <label for="start-date">Дата начала</label>
-            <input class="booking-form__input" type="datetime" id="start-date"/>
+            <input formControlName="start" class="booking-form__input" [value]="start" type="datetime-local"
+                   id="start-date"/>
           </div>
           <div class="booking-form__item">
             <label for="end-date">Дата окончания</label>
-            <input class="booking-form__input" type="datetime" id="end-date"/>
+            <input formControlName="end" class="booking-form__input" [value]="start" type="datetime-local"
+                   id="end-date"/>
           </div>
           <div class="booking-form__item display-block">
             <label for="capacity">Количество гостей</label>
-            <select id="capacity">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="" selected>3</option>
+            <select formControlName="capacity" id="capacity">
+              <option [selected]="cap == capacities.length" *ngFor="let cap of capacities;let j = index" [ngValue]="cap">{{cap}}</option>
             </select>
           </div>
           <input class="button" type="submit" value="Забронировать"/>

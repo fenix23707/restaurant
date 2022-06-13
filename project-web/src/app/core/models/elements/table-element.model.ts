@@ -4,7 +4,7 @@ export class TableElement {
   readonly canvasColor = "white";
 
   constructor(
-    private table: Table,
+    public table: Table,
     private ctx: CanvasRenderingContext2D
   ) {
   }

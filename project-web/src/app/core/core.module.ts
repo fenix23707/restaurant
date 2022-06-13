@@ -13,6 +13,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpErrorInterceptor, HttpTokenInterceptor} from "./interceptors";
 import {UserService} from "./services/user.service";
 import {AuthGuard} from "./guards/auth.guard";
+import {ReservationService} from "./services/reservation.service";
 
 
 
@@ -34,6 +35,7 @@ import {AuthGuard} from "./guards/auth.guard";
     UserInfoService,
     AlertifyService,
     SchemeService,
+    ReservationService,
     AuthGuard,
   ]
 })

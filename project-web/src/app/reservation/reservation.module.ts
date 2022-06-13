@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {ReservationCreateComponent} from './reservation-create/reservation-create.component';
 import {SharedModule} from "../shared";
 import {ReservationRoutingModule} from "./reservation-routing.module";
@@ -19,6 +19,9 @@ import {SchemeModule} from "../scheme/scheme.module";
 
   exports: [
     ReservationCreateComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class ReservationModule {

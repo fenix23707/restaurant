@@ -10,7 +10,7 @@ export class SchemeService {
   ) {
   }
 
-  getSchemeByRestaurantId(restaurantId: number) {
+  getByRestaurantId(restaurantId: number) {
     return this.apiService.get('/schemes/restaurants/' + restaurantId);
   }
 

@@ -1,5 +1,6 @@
 export interface Table {
   id?: number;
+  capacity: number
   width: number;
   height: number;
   x: number;

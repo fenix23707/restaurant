@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Scheme, SchemeElement, SchemeService, TableElement} from "../../core";
 
 @Component({
@@ -6,43 +6,36 @@ import {Scheme, SchemeElement, SchemeService, TableElement} from "../../core";
   templateUrl: './scheme-view.component.html',
   styleUrls: ['./scheme-view.component.scss']
 })
-export class SchemeViewComponent implements OnInit {
+export class SchemeViewComponent implements AfterViewInit {
 
-  constructor(
-    private schemeService: SchemeService
-  ) {  }
+  constructor() {
+  }
 
-  @ViewChild('schemecanvas')
-  canvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('schemecanvas') canvas!: ElementRef<HTMLCanvasElement>;
   private _ctx!: CanvasRenderingContext2D;
 
   @Output()
   tableChosen = new EventEmitter<TableElement>();
 
-  private _restaurantId = 1;
-  scheme: Scheme = {height: 1000, width: 1000, restaurant_id: this._restaurantId, tables: []};
+  private _scheme: Scheme = {height: 1000, width: 1000, tables: []};
   schemeElement!: SchemeElement;
 
-  ngOnInit(): void {
-    this.schemeService.getSchemeByRestaurantId(this._restaurantId)
-      .subscribe(value => this.subscribe(value));
-  }
 
-  subscribe(value: any) {
-    if (value) {
-      this.scheme = value;
-    }
+  ngAfterViewInit(): void {
     this.setCanvasRenderingContext2D();
     this.initializeCanvasWithAndHeight();
     this.fillBackGround();
-    this.schemeElement = new SchemeElement(this.scheme, this._ctx);
+    this.schemeElement = new SchemeElement(this._scheme, this._ctx)
   }
+
+
+
 
   onClick(event: MouseEvent) {
     const position = this.getMousePos(event);
     const table = this.schemeElement.findTable(position.x, position.y);
     if (table) {
-      this.schemeElement.redraw();
+      this.schemeElement.redraw(); //TODO: delete if not need
       table.changeColor('blue')
       this.tableChosen.emit(table);
     }
@@ -63,23 +56,18 @@ export class SchemeViewComponent implements OnInit {
 
   private initializeCanvasWithAndHeight() {
     const canvasElement: HTMLCanvasElement = this.canvas.nativeElement;
-    canvasElement.height = this.scheme.height;
-    canvasElement.width = this.scheme.width;
+    canvasElement.height = this._scheme.height;
+    canvasElement.width = this._scheme.width;
   }
 
   private fillBackGround() {
     this._ctx.fillStyle = "white";
-    this._ctx.fillRect(0, 0, this.scheme.width, this.scheme.height);
+    this._ctx.fillRect(0, 0, this._scheme.width, this._scheme.height);
     this._ctx.restore()
   }
 
-  get restaurantId(): number {
-    return this._restaurantId;
-  }
-
   @Input()
-  set restaurantId(value: number) {
-    this._restaurantId = value;
+  set scheme(value: Scheme) {
+    this._scheme = value;
   }
-
 }
