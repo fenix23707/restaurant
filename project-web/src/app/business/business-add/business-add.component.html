@@ -1,24 +1,24 @@
-<form class="add-restaurant-form">
+<form (submit)="onSubmit()" [formGroup]="restaurantForm" class="add-restaurant-form">
   <div class="add-restaurant-form__main-info">
     <div class="container">
       <div class="add-restaurant-form__inner">
         <h2 class="sub-title">Основная информация</h2>
         <div class="add-restaurant-form__item">
           <label for="name">Название</label>
-          <input class="input" type="text" id="name"/>
+          <input formControlName="name" class="input" type="text" id="name"/>
         </div>
         <div class="add-restaurant-form__item">
           <label for="adres">Адрес</label>
-          <input class="input" type="text" id="adres"/>
+          <input formControlName="adres" class="input" type="text" id="adres"/>
         </div>
         <div class="add-restaurant-form__item">
           <label for="avatar">Фото</label>
-          <input class="input" type="file" id="avatar"/>
+          <input formControlName="avatar" class="input" type="text" id="avatar"/>
         </div>
       </div>
     </div>
   </div>
-  <app-scheme-add></app-scheme-add>
+  <app-scheme-add (schemeChanged)="onSchemeChanged($event)"></app-scheme-add>
   <div class="container">
     <div class="add-restaurant-form__inner">
       <input class="button" type="submit" value="Сохранить"/>

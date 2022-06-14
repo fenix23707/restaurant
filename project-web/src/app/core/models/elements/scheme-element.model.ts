@@ -21,8 +21,13 @@ export class SchemeElement {
     }
   }
 
+  draw() {
+    this.tableElements.forEach(value => value.draw());
+  }
+
   redraw() {
-    this.tableElements.forEach(value => value.redraw());
+    this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+    this.draw()
   }
 
   addTable(table: Table) {
@@ -47,5 +52,11 @@ export class SchemeElement {
 
   isInside(x: number, y: number, table: TableElement): boolean {
     return (y >= table.y) && (y <= table.y + table.height) && (x >= table.x) && (x <= table.x + table.width)
+  }
+
+  getScheme(): Scheme {
+    const tables: Table[] = this.tableElements.map(value => value.table);
+    this.scheme.tables = tables;
+    return this.scheme;
   }
 }

@@ -37,8 +37,8 @@ export class TableElement {
   clear() {
     this.ctx.save();
     this.ctx.fillStyle = this.canvasColor;
-    this.ctx.clearRect(this.table.x, this.table.y, this.table.width, this.table.height);
-    this.ctx.fillRect(this.table.x, this.table.y, this.table.width, this.table.height);
+    this.ctx.clearRect(this.table.x - 2, this.table.y - 2, this.table.width + 4, this.table.height + 4);
+    this.ctx.fillRect(this.table.x - 2, this.table.y - 2, this.table.width + 4, this.table.height + 4);
     this.ctx.restore();
   }
 

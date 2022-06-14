@@ -21,6 +21,8 @@ export class SchemeAddComponent implements AfterViewInit, OnInit {
   schemeElement!: SchemeElement;
   currentTable: TableElement | undefined
 
+  @Output() schemeChanged = new EventEmitter<SchemeElement>();
+
   sizeForm!: FormGroup
 
   ngOnInit(): void {
@@ -55,15 +57,25 @@ export class SchemeAddComponent implements AfterViewInit, OnInit {
 
 
   onMouseUp(event: MouseEvent) {
+    if (this.currentTable) {
+      this.schemeElement.redraw();
+      console.log(this.schemeElement.tableElements)
+    }
     this.currentTable = undefined;
+    this.schemeChangedEvent()
+
   }
 
 
   onDbClick(event: MouseEvent) {
     const position = this.getMousePos(event);
     this.schemeElement.removeTable(position.x, position.y);
+    this.schemeChangedEvent()
   }
 
+  schemeChangedEvent() {
+    this.schemeChanged.emit(this.schemeElement);
+  }
 
   getMousePos(event: MouseEvent) {
     const rect = this.canvas.nativeElement.getBoundingClientRect();
@@ -74,9 +86,13 @@ export class SchemeAddComponent implements AfterViewInit, OnInit {
   }
 
   onTableAdded(table: Table) {
-    table.x = 0;
-    table.y = 0;
-    this.schemeElement.addTable(table);
+    const data: Table = {
+      capacity: table.capacity,
+      height: table.height,
+      width: table.width,
+      x: 0, y: 0
+    }
+    this.schemeElement.addTable(data);
   }
 
   ngAfterViewInit(): void {

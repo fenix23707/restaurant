@@ -5,5 +5,5 @@ export interface Table {
   height: number;
   x: number;
   y: number;
-  scheme_id: number;
+  scheme_id?: number;
 }
