@@ -54,8 +54,8 @@ CREATE TABLE tables
 	capacity 	smallint 	NOT NULL  	CHECK(capacity BETWEEN 1 and 5000),
 	width 		smallint 	NOT NULL  	CHECK(width BETWEEN 1 and 10000),
 	height 		smallint 	NOT NULL  	CHECK(height BETWEEN 1 and 10000),
-	x 			smallint 	NOT NULL  	CHECK(x BETWEEN 0 and 10000),
-	y 			smallint 	NOT NULL 	CHECK(y BETWEEN 0 and 10000),
+	x 			real 	    NOT NULL  	CHECK(x BETWEEN 0 and 10000),
+	y 			real 	    NOT NULL 	CHECK(y BETWEEN 0 and 10000),
 	scheme_id 	int
 );
 
