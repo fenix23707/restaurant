@@ -22,6 +22,13 @@ export class TableElement {
     this.draw();
   }
 
+  moveTo(x: number, y: number) {
+    this.clear();
+    this.table.x = x;
+    this.table.y = y;
+    this.draw();
+  }
+
   changeColor(color: string) {
     this.clear();
     this.draw(color)

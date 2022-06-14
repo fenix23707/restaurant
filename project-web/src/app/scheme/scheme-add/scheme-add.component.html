@@ -1,0 +1,26 @@
+<section class="scheme-add">
+  <div class="container">
+    <form [formGroup]="sizeForm" (input)="onInput($event)" class="scheme-add__size">
+      <div class="add-restaurant-form__item">
+        <label for="width">Ширина</label>
+        <input formControlName="width" class="input" type="text" id="width"/>
+      </div>
+      <div class="add-restaurant-form__item">
+        <label for="height">Высота</label>
+        <input formControlName="height" class="input" type="number" id="height"/>
+      </div>
+    </form>
+    <div class="scheme-add__inner">
+
+      <div class="scheme-display">
+        <canvas style="display: inline-block"
+                (mouseup)="onMouseUp($event)"
+                (mousemove)="onMouseMove($event)"
+                (mousedown)="onMouseDown($event)"
+                (dblclick)="onDbClick($event)"
+                #schemecanvas></canvas>
+      </div>
+      <app-table-add (tableAdded)="onTableAdded($event)"></app-table-add>
+    </div>
+  </div>
+</section>

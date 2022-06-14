@@ -1,0 +1,52 @@
+.scheme-add {
+  &__inner {
+    display: flex;
+  }
+
+  &__size {
+    margin: 0 auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.scheme-display {
+  max-height: 400px;
+  width: 80%;
+  overflow: auto;
+}
+
+app-table-add {
+  width: 20%;
+}
+
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 992px) {
+  .scheme-display{
+    width: 100%;
+  }
+  app-table-add {
+    width: 100%;
+  }
+  .scheme-add {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__size {
+      margin: 20px auto;
+      width: 60%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+

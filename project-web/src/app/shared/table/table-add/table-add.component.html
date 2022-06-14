@@ -1,0 +1,11 @@
+<form [formGroup]="tableForm" (submit)="onSubmit()" class="add-scheme-form">
+  <div class="add-scheme-form__inner">
+    <h5>Добавление стола</h5>
+    <div class="add-scheme-form__items">
+      <input formControlName="width" class="input" type="number" placeholder="Ширина"/>
+      <input formControlName="height" class="input" type="number" placeholder="Высота"/>
+      <input formControlName="capacity" class="input" type="number" placeholder="Вместительность"/>
+    </div>
+    <input class="button" type="submit" value="Добавить"/>
+  </div>
+</form>

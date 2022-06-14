@@ -4,6 +4,7 @@ import { BusinessListComponent } from './business-list/business-list.component';
 import {BusinessRoutingModule} from "./business-routing.module";
 import {SharedModule} from "../shared";
 import { BusinessAddComponent } from './business-add/business-add.component';
+import {SchemeModule} from "../scheme/scheme.module";
 
 
 
@@ -15,7 +16,8 @@ import { BusinessAddComponent } from './business-add/business-add.component';
   imports: [
     CommonModule,
     BusinessRoutingModule,
-    SharedModule
+    SharedModule,
+    SchemeModule
   ]
 })
 export class BusinessModule { }

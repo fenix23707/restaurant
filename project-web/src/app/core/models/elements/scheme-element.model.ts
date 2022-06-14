@@ -1,5 +1,6 @@
 import {Scheme} from "../scheme.model";
 import {TableElement} from "./table-element.model";
+import {Table} from "../table.model";
 
 export class SchemeElement {
   constructor(
@@ -24,7 +25,19 @@ export class SchemeElement {
     this.tableElements.forEach(value => value.redraw());
   }
 
+  addTable(table: Table) {
+    let tableElement = new TableElement(table, this.ctx);
+    tableElement.draw()
+    this.tableElements.push(tableElement)
+  }
 
+  removeTable(x: number, y: number) {
+    const table = this.findTable(x, y);
+    if (table) {
+      table.clear();
+      this.tableElements = this.tableElements.filter(obj => obj !== table);
+    }
+  }
 
   findTable(x: number, y: number): TableElement {
 

@@ -63,6 +63,7 @@ export class ReservationCreateComponent implements OnInit {
     console.log(reserve)
     this.reservationService.reserve(reserve)
       .subscribe(value => {
+        this.alertifyService.success('Стол забронирован')
         this.router.navigateByUrl('/restaurants');
       })
 
