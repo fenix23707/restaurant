@@ -3,7 +3,7 @@ import {Restaurant, RestaurantListConfig, RestaurantService} from "../../core";
 import {PaginatePipeArgs} from "ngx-pagination";
 
 @Component({
-  selector: 'app-restaurant-list',
+  selector: 'app-business-list',
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.scss']
 })

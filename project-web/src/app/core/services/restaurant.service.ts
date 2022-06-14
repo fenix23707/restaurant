@@ -27,4 +27,8 @@ Object.keys(config.filters)
     return this.apiService.get('/restaurants/' + restaurantId);
       // .pipe(map((data: { restaurant: Restaurant }) => data.restaurant));
   }
+
+  getAllByUserId(userId: number) {
+    return this.apiService.get('/restaurants/users/' + userId);
+  }
 }

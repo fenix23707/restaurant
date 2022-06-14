@@ -1,0 +1,21 @@
+<section class="my-restaurants">
+  <div class="container">
+    <div class="my-restaurants__inner">
+      <h1 class="title">Рестораны</h1>
+      <ul class="my-restaurants-list list">
+        <li *ngFor="let restaurant of restaurants" class="my-restaurants-list__item list__item">
+          <div class="my-restaurants-list__item-info">
+            <app-restaurant-ava [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
+
+            <div class="my-restaurants-list__item-text">
+              <h5>{{restaurant.name}}</h5>
+              <p>{{restaurant.name}}</p>
+            </div>
+          </div>
+          <a class="button" href="restaurant-info.html">Подробнее</a>
+        </li>
+      </ul>
+      <a class="button" routerLink="/business/add">Добавить ресторан</a>
+    </div>
+  </div>
+</section>

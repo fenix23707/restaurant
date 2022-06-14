@@ -1,0 +1,59 @@
+<form class="add-restaurant-form">
+  <div class="add-restaurant-form__main-info">
+    <div class="container">
+      <div class="add-restaurant-form__inner">
+        <h2 class="sub-title">Основная информация</h2>
+        <div class="add-restaurant-form__item">
+          <label for="name">Название</label>
+          <input class="input" type="text" id="name" />
+        </div>
+        <div class="add-restaurant-form__item">
+          <label for="adres">Адрес</label>
+          <input class="input" type="text" id="adres" />
+        </div>
+        <div class="add-restaurant-form__item">
+          <label for="avatar">Фото</label>
+          <input class="input" type="file" id="avatar" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="add-restaurant-form__scheme">
+    <div class="container">
+      <div class="add-restaurant-form__inner">
+        <h2 class="sub-title">Схема ресторана</h2>
+        <div class="add-restaurant-form__size-items">
+          <div class="add-restaurant-form__item">
+            <label for="width">Ширина</label>
+            <input class="input" type="number" id="width" />
+          </div>
+          <div class="add-restaurant-form__item">
+            <label for="height">Высота</label>
+            <input class="input" type="number" id="height" />
+          </div>
+        </div>
+        <div class="add-restaurant-form__scheme-add">
+          <div class="scheme">
+            <div class="scheme__inner">
+              <div class="scheme__table"></div>
+            </div>
+          </div>
+          <form class="add-scheme-form">
+            <div class="add-scheme-form__inner">
+              <h5>Добавление стола</h5>
+              <input class="input" type="number" placeholder="Ширина" />
+              <input class="input" type="number" placeholder="Высота" />
+              <input class="input" type="number" placeholder="Вместительность" />
+              <input class="button" type="submit" value="Добавить" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="add-restaurant-form__inner">
+      <input class="button" type="submit" value="Сохранить" />
+    </div>
+  </div>
+</form>
