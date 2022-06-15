@@ -19,10 +19,14 @@ export class ProfileInfoComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = this.userService.getCurrentUser().id;
-    this.userinfoService.getUserInfoByUserId(userId)
+    this.userinfoService.getUserInfoByUserId(userId, )
       .subscribe(value => {
         this.userinfo = value;
       })
+  }
+
+  onLogout() {
+    this.userService.cleanAuth();
   }
 
   getRole() {
@@ -34,5 +38,7 @@ export class ProfileInfoComponent implements OnInit {
       return 'Администратор';
     }
   }
+
+
 
 }

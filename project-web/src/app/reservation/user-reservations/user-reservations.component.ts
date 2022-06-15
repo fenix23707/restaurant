@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ReservationService} from "../../core/services/reservation.service";
 import {Reservation, UserService} from "../../core";
+import {ReservationListConfig} from "../../core/models/reservation-list-config.model";
 
 @Component({
   selector: 'app-user-reservations',
@@ -15,13 +16,14 @@ export class UserReservationsComponent implements OnInit {
   ) { }
 
   reservations: Reservation[] = []
+  config: ReservationListConfig = {filters: {}, sort: {order: "desc", sortBy: "datetime_begin"}}
 
   ngOnInit(): void {
     const userId = this.userService.getCurrentUser().id
-    this.reservationService.getAllByUserId(userId)
+    this.reservationService.getAllByUserId(userId, this.config)
       .subscribe(value => {
         this.reservations = value;
-      })
+      });
   }
 
   onCancel(reservation: Reservation) {

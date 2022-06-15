@@ -24,14 +24,15 @@
           <div class="contact-info__text">
             <div class="contact-info__row">
               <p>Email:</p>
-              <p>fenix23707@mail.ru</p>
+              <p>{{userinfo.email}}</p>
             </div>
             <div class="contact-info__row">
               <p>Телефон:</p>
-              <p>+375 29 000 11 33</p>
+              <p>{{userinfo.phone}}</p>
             </div>
           </div>
           <a class="button" href="personal-erdit.html">Редактировать</a>
+          <a class="button" (click)="onLogout()">Выход</a>
         </div>
       </section>
     </div>

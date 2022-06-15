@@ -1,6 +1,9 @@
 .sub-title {
   width: 100%;
 }
+.button{
+  margin: 5px 0;
+}
 
 .personal-info {
   text-align: center;
@@ -62,7 +65,7 @@
   .personal-wrapper {
     height: 593px;
 
-    background: linear-gradient(180deg, #524178 68.7%, #3a3961 40%);
+    background: linear-gradient(180deg, #524178 60.7%, #3a3961 40%);
 
     &__inner {
       display: block;
@@ -73,7 +76,7 @@
 
     &__content {
       flex-direction: column;
-      padding-top: 30px;
+      padding-top: 0px;
       align-items: center;
     }
 

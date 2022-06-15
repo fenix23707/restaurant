@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from "./api.service";
 import {Reservation} from "../models/reservation.model";
+import {ReservationListConfig} from "../models/reservation-list-config.model";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable()
 export class ReservationService {
@@ -10,8 +12,15 @@ export class ReservationService {
   ) {
   }
 
-  getAllByUserId(userId: number) {
-    return this.apiService.get('/reservations/users/' + userId);
+  getAllByUserId(userId: number, config: ReservationListConfig) {
+    const params = {};
+
+    Object.keys(config.sort)
+      .forEach(key => {
+        // @ts-ignore
+        params[key] = config.sort[key];
+      })
+    return this.apiService.get('/reservations/users/' + userId, new HttpParams({fromObject: params}));
   }
 
   changeStatus(reservationId: number, status: number) {
