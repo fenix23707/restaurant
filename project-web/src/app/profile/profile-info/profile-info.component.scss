@@ -1,0 +1,163 @@
+.sub-title {
+  width: 100%;
+}
+
+.personal-info {
+  text-align: center;
+  width: 70%;
+
+  &__inner {
+    padding-top: 72px;
+  }
+
+  &__content {
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 30px;
+
+    * {
+      padding: 4px 0;
+    }
+
+    text-align: left;
+  }
+
+  &__birthday {
+    display: flex;
+
+    p {
+      padding-right: 16px;
+    }
+  }
+}
+
+.personal-wrapper {
+  background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
+  min-height: 524px;
+
+  &__inner {
+    display: flex;
+    height: 100%;
+  }
+
+  .container {
+    height: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .personal-wrapper {
+    height: 380px;
+  }
+}
+
+@media (max-width: 767px) {
+  .personal-wrapper {
+    height: 593px;
+
+    background: linear-gradient(180deg, #524178 68.7%, #3a3961 40%);
+
+    &__inner {
+      display: block;
+    }
+  }
+  .personal-info {
+
+
+    &__content {
+      flex-direction: column;
+      padding-top: 30px;
+      align-items: center;
+    }
+
+    &__content-text {
+      text-align: center;
+    }
+
+
+    &__inner {
+      padding-top: 24px;
+      padding-bottom: 16px;
+    }
+
+    width: 100%;
+  }
+}
+
+.contact-info {
+
+  height: 100%;
+  width: 30%;
+  text-align: center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 24px 12px 12px;
+    height: 524px;
+  }
+
+  &__row {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      padding-right: 8px;
+    }
+
+    padding: 8px 0;
+  }
+
+}
+
+
+@media (max-width: 1200px) {
+  .contact-info {
+    &__row {
+      width: 100%;
+      text-align: left;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-info {
+
+    &__row {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-info {
+    width: 100%;
+    height: auto;
+
+    &__inner {
+      display: block;
+      height: auto;
+    }
+
+    &__text {
+      padding-top: 30px;
+    }
+
+    &__row {
+      margin: 0;
+      display: flex;
+    }
+  }
+}

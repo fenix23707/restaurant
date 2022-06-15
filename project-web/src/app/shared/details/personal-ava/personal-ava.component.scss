@@ -1,0 +1,14 @@
+.personal-avatar {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100%;
+}
+
+
+@media (max-width: 767px) {
+  .personal-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+  }
+}

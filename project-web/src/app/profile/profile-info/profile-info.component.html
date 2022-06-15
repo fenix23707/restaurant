@@ -1,1 +1,39 @@
-<p>profile-info works!</p>
+<div class="personal-wrapper">
+  <div class="container">
+    <div class="personal-wrapper__inner">
+      <section class="personal-info">
+        <div class="personal-info__inner">
+          <h2 class="sub-title">Личная информация</h2>
+          <div class="personal-info__content">
+<!--            <img class="personal-avatar" src="img/personal/ava.jpg" alt="ava" />-->
+            <app-personal-ava [avatarUrl]="userinfo.avatar"></app-personal-ava>
+            <div class="personal-info__content-text">
+              <h5>{{userinfo.name || 'Имя'}}</h5>
+              <p>{{getRole()}}</p>
+              <div class="personal-info__birthday">
+                <p>Дата рождения:</p>
+                <p>{{userinfo.birthday || '[.........]'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-info">
+        <div class="contact-info__inner">
+          <h2 class="sub-title">Контактные данные</h2>
+          <div class="contact-info__text">
+            <div class="contact-info__row">
+              <p>Email:</p>
+              <p>fenix23707@mail.ru</p>
+            </div>
+            <div class="contact-info__row">
+              <p>Телефон:</p>
+              <p>+375 29 000 11 33</p>
+            </div>
+          </div>
+          <a class="button" href="personal-erdit.html">Редактировать</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

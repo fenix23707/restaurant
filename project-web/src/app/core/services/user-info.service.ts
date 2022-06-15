@@ -9,6 +9,10 @@ export class UserInfoService {
     private apiService: ApiService
   ) { }
 
+  getUserInfoByUserId(userId: number) {
+    return this.apiService.get('/userinfo/' + userId);
+  }
+
   getUserNameByUserId(userId: number) {
     return this.apiService.get('/userinfo/users/' + userId)
       .pipe(map(value => value.name));

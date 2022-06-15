@@ -17,7 +17,6 @@ export class AuthGuard implements CanActivate {
   ): boolean {
     let result = true;
     this.userService.isAuthenticated.subscribe(isAuth => {
-      console.log('asfas')
       if (!isAuth) {
         result = false;
         this.router.navigateByUrl('/login')

@@ -11,6 +11,7 @@ import { RatingComponent } from './details/rating/rating.component';
 import { FreeTableCountComponent } from './details/free-table-count/free-table-count.component';
 import {RestaurantAvaComponent} from "./details/restaurant-ava/restaurant-ava.component";
 import { TableAddComponent } from './table/table-add/table-add.component';
+import { PersonalAvaComponent } from './details/personal-ava/personal-ava.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TableAddComponent } from './table/table-add/table-add.component';
     RatingComponent,
     FreeTableCountComponent,
     RestaurantAvaComponent,
-    TableAddComponent
+    TableAddComponent,
+    PersonalAvaComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { TableAddComponent } from './table/table-add/table-add.component';
     FreeTableCountComponent,
     ReviewAddComponent,
     RestaurantAvaComponent,
-    TableAddComponent
+    TableAddComponent,
+    PersonalAvaComponent
   ],
 })
 export class SharedModule {

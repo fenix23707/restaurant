@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User, Userinfo, UserInfoService, UserService} from "../../core";
 
 @Component({
   selector: 'app-profile-info',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userinfoService: UserInfoService,
+    private userService: UserService
+  ) {
+  }
+
+  userinfo!: Userinfo;
+  user: User = this.userService.getCurrentUser();
 
   ngOnInit(): void {
+    const userId = this.userService.getCurrentUser().id;
+    this.userinfoService.getUserInfoByUserId(userId)
+      .subscribe(value => {
+        this.userinfo = value;
+      })
+  }
+
+  getRole() {
+    if (this.user.role == 0) {
+      return 'Пользователь';
+    } else if (this.user.role == 1) {
+      return 'Менеджер';
+    } else {
+      return 'Администратор';
+    }
   }
 
 }
