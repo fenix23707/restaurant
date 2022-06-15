@@ -9,6 +9,21 @@ const Op = sequelize.Op;
 class TableReservationRepository {
     async findAllByUserId(userId, sort, pagination) {
         return await TableReservation.findAll({
+            include: [{
+                model: Table,
+                required: true,
+                attributes: ["scheme_id"],
+                include: [{
+                    model: Scheme,
+                    attributes: ["restaurant_id"],
+                    required: true,
+                    include: [{
+                        model: Restaurant,
+                        attributes: ["name"],
+                        required: true,
+                    }]
+                }]
+            }],
             where: {user_id: userId},
             order: sort,
             offset: pagination.offset,
