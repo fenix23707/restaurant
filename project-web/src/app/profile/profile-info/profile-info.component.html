@@ -6,7 +6,7 @@
           <h2 class="sub-title">Личная информация</h2>
           <div class="personal-info__content">
 <!--            <img class="personal-avatar" src="img/personal/ava.jpg" alt="ava" />-->
-            <app-personal-ava [avatarUrl]="userinfo.avatar"></app-personal-ava>
+            <app-personal-ava [avatarUrl]="userinfo.avatar || ''"></app-personal-ava>
             <div class="personal-info__content-text">
               <h5>{{userinfo.name || 'Имя'}}</h5>
               <p>{{getRole()}}</p>
