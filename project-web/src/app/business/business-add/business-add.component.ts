@@ -65,6 +65,5 @@ export class BusinessAddComponent implements OnInit {
     if (controls['adres'].invalid) {
       this.alertifyService.error('Адрес введен не верно.')
     }
-    console.log(this.restaurantForm);
   }
 }

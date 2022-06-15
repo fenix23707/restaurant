@@ -1,4 +1,4 @@
-<form class="edit-form">
+<form [formGroup]="userinfoForm" (submit)="onSubmit()" class="edit-form">
   <div class="container">
     <h1 class="title">Редактирование</h1>
   </div>
@@ -8,12 +8,17 @@
         <h2 class="sub-title">Личная информация</h2>
 
         <div class="edit-form__item">
+          <label for="name">Имя</label>
+          <input formControlName="name" class="edit-form__input" type="text" name="" id="name" />
+        </div>
+
+        <div class="edit-form__item">
           <label for="birhday">Дата рождения</label>
-          <input class="edit-form__input" type="date" name="" id="birhday" />
+          <input formControlName="birthday" class="edit-form__input" type="date" name="" id="birhday" />
         </div>
         <div class="edit-form__item">
           <label for="avatar" >Аватар</label>
-          <input class="edit-form__input" type="text" name="" id="avatar" />
+          <input formControlName="avatar" class="edit-form__input" type="text" name="" id="avatar" />
         </div>
 
       </div>
@@ -25,11 +30,11 @@
         <h2 class="sub-title">Контактная информация</h2>
         <div class="edit-form__item">
           <label for="email" >Email</label>
-          <input class="edit-form__input" type="email" name="" id="email" />
+          <input formControlName="email" class="edit-form__input" type="email" name="" id="email" />
         </div>
         <div class="edit-form__item">
           <label for="phone" >Телефон</label>
-          <input class="edit-form__input" type="tel" name="" id="phone" />
+          <input formControlName="phone" class="edit-form__input" type="tel" name="" id="phone" />
         </div>
       </div>
     </div>
