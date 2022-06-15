@@ -42,7 +42,7 @@ export class ProfileEditComponent implements OnInit {
       name: new FormControl(this.userinfo.name, [Validators.pattern('^[^0-9\\s]+ [^0-9\\s]+$')]),
       birthday: new FormControl(this.userinfo.birthday, []),
       avatar: new FormControl(this.userinfo.avatar, []),
-      phone: new FormControl(this.userinfo.phone, []),
+      phone: new FormControl(this.userinfo.phone, [Validators.pattern(/^(\+\d{1,3}\s)?\d{2}[\s.-]\d{3}([\s.-]\d{2}){2}$/)]),
       email: new FormControl(this.userinfo.email, [Validators.required, Validators.email]),
     });
   }
@@ -70,8 +70,8 @@ export class ProfileEditComponent implements OnInit {
     if (controls['name'].invalid) {
       this.alertifyService.error('Имя введено не верно. Пример: Имя Фамилия')
     }
-    if (controls['adres'].invalid) {
-      this.alertifyService.error('Адрес введен не верно.')
+    if (controls['phone'].invalid) {
+      this.alertifyService.error('Телефон введен не верно. Пример: +375 29 111 22 33')
     }
   }
 }
