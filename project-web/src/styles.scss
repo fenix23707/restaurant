@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap');
 
 // reset
 
@@ -64,7 +66,8 @@ a:active {
 html,
 body {
   font-weight: 400;
-  font-family: "Montserrat", sans-serif;
+  //font-family: "Montserrat", sans-serif;
+  font-family: 'El Messiri', sans-serif;
   background-color: #4d4a8b;
   height: 100%;
   max-width: 100%;
@@ -74,10 +77,14 @@ body {
 
 .container {
   // width: 88vw;
-  max-width: 1230px;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // max-width: 1230px;
+  // margin: 0 auto;
+  // padding-left: 15px;
+  // padding-right: 15px;
 }
 
 .input {
@@ -89,21 +96,9 @@ body {
   height: 100px;
 }
 
-@media (max-width: 1200px) {
-  .container {
-    max-width: 970px;
-  }
-}
-
-@media (max-width: 992px) {
-  .container {
-    max-width: 750px;
-  }
-}
-
 @media (max-width: 767px) {
   .container {
-    max-width: none;
+    //max-width: none;
   }
   .avatar {
     width: 100px;
@@ -114,7 +109,6 @@ body {
 // typography
 
 .title {
-  font-family: "Pattaya", sans-serif;
   color: white;
   font-size: 34px;
   line-height: 40px;
@@ -126,19 +120,18 @@ p {
   font-size: 18px;
   line-height: 22px;
   font-family: "Montserrat", sans-serif;
+  font-family: 'EB Garamond', serif;
 }
 
 .sub-title {
   font-size: 28px;
   line-height: 32px;
   width: 600px;
-  font-family: "Ubuntu", sans-serif;
 }
 
 h5 {
   color: white;
   font-size: 22px;
-  font-family: "Ubuntu", sans-serif;
   line-height: 22px;
 }
 
@@ -160,7 +153,6 @@ label {
 .button {
   display: block;
   cursor: pointer;
-  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: black;

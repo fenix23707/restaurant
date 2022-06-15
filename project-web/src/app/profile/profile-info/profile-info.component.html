@@ -1,5 +1,5 @@
 <div class="personal-wrapper">
-  <div class="container">
+  <div class="test">
     <div class="personal-wrapper__inner">
       <section class="personal-info">
         <div class="personal-info__inner">
@@ -9,10 +9,10 @@
             <app-personal-ava [avatarUrl]="userinfo.avatar || ''"></app-personal-ava>
             <div class="personal-info__content-text">
               <h5>{{userinfo.name || 'Имя'}}</h5>
-              <p>{{getRole()}}</p>
+              <span>{{getRole()}}</span>
               <div class="personal-info__birthday">
-                <p>Дата рождения:</p>
-                <p>{{userinfo.birthday || '[.........]'}}</p>
+                <span>Дата рождения:</span>
+                <span>{{userinfo.birthday || '[.........]'}}</span>
               </div>
             </div>
           </div>
@@ -23,19 +23,21 @@
           <h2 class="sub-title">Контактные данные</h2>
           <div class="contact-info__text">
             <div class="contact-info__row">
-              <p>Email:</p>
-              <p>{{userinfo.email}}</p>
+              <span>Email:</span>
+              <span>{{userinfo.email}}</span>
             </div>
             <div class="contact-info__row">
-              <p>Телефон:</p>
-              <p>{{userinfo.phone}}</p>
+              <span>Телефон:</span>
+              <span>{{userinfo.phone}}</span>
             </div>
           </div>
-          <a class="button" routerLink="/profile/edit">Редактировать</a>
-          <a class="button" (click)="onLogout()">Выход</a>
+          <div class="button-group">
+            <a class="button" routerLink="/profile/edit">Редактировать</a>
+            <a class="button" (click)="onLogout()">Выход</a>
+          </div>
         </div>
       </section>
     </div>
+    <app-user-reservations></app-user-reservations>
   </div>
 </div>
-<app-user-reservations></app-user-reservations>
