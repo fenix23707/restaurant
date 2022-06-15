@@ -23,11 +23,13 @@
 
 @media (max-width: 767px) {
   .about {
+    padding-top: 140px;
+
     &__inner {
       p {
         padding-bottom: 140px;
       }
     }
-    padding-top: 260px;
+    //padding-top: 260px;
   }
 }
