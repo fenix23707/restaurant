@@ -6,9 +6,10 @@
   align-items: center;
   justify-content: center;
   background-color: #213e5a;
-  position: absolute;
-  bottom: 0px;
+  // position: absolute;
+  // bottom: 0px;
   // flex: 0 0 auto;
+  // margin-top: 15vw;
 
   font-size: 20px;
   line-height: 26px;
@@ -30,9 +31,13 @@
 }
 
 @media (max-width: 1200px) {
+  .footer {
+    margin-top: 250px;
+  }
 }
 
 @media (max-width: 992px) {
+
 }
 
 @media (max-width: 767px) {

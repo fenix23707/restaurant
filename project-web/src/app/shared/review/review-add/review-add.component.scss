@@ -1,10 +1,15 @@
 .create-review {
   min-height: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     padding-top: 24px;
   }
 

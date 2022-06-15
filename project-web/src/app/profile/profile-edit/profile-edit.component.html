@@ -1,10 +1,9 @@
-<div class="container">
+<div class="wrapper">
   <form [formGroup]="userinfoForm" (submit)="onSubmit()" class="edit-form">
     <div class="container">
       <h1 class="title">Редактирование</h1>
     </div>
     <div class="edit-form__personal-info">
-      <div class="container">
         <div class="edit-form__inner">
           <h2 class="sub-title">Личная информация</h2>
 
@@ -22,10 +21,8 @@
           </div>
 
         </div>
-      </div>
     </div>
     <div class="edit-form__contact-info">
-      <div class="container">
         <div class="edit-form__inner">
           <h2 class="sub-title">Контактная информация</h2>
           <div class="edit-form__item">
@@ -37,10 +34,7 @@
             <input formControlName="phone" class="edit-form__input" type="tel" name="" id="phone" />
           </div>
         </div>
-      </div>
     </div>
-    <div class="container">
       <input class="button" type="submit" name="" id="" value="Сохранить" />
-    </div>
   </form>
 </div>

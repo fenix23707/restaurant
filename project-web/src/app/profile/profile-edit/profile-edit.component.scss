@@ -1,5 +1,11 @@
 .edit-form {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 200px 0;
+
   h1 {
     padding-top: 20px;
     padding-bottom: 12px;
@@ -12,6 +18,10 @@
     width: 40%;
   }
   &__personal-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     // background: rgba(145, 49, 49, 0.3);
     background: rgba(196, 196, 196, 0.2);
 
@@ -19,6 +29,10 @@
     padding-bottom: 8px;
   }
   &__contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     background: rgba(196, 196, 196, 0.1);
     padding-top: 8px;
   }
@@ -27,9 +41,10 @@
     display: flex;
     justify-content: space-between;
     padding: 6px 10%;
+    margin: 2px 5px;
   }
   &__input {
-    border-radius: 50px;
+    border-radius: 10%;
   }
   .button {
     width: 30%;
@@ -40,45 +55,55 @@
 
 @media (max-width: 1200px) {
   .edit-form {
-    &__inner {
-      width: 50%;
-    }
+    overflow: hidden;
   }
-  .container {
-    .title {
-    }
-  }
-  .edit-form {
-    &__item {
-      label {
-      }
-    }
-    &__input {
-    }
-    &__inner {
-      width: 100%;
-      .sub-title {
-      }
-    }
+
+  .edit-form__item {
+    flex-direction: column;
   }
 }
 
-@media (max-width: 767px) {
-  .container {
-    .title {
-    }
-  }
-  .edit-form {
-    &__item {
-      label {
-      }
-    }
-    &__input {
-    }
-    &__inner {
-      width: 100%;
-      .sub-title {
-      }
-    }
-  }
-}
+// @media (max-width: 1200px) {
+//   .edit-form {
+//     &__inner {
+//       width: 50%;
+//     }
+//   }
+//   .container {
+//     .title {
+//     }
+//   }
+//   .edit-form {
+//     &__item {
+//       label {
+//       }
+//     }
+//     &__input {
+//     }
+//     &__inner {
+//       width: 100%;
+//       .sub-title {
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 767px) {
+//   .container {
+//     .title {
+//     }
+//   }
+//   .edit-form {
+//     &__item {
+//       label {
+//       }
+//     }
+//     &__input {
+//     }
+//     &__inner {
+//       width: 100%;
+//       .sub-title {
+//       }
+//     }
+//   }
+// }

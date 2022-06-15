@@ -1,5 +1,11 @@
 .reviews {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+
   &__inner {
     padding-top: 24px;
   }
