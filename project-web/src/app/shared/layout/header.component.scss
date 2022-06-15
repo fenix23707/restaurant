@@ -1,5 +1,7 @@
 .header {
+  z-index: 1;
   background-color: rgba(196, 196, 196, 0.3);
+
   &__inner {
     min-height: 70px;
     display: flex;
@@ -17,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   &__list {
     display: flex;
     justify-content: space-between;
@@ -34,6 +37,7 @@
     color: white;
     text-decoration: none;
   }
+
   &__list-link:hover {
     color: dodgerblue;
   }
@@ -42,6 +46,7 @@
 .hamburger {
   display: none;
   cursor: pointer;
+
   &__bar {
     display: block;
     width: 25px;
@@ -68,6 +73,7 @@
   .menu {
     &__list {
     }
+
     &__list-link {
       font-size: 18px;
     }
@@ -97,6 +103,7 @@
       .active {
         left: 0;
       }
+
       left: -100%;
       top: 80px;
       position: fixed;
@@ -107,9 +114,11 @@
       text-align: center;
       transition: 0.3s;
     }
+
     &__list-link {
       margin: 16px 0;
     }
+
     .menu__item {
       margin: 16px 0;
     }
@@ -117,5 +126,6 @@
     .menu__list.active {
       left: 0;
     }
+
   }
 }
