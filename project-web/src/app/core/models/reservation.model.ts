@@ -1,3 +1,5 @@
+import {Table} from "./table.model";
+
 export interface Reservation {
   id? : number
   datetime_begin: Date;
@@ -6,4 +8,5 @@ export interface Reservation {
   status?: number;
   table_id: number;
   user_id?: number
+  table?: Table
 }

@@ -1,3 +1,5 @@
+import {Scheme} from "./scheme.model";
+
 export interface Table {
   id?: number;
   capacity: number
@@ -6,4 +8,5 @@ export interface Table {
   x: number;
   y: number;
   scheme_id?: number;
+  scheme?: Scheme
 }
