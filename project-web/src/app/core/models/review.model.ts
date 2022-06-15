@@ -4,5 +4,5 @@ export interface Review {
   review: string,
   date?: Date,
   user_id: number,
-  restaurantId: number
+  restaurant_id: number
 }

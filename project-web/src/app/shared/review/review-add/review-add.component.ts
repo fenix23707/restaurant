@@ -11,7 +11,7 @@ export class ReviewAddComponent implements OnInit {
   rates = Array.from({length: 10}, (_, i) => i + 1);
   reviewForm!: FormGroup
   private _restaurantId: number = 1;
-  review: Review = {rate: 10, restaurantId: this._restaurantId, review: "", user_id: 0}
+  review: Review = {rate: 10, restaurant_id: this._restaurantId, review: "", user_id: 0}
 
   constructor(
     private alertifyService: AlertifyService,
@@ -51,7 +51,7 @@ export class ReviewAddComponent implements OnInit {
       id: this.review.id,
       rate: data.rate,
       review: data.review,
-      restaurantId: this.restaurantId,
+      restaurant_id: this.restaurantId,
       user_id: this.userService.getCurrentUser().id
     }
 
@@ -70,7 +70,10 @@ export class ReviewAddComponent implements OnInit {
   }
 
   @Input()
-  set restaurantId(value: number) {
+  set restaurantId(value: number | undefined) {
+    if (!value) {
+      return;
+    }
     this._restaurantId = value;
   }
 

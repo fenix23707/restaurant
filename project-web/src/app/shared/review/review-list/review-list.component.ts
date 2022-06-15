@@ -20,7 +20,8 @@ export class ReviewListComponent implements OnInit {
   }
 
   @Input()
-  set restaurantId(value: number) {
+  set restaurantId(value: number | undefined) {
+    // @ts-ignore
     this._restaurantId = value;
   }
 

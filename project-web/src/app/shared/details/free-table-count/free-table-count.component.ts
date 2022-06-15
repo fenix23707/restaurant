@@ -20,7 +20,8 @@ export class FreeTableCountComponent implements OnInit {
   }
 
   @Input()
-  set restaurantId(value) {
+  set restaurantId(valuea: any) {
+    // @ts-ignore
     this._restaurantId = value;
   }
 

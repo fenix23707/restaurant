@@ -37,7 +37,7 @@ export class ReviewService {
     const body = {
       rate: review.rate,
       review: review.review,
-      restaurant_id: review.restaurantId,
+      restaurant_id: review.restaurant_id,
     }
 
     return this.apiService.post('/reviews', body);

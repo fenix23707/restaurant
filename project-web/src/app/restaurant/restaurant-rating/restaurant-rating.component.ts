@@ -20,7 +20,10 @@ export class RestaurantRatingComponent implements OnInit {
   }
 
   @Input()
-  set restaurantId(value: number) {
+  set restaurantId(value: number | undefined) {
+    if (!value) {
+      return
+    }
     this._restaurantId = value;
   }
 
