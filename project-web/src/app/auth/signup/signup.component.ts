@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../core";
+import {AlertifyService, AuthService} from "../../core";
 import {Router} from "@angular/router";
 
 @Component({
@@ -15,7 +15,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private alertifyService: AlertifyService
   ) {
   }
 
@@ -29,8 +30,12 @@ export class SignupComponent implements OnInit {
 
 
   signup() {
-    const data = this.signupForm.value;
-    this.errors = {errors: {}};
+    if (this.signupForm.invalid) {
+      this.errorHandling();
+      return;
+    }
+
+      const data = this.signupForm.value;
 
     this.authService.signup(data)
       .subscribe(
@@ -39,7 +44,20 @@ export class SignupComponent implements OnInit {
           this.router.navigateByUrl('/')
         },
         error => {
-          this.errors = error;
+          this.alertifyService.error(error.message || 'что-то пошло не так');
         })
+  }
+
+  errorHandling() {
+    const controls = this.signupForm.controls;
+    if (controls['login'].invalid) {
+      this.alertifyService.error('Логин введен не верно');
+    }
+    if (controls['password'].invalid) {
+      this.alertifyService.error('Пароль введен не верно');
+    }
+    if (controls['email'].invalid) {
+      this.alertifyService.error('Email введен не верно');
+    }
   }
 }
