@@ -14,6 +14,10 @@ export class TableElement {
     this.ctx.save();
     this.ctx.fillStyle = color;
     this.ctx.fillRect(this.table.x, this.table.y, this.table.width, this.table.height);
+
+    this.ctx.fillStyle = 'white';
+    this.ctx.font = "20px Georgia";
+    this.ctx.fillText(String(this.table.capacity), this.table.x + (this.table.width / 4), this.table.y + (this.table.height / 2), this.table.width);
     this.ctx.restore();
   }
 

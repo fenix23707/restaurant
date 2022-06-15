@@ -19,18 +19,31 @@ export class TableAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableForm = this.fb.group({
-      width: new FormControl(20, [Validators.required, Validators.min(10)]),
-      height: new FormControl(20, [Validators.required, Validators.min(10)]),
+      width: new FormControl(30, [Validators.required, Validators.min(30)]),
+      height: new FormControl(30, [Validators.required, Validators.min(30)]),
       capacity: new FormControl(1, [Validators.required, Validators.min(1)])
     })
   }
 
   onSubmit() {
     if (this.tableForm.invalid) {
-      this.alertifyService.error('Данные введены не верно');
+      this.errorHandling();
       return;
     }
     this.tableAdded.emit(this.tableForm.value);
+  }
+
+  errorHandling() {
+    const controls = this.tableForm.controls;
+    if (controls['width'].invalid) {
+      this.alertifyService.error('Ширина введена не верно, минимальное значение 30');
+    }
+    if (controls['height'].invalid) {
+      this.alertifyService.error('Высота введена не верно, минимальное значение 30');
+    }
+    if (controls['capacity'].invalid) {
+      this.alertifyService.error('Вместимость введена не верно, минимальное значение 1');
+    }
   }
 
 }
