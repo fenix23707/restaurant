@@ -4,50 +4,77 @@
 .button{
   margin: 5px 0;
 }
-
+.personal-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
 .personal-info {
-  text-align: center;
-  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+
+    //margin-top: 72px;
 
   &__inner {
-    padding-top: 72px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__content {
-    padding-top: 60px;
+    margin-top: 30px;
     display: flex;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
   }
 
   &__content-text {
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding-top: 30px;
+    justify-content: space-between;
+    width: 100%;
 
     * {
-      padding: 4px 0;
+      margin: 4px 0;
     }
-
-    text-align: left;
   }
 
   &__birthday {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     p {
-      padding-right: 16px;
+      margin-right: 16px;
     }
   }
 }
 
 .personal-wrapper {
   background: linear-gradient(90deg, #524178 65.7%, #3a3961 40%);
-  min-height: 524px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // width: 100%;
+  //@at-root: 524px;
+
 
   &__inner {
     display: flex;
-    height: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    //height: 100%;
+    width: 70%;
+    margin: 50px 0;
   }
 
   .container {
@@ -55,112 +82,70 @@
   }
 }
 
-@media (max-width: 992px) {
-  .personal-wrapper {
-    height: 380px;
-  }
-}
-
-@media (max-width: 767px) {
-  .personal-wrapper {
-    height: 593px;
-
-    background: linear-gradient(180deg, #524178 60.7%, #3a3961 40%);
-
-    &__inner {
-      display: block;
-    }
-  }
-  .personal-info {
-
-
-    &__content {
-      flex-direction: column;
-      padding-top: 0px;
-      align-items: center;
-    }
-
-    &__content-text {
-      text-align: center;
-    }
-
-
-    &__inner {
-      padding-top: 24px;
-      padding-bottom: 16px;
-    }
-
-    width: 100%;
-  }
-}
-
 .contact-info {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  width: 30%;
-  text-align: center;
+  //width: 30%;
 
   &__inner {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 24px 12px 12px;
-    height: 524px;
+  }
+
+  &__text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    margin: 20px 0;
   }
 
   &__row {
-    width: 80%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
 
     p {
-      padding-right: 8px;
+      margin-right: 8px;
     }
 
-    padding: 8px 0;
+    margin: 8px 0;
   }
 
 }
 
-
-@media (max-width: 1200px) {
-  .contact-info {
-    &__row {
-      width: 100%;
-      text-align: left;
-      display: block;
-    }
-  }
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
 }
 
-@media (max-width: 992px) {
-  .contact-info {
-
-    &__row {
-      width: 100%;
-      text-align: center;
-      display: block;
-    }
+@media (max-width: 1500px) {
+  .personal-wrapper__inner, .personal-info__content {
+    flex-direction: column;
   }
-}
-
-@media (max-width: 767px) {
-  .contact-info {
+  .personal-info__content-text {
+    margin: 20px 0;
+  }
+  .personal-wrapper {
+    background: none;
+  }
+  .personal-info, .contact-info {
     width: 100%;
-    height: auto;
+    margin: 20px 0;
+  }
 
-    &__inner {
-      display: block;
-      height: auto;
-    }
-
-    &__text {
-      padding-top: 30px;
-    }
-
-    &__row {
-      margin: 0;
-      display: flex;
-    }
+  .personal-info__birthday, .contact-info__row {
+    //flex-direction: column;
   }
 }
+
