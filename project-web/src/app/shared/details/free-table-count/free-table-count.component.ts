@@ -9,7 +9,8 @@ export class FreeTableCountComponent implements OnInit {
 
   constructor(
     private schemeService: SchemeService
-  ) { }
+  ) {
+  }
 
   private _restaurantId = 1;
 
@@ -20,11 +21,12 @@ export class FreeTableCountComponent implements OnInit {
   }
 
   @Input()
-  set restaurantId(valuea: any) {
-    // @ts-ignore
+  set restaurantId(value: number | undefined) {
+    if (!value) {
+      return;
+    }
     this._restaurantId = value;
   }
-
 
 
   ngOnInit(): void {
