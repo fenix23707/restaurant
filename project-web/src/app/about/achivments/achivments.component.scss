@@ -1,0 +1,54 @@
+.achievements {
+  background: rgba(111, 100, 129, 0.7);
+  * {
+    font-family: "Montserrat", sans-serif;
+    line-height: 40px;
+    font-weight: 800;
+  }
+
+  text-align: center;
+  &__inner {
+    display: flex;
+  }
+
+  &__side {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 270px;
+    width: 33.33333%;
+  }
+
+  &__side-text {
+    width: 150px;
+    line-height: 22px;
+    height: 44px;
+    overflow: hidden;
+  }
+  &__midl {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 270px;
+    width: 33.33333%;
+    background: #40286a;
+  }
+}
+
+@media (max-width: 767px) {
+  .achievements {
+    &__inner {
+      display: block;
+    }
+    &__side {
+      height: 100px;
+      width: 100%;
+    }
+
+    &__midl {
+      width: 100%;
+
+      height: 100px;
+    }
+  }
+}
