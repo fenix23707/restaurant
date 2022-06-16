@@ -1,7 +1,6 @@
 <form (submit)="onSubmit()" [formGroup]="restaurantForm" class="add-restaurant-form">
   <div class="add-restaurant-form__main-info">
-    <div class="container">
-      <div class="add-restaurant-form__inner">
+      <div class="add-restaurant-form__inner container">
         <div class="add-restaurant-form__item">
           <label for="name">Название</label>
           <input formControlName="name" class="input" type="text" id="name"/>
@@ -15,7 +14,6 @@
           <input formControlName="avatar" class="input" type="text" id="avatar"/>
         </div>
       </div>
-    </div>
   </div>
   <app-scheme-add (schemeChanged)="onSchemeChanged($event)"></app-scheme-add>
   <div class="container">

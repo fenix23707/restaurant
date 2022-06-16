@@ -1,6 +1,5 @@
 <section class="booking">
-  <div class="container">
-    <div class="booking__inner">
+    <div class="booking__inner container">
       <app-scheme-view [scheme]="scheme" (tableChosen)="onTableChosen($event)"></app-scheme-view>
 
       <form class="booking-form" [formGroup]="reservationForm" (submit)="onSubmit()">
@@ -15,7 +14,7 @@
             <input formControlName="end" class="booking-form__input" [value]="start" type="datetime-local"
                    id="end-date"/>
           </div>
-          <div class="booking-form__item display-block">
+          <div class="booking-form__item">
             <label for="capacity">Количество гостей</label>
             <select formControlName="capacity" id="capacity">
               <option [selected]="cap == capacities.length" *ngFor="let cap of capacities;let j = index" [ngValue]="cap">{{cap}}</option>
@@ -25,5 +24,5 @@
         </div>
       </form>
     </div>
-  </div>
+
 </section>

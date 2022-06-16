@@ -1,6 +1,19 @@
 .scheme-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
   &__inner {
     display: flex;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__size {
@@ -49,4 +62,5 @@ app-table-add {
     }
   }
 }
+
 

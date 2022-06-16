@@ -6,14 +6,12 @@
   align-items: center;
   justify-content: center;
   background-color: #213e5a;
-  // position: absolute;
-  // bottom: 0px;
-  // flex: 0 0 auto;
-  // margin-top: 15vw;
+  margin-top: 300px;
 
   font-size: 20px;
   line-height: 26px;
   text-align: center;
+
   &__inner {
     display: flex;
     align-items: center;
@@ -32,7 +30,7 @@
 
 @media (max-width: 1200px) {
   .footer {
-    margin-top: 250px;
+    margin-top: 750px;
   }
 }
 

@@ -1,7 +1,19 @@
 .add-restaurant-form {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+
   &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
    padding: 15px 0;
+
     .button {
       margin: auto;
       width: 60%;
@@ -9,6 +21,11 @@
     }
   }
   &__main-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
     background: rgba(196, 196, 196, 0.2);
   }
   &__item {

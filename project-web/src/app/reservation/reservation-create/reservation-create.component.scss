@@ -1,15 +1,28 @@
 .booking {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .booking-form {
-  padding: 16px 0;
+  margin: 30px 0;
   display: flex;
+  align-items: center;
   justify-content: center;
+  width: 60%;
 
   &__input {
-    border-radius: 50px;
-    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
   }
   &__item {
     select {
@@ -17,11 +30,16 @@
       width: 60px;
     }
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 8px 0;
+    width: 100%;
+    margin: 10px 0;
   }
   .button {
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //margin: 0 auto;
   }
 }
 

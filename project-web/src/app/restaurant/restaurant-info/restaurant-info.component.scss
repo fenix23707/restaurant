@@ -1,7 +1,12 @@
 .main{
 }
 .restaurant-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   background: rgba(27, 24, 196, 0.4);
+
   &__inner {
     display: flex;
     justify-content: space-between;
