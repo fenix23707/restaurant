@@ -1,0 +1,24 @@
+<section class="book-history">
+  <div class="container">
+    <div class="book-history__innner">
+      <h1 class="title">История бронирования</h1>
+      <ul class="book-history__list">
+        <li *ngFor="let reservation of reservations" class="book-history__item" [ngClass]="getClassColor(reservation)">
+          <div class="book-history__main-info">
+            <h5>{{reservation?.table?.scheme?.restaurant?.name}}</h5>
+            <div class="book-history__date">
+              <p>{{reservation.datetime_begin | date: 'dd.MM.yy HH:mm'}} - </p>
+              <p>{{reservation.datetime_end | date: 'dd.MM.yy HH:mm'}}</p>
+            </div>
+            <div class="book-history__capacity">
+              <p>Количество гостей:</p>
+              <p>{{reservation.capacity}}</p>
+            </div>
+          </div>
+          <button *ngIf="reservation.status === 0" class="button" (click)="onCancel(reservation)">Отменить</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>

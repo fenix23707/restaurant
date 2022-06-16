@@ -1,0 +1,75 @@
+.book-history {
+  .title {
+    text-align: center;
+  }
+  &__innner {
+    padding-top: 16px;
+  }
+  &__list {
+  }
+  &__item {
+    min-height: 80px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    margin-top: 16px;
+  }
+  &__main-info {
+    display: grid;
+    grid-gap: 10px;
+    grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+  }
+  &__date {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__capacity {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.booking-active {
+  background: #aca848;
+}
+.booking-cancelled {
+  background: #cf3333;
+}
+.booking-completed {
+  background: #33cf5f;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 767px) {
+  .book-history {
+    &__item {
+      p {
+        font-size: 15px;
+      }
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .button {
+      display: block;
+      margin: 10px auto;
+    }
+    &__main-info {
+      h5 {
+        font-size: 16px;
+      }
+    }
+    &__capacity {
+      p {
+      }
+    }
+    &__date {
+    }
+  }
+}

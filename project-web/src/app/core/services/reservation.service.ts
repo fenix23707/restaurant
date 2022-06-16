@@ -12,6 +12,17 @@ export class ReservationService {
   ) {
   }
 
+  getAllByRestaurantId(restaurantId: number, config: ReservationListConfig) {
+    const params = {};
+
+    Object.keys(config.sort)
+      .forEach(key => {
+        // @ts-ignore
+        params[key] = config.sort[key];
+      })
+    return this.apiService.get('/reservations/restaurants/' + restaurantId, new HttpParams({fromObject: params}));
+  }
+
   getAllByUserId(userId: number, config: ReservationListConfig) {
     const params = {};
 

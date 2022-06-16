@@ -5,6 +5,7 @@ import {SharedModule} from "../shared";
 import {ReservationRoutingModule} from "./reservation-routing.module";
 import {SchemeModule} from "../scheme/scheme.module";
 import { UserReservationsComponent } from './user-reservations/user-reservations.component';
+import { RestaurantReservationsComponent } from './restaurant-reservations/restaurant-reservations.component';
 
 
 @NgModule({
@@ -17,11 +18,13 @@ import { UserReservationsComponent } from './user-reservations/user-reservations
   declarations: [
     ReservationCreateComponent,
     UserReservationsComponent,
+    RestaurantReservationsComponent,
   ],
 
   exports: [
     ReservationCreateComponent,
-    UserReservationsComponent
+    UserReservationsComponent,
+    RestaurantReservationsComponent
   ],
   providers: [
     DatePipe

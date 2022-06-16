@@ -10,19 +10,22 @@ import { RestaurantRatingComponent } from './restaurant-rating/restaurant-rating
 
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RestaurantRoutingModule,
-    CommonModule,
-    NgxPaginationModule
-  ],
-  declarations: [
-    RestaurantListComponent,
-    RestaurantInfoComponent,
-    RestaurantRatingComponent,
-  ],
-  providers: [
-    RestaurantInfoResolver
-  ]
+    imports: [
+        SharedModule,
+        RestaurantRoutingModule,
+        CommonModule,
+        NgxPaginationModule
+    ],
+    declarations: [
+        RestaurantListComponent,
+        RestaurantInfoComponent,
+        RestaurantRatingComponent,
+    ],
+    exports: [
+        RestaurantRatingComponent
+    ],
+    providers: [
+        RestaurantInfoResolver
+    ]
 })
 export class RestaurantModule { }

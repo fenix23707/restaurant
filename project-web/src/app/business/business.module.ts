@@ -8,6 +8,7 @@ import {SchemeModule} from "../scheme/scheme.module";
 import { BusinessInfoComponent } from './business-info/business-info.component';
 import {BusinessInfoResolver} from "./business-info/business-info.resolver";
 import {RestaurantModule} from "../restaurant/restaurant.module";
+import {ReservationModule} from "../reservation/reservation.module";
 
 
 
@@ -22,7 +23,8 @@ import {RestaurantModule} from "../restaurant/restaurant.module";
     BusinessRoutingModule,
     SharedModule,
     SchemeModule,
-    RestaurantModule
+    RestaurantModule,
+    ReservationModule
   ],
   providers: [
     BusinessInfoResolver
