@@ -1,0 +1,20 @@
+<section class="restaurant-info">
+  <div class="container">
+    <div class="restaurant-info__inner">
+      <div class="main-info">
+        <app-restaurant-ava style="height: 200px" [avatarUrl]="restaurant.avatar"></app-restaurant-ava>
+        <div class="main-info-text">
+          <div class="main-info-text__inner">
+            <h2 class="sub-title">{{restaurant.name}}</h2>
+            <div class="sub-info">
+              <div class="sub-info__inner">
+                <p>{{restaurant.adres}}</p>
+                <app-restaurant-rating [restaurantId]="restaurant.id"></app-restaurant-rating>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

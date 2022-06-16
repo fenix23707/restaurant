@@ -1,0 +1,77 @@
+.main{
+}
+.restaurant-info {
+  background: rgba(27, 24, 196, 0.4);
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+:host ::ng-deep app-restaurant-ava  {
+  .restaurant-avatar {
+    margin: 10px 0;
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+  }
+}
+.main-info {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.main-info-text {
+  width: 45%;
+}
+
+.sub-info {
+  &__inner {
+    padding-top: 12px;
+    p {
+      padding: 6px 0;
+    }
+  }
+}
+.booking-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  &__inner {
+    p {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .restaurant-info {
+    &__inner {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .main-info-text {
+    &__inner {
+    }
+  }
+  .sub-info {
+    &__inner {
+    }
+  }
+  .booking-block {
+    align-self: center;
+    &__inner {
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+
+}
